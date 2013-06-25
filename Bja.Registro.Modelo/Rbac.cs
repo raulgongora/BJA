@@ -29,7 +29,10 @@ namespace Bja.Registro.Modelo
             return result;
         }
 
+        //public Boolean isAuthorized(String userName, String permissionName)
+        //{
 
+        //}
 
 
     }
