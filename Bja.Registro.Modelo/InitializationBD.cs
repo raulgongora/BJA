@@ -10,10 +10,17 @@ namespace Bja.Registro.Modelo
 {
     public class InicializacionBD
     {
-        public static void defineTipoInicializacionBD()
+        public static void inicializarBD()
         {
             Database.SetInitializer(
                 new DropCreateDatabaseIfModelChanges<BjaContext>());
+
+            var rbac = new Rbac();
+
+            if (!rbac.authenticate("admin", "admin"))
+            {
+                rbac.insertUser("admin", "Admin", "admin", 1);
+            }
         }
     }
 }

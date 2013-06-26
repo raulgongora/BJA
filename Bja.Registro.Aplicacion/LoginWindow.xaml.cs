@@ -23,6 +23,8 @@ namespace Bja.Registro.Aplicacion
         public LoginWindow()
         {
             InitializeComponent();
+            InicializacionBD.inicializarBD();
+
         }
 
         private void aceptarButton_Click(object sender, RoutedEventArgs e)
