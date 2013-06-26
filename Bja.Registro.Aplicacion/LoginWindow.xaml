@@ -6,9 +6,9 @@
         <Label Content="Usuario:" HorizontalAlignment="Left" Margin="56,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.778,0.641"/>
         <TextBox x:Name="usuarioTextBox" HorizontalAlignment="Left" Height="23" Margin="109,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Clave:" HorizontalAlignment="Left" Margin="56,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.778,0.641"/>
-        <TextBox x:Name="claveTextBox" HorizontalAlignment="Left" Height="23" Margin="109,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        
+        <PasswordBox x:Name="clavePasswordBox" HorizontalAlignment="Left" Margin="109,72,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
         <Button x:Name="aceptarButton" Content="Aceptar" HorizontalAlignment="Left" Margin="154,131,0,0" VerticalAlignment="Top" Width="75" Click="aceptarButton_Click"/>
-
 
     </Grid>
 </Window>

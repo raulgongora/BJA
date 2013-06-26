@@ -1,4 +1,5 @@
-﻿using Bja.Registro.AccesoDatos;
+﻿using Bja.Entidades;
+using Bja.Registro.AccesoDatos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,19 @@ namespace Bja.Registro.Modelo
 {
     public class Rbac
     {
+        BjaContext context = new BjaContext();
+
         public Boolean authenticate(String userName, String password)
         {
             Boolean result = false;
+            String hashedPassword = password.GetHashCode().ToString("x");
             //validar password
 
-            var context = new BjaContext();
+            context = new BjaContext();
 
             var user = (from u in context.Users
                         where u.UserName == userName
+                        && u.Password == hashedPassword
                         select u).FirstOrDefault();
 
             if(user == null){
@@ -33,6 +38,26 @@ namespace Bja.Registro.Modelo
         //{
 
         //}
+
+        public void insertUser(String userName, String completeName , String password, Int32 userID )
+        {
+            var newUser = new User();
+
+            newUser.UserName = userName;
+            newUser.CompleteName = completeName;
+            newUser.Password = password.GetHashCode().ToString("x");
+            newUser.IdUserRelation = userID;
+
+            context.Users.Add(newUser);
+
+            context.SaveChanges();
+
+            int id = newUser.Id;
+
+            newUser.IdInstance = id;
+            
+            context.SaveChanges();
+        }
 
 
     }

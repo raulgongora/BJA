@@ -27,10 +27,14 @@ namespace Bja.Registro.Aplicacion
 
         private void aceptarButton_Click(object sender, RoutedEventArgs e)
         {
+
             //authenticar usuario
             var rbac = new Rbac();
 
-            Boolean result = rbac.authenticate(usuarioTextBox.Text, claveTextBox.Text);
+            //rbac.insertUser("rosario", "Rosario", "rosario", 1);
+
+
+            Boolean result = rbac.authenticate(usuarioTextBox.Text, clavePasswordBox.Password);
 
             if (result)
             {
