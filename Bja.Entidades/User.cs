@@ -8,9 +8,9 @@ namespace Bja.Entidades
 {
     public class User
     {
-        public Int32 Id { get; set; }
-        public Int32 IdInstance { get; set; }
-        public Int32 IdUserRelation { get; set; }
+        public long Id { get; set; }
+        public long IdInstance { get; set; }
+        public long IdUserRelation { get; set; }
         public String UserName { get; set; }
         public String CompleteName { get; set; }
         public String Password { get; set; }

@@ -39,10 +39,12 @@ namespace Bja.Registro.Modelo
 
         //}
 
-        public void insertUser(String userName, String completeName , String password, Int32 userID )
+        public void insertUser(String userName, String completeName , String password, long userID )
         {
             var newUser = new User();
 
+            newUser.Id = IdentifierGenerator.NewId();
+            newUser.IdInstance = newUser.Id;
             newUser.UserName = userName;
             newUser.CompleteName = completeName;
             newUser.Password = password.GetHashCode().ToString("x");
@@ -50,12 +52,6 @@ namespace Bja.Registro.Modelo
 
             context.Users.Add(newUser);
 
-            context.SaveChanges();
-
-            int id = newUser.Id;
-
-            newUser.IdInstance = id;
-            
             context.SaveChanges();
         }
 
