@@ -9,7 +9,7 @@ namespace Bja.Entidades
     public class Role
     {
         public long Id { get; set; }
-        public long IdInstance { get; set; }
+        public long IdSession { get; set; }
         public String Name { get; set; }
         public String Description { get; set; }
 
