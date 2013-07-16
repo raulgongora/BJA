@@ -1,4 +1,5 @@
-﻿using Bja.Registro.Modelo;
+﻿using Bja.Entidades;
+using Bja.Registro.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,14 +34,13 @@ namespace Bja.Registro.Aplicacion
             //authenticar usuario
             var rbac = new Rbac();
 
-            //rbac.insertUser("rosario", "Rosario", "rosario", 1);
+            User user = rbac.authenticate(usuarioTextBox.Text, clavePasswordBox.Password);
 
-
-            Boolean result = rbac.authenticate(usuarioTextBox.Text, clavePasswordBox.Password);
-
-            if (result)
+            if (user != null)
             {
                 MessageBox.Show("Logeado");
+                //inicia session
+                SessionManager.initSession(user);
             }
             else
             {

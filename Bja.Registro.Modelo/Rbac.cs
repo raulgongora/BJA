@@ -17,25 +17,19 @@ namespace Bja.Registro.Modelo
         /// </summary>
         /// <param name="userName">user identifier </param>
         /// <param name="password">user password</param>
-        /// <returns>true: authenticated, false not authenticated</returns>
-        public Boolean authenticate(String userName, String password)
+        /// <returns>User: authenticated, null: not authenticated</returns>
+        public User authenticate(String userName, String password)
         {
-            Boolean result = false;
+            User user = null;
             String hashedPassword = password.GetHashCode().ToString("x");
             //validar password
 
-            var user = (from u in context.Users
+            user = (from u in context.Users
                         where u.UserName == userName
                         && u.Password == hashedPassword
                         select u).FirstOrDefault();
 
-            if(user == null){
-                result = false;
-            }else {
-                result = true;
-            }
-
-            return result;
+            return user;
         }
 
         //public Boolean isAuthorized(String userName, String permissionName)
@@ -43,13 +37,13 @@ namespace Bja.Registro.Modelo
 
         //}
 
-        public void insertUser(String userName, String completeName , String password, long userID )
+        public void insertUser(String userName, String completeName , String password, long userID, long? sessionId = null )
         {
 
             var newUser = new User();
 
             newUser.Id = IdentifierGenerator.NewId();
-            newUser.IdSession = SessionManager.getCurrentSession().Id;
+            newUser.IdSession = (sessionId == null)?SessionManager.getCurrentSession().Id:(long)sessionId;
             newUser.UserName = userName;
             newUser.CompleteName = completeName;
             newUser.Password = password.GetHashCode().ToString("x");

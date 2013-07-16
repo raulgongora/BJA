@@ -17,9 +17,11 @@ namespace Bja.Registro.Modelo
 
             var rbac = new Rbac();
 
-            if (!rbac.authenticate("admin", "admin"))
+            if (rbac.authenticate("admin", "admin")==null)
             {
-                rbac.insertUser("admin", "Admin", "admin", 1);
+                //inicializa base de datos con session 1
+                long session = 1;
+                rbac.insertUser("admin", "Admin", "admin", 1, session);
             }
         }
     }

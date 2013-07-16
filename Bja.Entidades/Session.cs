@@ -13,6 +13,6 @@ namespace Bja.Entidades
         public String UserName { get; set; }
         public String CompleteName { get; set; }
         public DateTime InitDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }

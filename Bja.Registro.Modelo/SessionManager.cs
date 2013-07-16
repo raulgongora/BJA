@@ -10,7 +10,7 @@ namespace Bja.Registro.Modelo
 {
     public sealed class SessionManager
     {
-        private static Session session = new Session();
+        private static Session session = null;
 
         private static volatile SessionManager instance;
         private static object syncRoot = new Object();
@@ -30,7 +30,7 @@ namespace Bja.Registro.Modelo
 
                         BjaContext context = new BjaContext();
 
-                        session = null;
+                        session = new Session();
                         session.Id = IdentifierGenerator.NewId();
                         session.IdUser = user.Id;
                         session.UserName = user.UserName;
