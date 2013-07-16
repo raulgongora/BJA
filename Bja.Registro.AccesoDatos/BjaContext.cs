@@ -44,6 +44,9 @@ namespace Bja.Registro.AccesoDatos
             modelBuilder.Configurations.Add(new CorresponsabilidadMadreConfiguration());
             modelBuilder.Configurations.Add(new CorresponsabilidadMenorConfiguration());
             modelBuilder.Configurations.Add(new ControlMadreConfiguration());
+            modelBuilder.Configurations.Add(new ControlMenorConfiguration());
+            modelBuilder.Configurations.Add(new EnvioConfiguration());
+            modelBuilder.Configurations.Add(new RecepcionConfiguration());
         }
     }
 }

@@ -46,14 +46,17 @@
   <ItemGroup>
     <Compile Include="BjaContext.cs" />
     <Compile Include="ControlMadreConfiguration.cs" />
+    <Compile Include="ControlMenorConfiguration.cs" />
     <Compile Include="CorresponsabilidadMadreConfiguration.cs" />
     <Compile Include="CorresponsabilidadMenorConfiguration.cs" />
     <Compile Include="EncargadoConfiguration.cs" />
+    <Compile Include="EnvioConfiguration.cs" />
     <Compile Include="MadreConfiguration.cs" />
     <Compile Include="MedicoConfiguration.cs" />
     <Compile Include="MenorConfiguration.cs" />
     <Compile Include="PermissionConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecepcionConfiguration.cs" />
     <Compile Include="RoleConfiguration.cs" />
     <Compile Include="SessionConfiguration.cs" />
     <Compile Include="TutorConfiguration.cs" />

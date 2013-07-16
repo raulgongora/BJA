@@ -15,24 +15,28 @@ namespace Bja.Entidades
 
         public long IdEstablecimientoMedico { get; set; }
         public long IdMedico { get; set; }
+        public Medico Medico { get; set; }
         public DateTime FechaEnvio { get; set; }
         public String CodigoVerificacion { get; set; } //md5, sha
-        public int NuevasMadres { get; set; }
-        public int NuevosTutores { get; set; }
-        public int NuevosMenores { get; set; }
-        public int NuevosControlMadre { get; set; }
-        public int NuevosControlMenor { get; set; }
-        public int NuevaCorresponsabilidadMenor { get; set; }
-        public int NuevaCorresponsabilidadMadre { get; set; }
-        public int ModificacionMadres { get; set; }
-        public int ModificacionTutores { get; set; }
-        public int ModificacionMenores { get; set; }
-        public int ModificacionControlMenor { get; set; }
-        public int ModificacionControlMadre { get; set; }
-        public int ModificacionCorresponsabilidadMenor { get; set; }
-        public int ModificacionCorresponsabilidadMadre { get; set; }
-        public int BorradoMadres { get; set; }
-        public int BorradoTutores { get; set; }
-        public int BorradoMenores { get; set; }
+        public int TotalNuevasMadres { get; set; }
+        public int TotalNuevosTutores { get; set; }
+        public int TotalNuevosMenores { get; set; }
+        public int TotalNuevosControlMadre { get; set; }
+        public int TotalNuevosControlMenor { get; set; }
+        public int TotalNuevaCorresponsabilidadMenor { get; set; }
+        public int TotalNuevaCorresponsabilidadMadre { get; set; }
+        public int TotalModificacionMadres { get; set; }
+        public int TotalModificacionTutores { get; set; }
+        public int TotalModificacionMenores { get; set; }
+        public int TotalModificacionControlMenor { get; set; }
+        public int TotalModificacionControlMadre { get; set; }
+        public int TotalModificacionCorresponsabilidadMenor { get; set; }
+        public int TotalModificacionCorresponsabilidadMadre { get; set; }
+        public int TotalBorradoMadres { get; set; }
+        public int TotalBorradoTutores { get; set; }
+        public int TotalBorradoMenores { get; set; }
+
+        public List<Madre> NuevasMadres { get; set; }
+        public List<Tutor> NuevosTutores { get; set; }
     }
 }

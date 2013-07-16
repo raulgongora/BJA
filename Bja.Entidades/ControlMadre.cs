@@ -26,7 +26,7 @@ namespace Bja.Entidades
         public TipoControlMadre TipoControlMadre { get; set; }
         public int NumeroControl { get; set; }
         public String Observaciones { get; set; }
-        public String EstadoPago { get; set; } //char(1)
+        public TipoEstadoPago EstadoPago { get; set; }
 
     }
 }

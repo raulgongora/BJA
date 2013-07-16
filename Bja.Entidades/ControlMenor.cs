@@ -15,13 +15,15 @@ namespace Bja.Entidades
 
         public long IdCorresponsabilidadMenor { get; set; }
         public long IdMedico { get; set; }
+        public Medico Medico { get; set; }
         public long IdTutor { get; set; }
+        public Tutor Tutor { get; set; }
         public DateTime FechaProgramada { get; set; }
         public DateTime FechaControl { get; set; }
         public int TallaCm { get; set; }
         public float PesoKg { get; set; }
         public int NumeroControl { get; set; }
         public String Observaciones { get; set; }
-        public String EstadoPago { get; set; } //char(1)
+        public TipoEstadoPago EstadoPago { get; set; } 
     }
 }
