@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bja.Entidades
 {
-    public class Menor
+    public class Medico
     {
         public long Id { get; set; }
         public long IdSesion { get; set; }
@@ -16,14 +16,15 @@ namespace Bja.Entidades
         public String Nombres { get; set; }
         public String PrimerApellido { get; set; }
         public String SegundoApellido { get; set; }
+        public String TercerApellido { get; set; }
         public String DocumentoIdentidad { get; set; }
         public long IdTipoDocumentoIdentidad { get; set; }
         public TipoDocumentoIdentidad TipoDocumentoIdentidad { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public String IdLocalidadNacimiento { get; set; }
-        public bool Defuncion { get; set; }
-        public String Observaciones { get; set; }
-        public String Sexo { get; set; } //char(1)
+        public String MatriculaColegioMedico { get; set; }
+        public String CorreoElectronico { get; set; }
 
+        public String Observaciones { get; set; }
     }
 }

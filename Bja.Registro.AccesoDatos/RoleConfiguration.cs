@@ -13,7 +13,7 @@ namespace Bja.Registro.AccesoDatos
         public RoleConfiguration() 
         {
             HasKey(r => r.Id);
-            Property(r => r.IdInstance).IsRequired();
+            Property(r => r.IdSession).IsRequired();
             Property(r => r.Name).IsRequired().HasMaxLength(250);
             Property(r => r.Description).HasMaxLength(1000);
         }

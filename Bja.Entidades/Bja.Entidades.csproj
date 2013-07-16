@@ -47,9 +47,11 @@
     <Compile Include="Envio.cs" />
     <Compile Include="EstadoPago.cs" />
     <Compile Include="Madre.cs" />
+    <Compile Include="Medico.cs" />
     <Compile Include="Menor.cs" />
     <Compile Include="Pago.cs" />
     <Compile Include="Recepcion.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="SolicitudPago.cs" />
     <Compile Include="TipoControlMadre.cs" />
     <Compile Include="TipoDocumentoIdentidad.cs" />

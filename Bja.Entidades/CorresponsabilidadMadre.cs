@@ -22,9 +22,9 @@ namespace Bja.Entidades
         public String DireccionTutor { get; set; }
         public String CodigoFormulario { get; set; }
         public DateTime FechaUltimaMenstruacion { get; set; }
-        public DateTime FechaUltimopParto { get; set; }
+        public DateTime FechaUltimoParto { get; set; }
         public int NumeroEmbarazo { get; set; }
-        public String ARO { get; set; }
+        public Boolean ARO { get; set; }
         public DateTime FechaSalidaPrograma { get; set; }
         public TipoSalidaMadre TipoSalidaMadre { get; set; }
         public String Observaciones { get; set; }

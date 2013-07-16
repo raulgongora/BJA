@@ -12,7 +12,8 @@ namespace Bja.Registro.AccesoDatos
     {
         public UserConfiguration()
         {
-            Property(u => u.IdInstance).IsRequired();
+            HasKey(u => u.Id);
+            Property(u => u.IdSession).IsRequired();
             Property(u => u.Password).IsRequired();
             Property(u => u.Status).IsRequired();
             Property(u => u.UserName).IsRequired().HasMaxLength(250);

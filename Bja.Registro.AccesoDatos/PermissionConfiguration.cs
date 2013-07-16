@@ -13,7 +13,7 @@ namespace Bja.Registro.AccesoDatos
         public PermissionConfiguration()
         {
             HasKey(p => p.Id);
-            Property(p => p.IdInstance).IsRequired();
+            Property(p => p.IdSession).IsRequired();
             Property(p => p.Name).IsRequired().HasMaxLength(250);
             Property(p => p.Description).HasMaxLength(1000);
         }

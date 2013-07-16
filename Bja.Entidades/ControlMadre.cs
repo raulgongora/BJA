@@ -14,8 +14,11 @@ namespace Bja.Entidades
         public DateTime FechaRegistro { get; set; }
 
         public long IdCorresponsabilidadMadre { get; set; }
+        public CorresponsabilidadMadre CorresponsabilidadMadre { get; set; }
         public long IdMedico { get; set; }
+        public Medico Medico { get; set; }
         public long IdTutor { get; set; }
+        public Tutor Tutor { get; set; }
         public DateTime FechaProgramada { get; set; }
         public DateTime FechaControl { get; set; }
         public int TallaCm { get; set; }

@@ -14,7 +14,7 @@ namespace Bja.Entidades
         public DateTime FechaRegistro { get; set; }
 
         public long IdPago { get; set; }
-        public TipoEstadoPago EstadoPago { get; set; }
+        public TipoEstadoPago TipoEstadoPago { get; set; }
         public DateTime FechaEstado { get; set; }
     }
 }
