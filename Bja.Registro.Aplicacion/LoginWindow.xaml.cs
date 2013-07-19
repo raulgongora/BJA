@@ -49,5 +49,10 @@ namespace Bja.Registro.Aplicacion
 
 
         }
+
+        private void Window_Closed_1(object sender, EventArgs e)
+        {
+            SessionManager.endSession();
+        }
     }
 }

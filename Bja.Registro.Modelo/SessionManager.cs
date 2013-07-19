@@ -59,6 +59,10 @@ namespace Bja.Registro.Modelo
 
             session.EndDate = DateTime.Now;
 
+            context.Sessions.Attach(session);
+
+            context.Entry(session).State = System.Data.EntityState.Modified;
+
             context.SaveChanges();
 
             instance = null;

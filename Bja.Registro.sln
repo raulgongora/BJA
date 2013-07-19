@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bja.Registro.Modelo", "Bja.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bja.Registro.Aplicacion", "Bja.Registro.Aplicacion\Bja.Registro.Aplicacion.csproj", "{B545EFFF-F0A4-42F8-BE22-8A1BD998DBBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bja.Registro.ModeloUnitTest", "Bja.Registro.ModeloUnitTest\Bja.Registro.ModeloUnitTest.csproj", "{37B9C6CC-FDFD-4D1F-9F35-1C885C2334C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{B545EFFF-F0A4-42F8-BE22-8A1BD998DBBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B545EFFF-F0A4-42F8-BE22-8A1BD998DBBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B545EFFF-F0A4-42F8-BE22-8A1BD998DBBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B9C6CC-FDFD-4D1F-9F35-1C885C2334C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B9C6CC-FDFD-4D1F-9F35-1C885C2334C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B9C6CC-FDFD-4D1F-9F35-1C885C2334C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B9C6CC-FDFD-4D1F-9F35-1C885C2334C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
