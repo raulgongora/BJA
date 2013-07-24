@@ -7,8 +7,8 @@
     <ProjectGuid>{AA8DE813-7D0B-4382-963A-9CF6259B80A2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bja.Registro.AccesoDatos</RootNamespace>
-    <AssemblyName>Bja.Registro.AccesoDatos</AssemblyName>
+    <RootNamespace>Bja.AccesoDatos</RootNamespace>
+    <AssemblyName>Bja.AccesoDatos</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

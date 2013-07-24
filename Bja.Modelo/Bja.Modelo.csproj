@@ -7,8 +7,8 @@
     <ProjectGuid>{50022C86-9EB0-4D82-B456-23784D0044EC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bja.Registro.Modelo</RootNamespace>
-    <AssemblyName>Bja.Registro.Modelo</AssemblyName>
+    <RootNamespace>Bja.Modelo</RootNamespace>
+    <AssemblyName>Bja.Modelo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
