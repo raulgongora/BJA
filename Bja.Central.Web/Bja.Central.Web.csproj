@@ -290,6 +290,16 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bja.Entidades\Bja.Entidades.csproj">
+      <Project>{a03467c9-b869-417f-9403-44b073857c7a}</Project>
+      <Name>Bja.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bja.Modelo\Bja.Modelo.csproj">
+      <Project>{50022c86-9eb0-4d82-b456-23784d0044ec}</Project>
+      <Name>Bja.Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
