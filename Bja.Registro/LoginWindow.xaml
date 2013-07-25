@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Bja.Registro.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Ingreso" Height="201.042" Width="272.917" Closed="Window_Closed_1">
+        Title="Ingreso" Height="201.042" Width="272.917">
     <Grid>
         <Label Content="Usuario:" HorizontalAlignment="Left" Margin="56,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.778,0.641"/>
         <TextBox x:Name="usuarioTextBox" HorizontalAlignment="Left" Height="23" Margin="109,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>

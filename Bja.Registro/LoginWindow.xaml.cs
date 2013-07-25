@@ -21,10 +21,13 @@ namespace Bja.Registro
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public Boolean logeado { get; set; }
+        public User user { get; set; }
+
         public LoginWindow()
         {
             InitializeComponent();
-            InicializacionBD.inicializarBD();
+            
 
         }
 
@@ -34,25 +37,21 @@ namespace Bja.Registro
             //authenticar usuario
             var rbac = new Rbac();
 
-            User user = rbac.authenticate(usuarioTextBox.Text, clavePasswordBox.Password);
+            user = rbac.authenticate(usuarioTextBox.Text, clavePasswordBox.Password);
 
             if (user != null)
             {
-                MessageBox.Show("Logeado");
-                //inicia session
-                SessionManager.initSession(user);
+                //MessageBox.Show("Logeado");
+                logeado = true;
             }
             else
             {
-                MessageBox.Show("usuario o clave invalida.");
+                //MessageBox.Show("usuario o clave invalida.");
+                logeado = false;
             }
 
-
+            this.Close();
         }
 
-        private void Window_Closed_1(object sender, EventArgs e)
-        {
-            SessionManager.endSession();
-        }
     }
 }
