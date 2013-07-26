@@ -77,8 +77,20 @@
     <Compile Include="frmLogin.xaml.cs">
       <DependentUpon>frmLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmMadre.xaml.cs">
+      <DependentUpon>frmMadre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmMadres.xaml.cs">
+      <DependentUpon>frmMadres.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenor.xaml.cs">
+      <DependentUpon>frmMenor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.xaml.cs">
       <DependentUpon>frmPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmTutor.xaml.cs">
+      <DependentUpon>frmTutor.xaml</DependentUpon>
     </Compile>
     <Compile Include="IdentidadEventArgs.cs" />
     <Compile Include="ItemCombo.cs" />
@@ -102,7 +114,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="frmMadre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmMadres.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmMenor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frmPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmTutor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

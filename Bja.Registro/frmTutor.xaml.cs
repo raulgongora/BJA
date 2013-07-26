@@ -17,30 +17,21 @@ using System.Windows.Shapes;
 namespace Bja.Registro
 {
   /// <summary>
-  /// Lógica de interacción para frmPrincipal.xaml
+  /// Lógica de interacción para frmTutor.xaml
   /// </summary>
-  public partial class frmPrincipal : Window
+  public partial class frmTutor : Window
   {
-    public frmPrincipal()
+    public frmTutor()
     {
       this.Cursor = Cursors.Wait;
       InitializeComponent();
       this.Cursor = Cursors.Arrow;
     }
 
-    private void cmdSalir_Click(object sender, RoutedEventArgs e)
+    private void cmdCancelar_Click(object sender, RoutedEventArgs e)
     {
       this.Close();
     }
 
-    private void cmdMadres_Click(object sender, RoutedEventArgs e)
-    {
-      this.Cursor = Cursors.Wait;
-      frmMadres objMadresWindow = new frmMadres();
-      objMadresWindow.Owner = this;
-      objMadresWindow.ShowDialog();
-      objMadresWindow = null;
-      this.Cursor = Cursors.Arrow;
-    }
   }
 }
