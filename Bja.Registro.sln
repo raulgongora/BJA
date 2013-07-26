@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bja.Modelo", "Bja.Modelo\Bj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bja.Registro", "Bja.Registro\Bja.Registro.csproj", "{B545EFFF-F0A4-42F8-BE22-8A1BD998DBBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bja.Soporte.Paginacion", "Bja.Soporte.Paginacion\Bja.Soporte.Paginacion.csproj", "{D23792B8-2C66-48CE-81F8-4BFBC7B8B002}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{B545EFFF-F0A4-42F8-BE22-8A1BD998DBBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B545EFFF-F0A4-42F8-BE22-8A1BD998DBBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B545EFFF-F0A4-42F8-BE22-8A1BD998DBBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D23792B8-2C66-48CE-81F8-4BFBC7B8B002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23792B8-2C66-48CE-81F8-4BFBC7B8B002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23792B8-2C66-48CE-81F8-4BFBC7B8B002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23792B8-2C66-48CE-81F8-4BFBC7B8B002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

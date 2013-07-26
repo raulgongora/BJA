@@ -81,11 +81,7 @@
       <DependentUpon>frmPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="IdentidadEventArgs.cs" />
-    <Compile Include="IGrillaPaginada.cs" />
     <Compile Include="ItemCombo.cs" />
-    <Compile Include="Paginacion.cs" />
-    <Compile Include="RegistroGrid.cs" />
-    <Compile Include="ResultadoPaginacion.cs" />
     <Compile Include="SoporteCombo.cs" />
     <Compile Include="WindowListaRegistros.xaml.cs">
       <DependentUpon>WindowListaRegistros.xaml</DependentUpon>
@@ -152,6 +148,10 @@
     <ProjectReference Include="..\Bja.Modelo\Bja.Modelo.csproj">
       <Project>{50022c86-9eb0-4d82-b456-23784d0044ec}</Project>
       <Name>Bja.Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bja.Soporte.Paginacion\Bja.Soporte.Paginacion.csproj">
+      <Project>{d23792b8-2c66-48ce-81f8-4bfbc7b8b002}</Project>
+      <Name>Bja.Soporte.Paginacion</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

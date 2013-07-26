@@ -1,7 +1,11 @@
 ﻿<Application x:Class="Bja.Registro.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+<<<<<<< HEAD
              StartupUri="frmLogin.xaml">
+=======
+             StartupUri="MainWindow.xaml">
+>>>>>>> 70d7d94391f12a3cbe4cf6ae3ada29081b644fb8
     <Application.Resources>
          
     </Application.Resources>
