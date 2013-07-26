@@ -47,6 +47,8 @@
     <Compile Include="IdentifierGenerator.cs" />
     <Compile Include="InitializationBD.cs" />
     <Compile Include="ModeloMadre.cs" />
+    <Compile Include="ModeloMenor.cs" />
+    <Compile Include="ModeloTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rbac.cs" />
     <Compile Include="SessionManager.cs" />

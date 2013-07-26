@@ -1,0 +1,196 @@
+﻿<Window x:Class="Bja.Registro.frmCorresponsabilidadMenor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Corresponsabilidad Menor" Height="750" Width="950" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+  <Window.Background>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="#FFFDFCFB" Offset="0"/>
+      <GradientStop Color="#FFE0982E" Offset="1"/>
+    </LinearGradientBrush>
+  </Window.Background>
+  <Grid Name="CorresponsabilidadMenor">
+    <Label x:Name="lblLugarGeografico" Content="Lugar Geográfico" Height="28" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top" Width="113" FontWeight="Bold" />
+    <Label x:Name="lblDepartamento" Content="Departamento:" Height="28" HorizontalAlignment="Left" Margin="16,38,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblDepto" Content="Depto." Height="28" HorizontalAlignment="Left" Margin="115,38,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblMunicipio" Content="Municipio:" Height="28" HorizontalAlignment="Left" Margin="16,66,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblMun" Content="Mun." Height="28" HorizontalAlignment="Left" Margin="115,66,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblRedDeSalud" Content="Red:" Height="28" HorizontalAlignment="Left" Margin="16,94,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblRed" Content="Red" Height="28" HorizontalAlignment="Left" Margin="115,94,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro" Content="Establecimiento:" Height="28" HorizontalAlignment="Left" Margin="16,122,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento" Content="Est." Height="28" HorizontalAlignment="Left" Margin="115,122,0,0" VerticalAlignment="Top" Width="55" />
+    <Button x:Name="cmdModificarLugarGeografico" Content="Modificar" HorizontalAlignment="Left" Margin="187,18,0,0" VerticalAlignment="Top" Width="75"/>
+    <RadioButton Content="Nueva" HorizontalAlignment="Left" Margin="25,155,0,0" VerticalAlignment="Top"/>
+    <RadioButton Content="TRansferencia" HorizontalAlignment="Left" Margin="97,155,0,0" VerticalAlignment="Top"/>
+    <Label x:Name="lblSistema" Content="Registro:" Height="28" HorizontalAlignment="Left" Margin="16,175,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblRegistro" Content="Reg." Height="28" HorizontalAlignment="Left" Margin="115,175,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblLugarGeografico_Copy" Content="Mujer Gestante - Beneficiaria" Height="28" HorizontalAlignment="Left" Margin="322,10,0,0" VerticalAlignment="Top" Width="176" FontWeight="Bold" />
+    <Label x:Name="lblDepartamento_Copy" Content="Nombres:" Height="28" HorizontalAlignment="Left" Margin="322,38,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblDepto_Copy" Content="Nombres" Height="28" HorizontalAlignment="Left" Margin="421,38,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblMunicipio_Copy" Content="Primér apellido:" Height="28" HorizontalAlignment="Left" Margin="322,66,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblMun_Copy" Content="Paterno" Height="28" HorizontalAlignment="Left" Margin="421,66,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblRedDeSalud_Copy" Content="Segundo apellido:" Height="28" HorizontalAlignment="Left" Margin="322,94,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblRed_Copy" Content="Materno" Height="28" HorizontalAlignment="Left" Margin="421,94,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy" Content="Tercér apellido:" Height="28" HorizontalAlignment="Left" Margin="322,122,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy" Content="Conyuge" Height="28" HorizontalAlignment="Left" Margin="421,122,0,0" VerticalAlignment="Top" Width="55" />
+    <Button x:Name="cmdModificarMadre" Content="Modificar" HorizontalAlignment="Left" Margin="513,18,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblLugarGeografico_Copy1" Content="Titular de Pago" Height="28" HorizontalAlignment="Left" Margin="651,10,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" />
+    <Button x:Name="cmdModificarTitular" Content="Modificar" HorizontalAlignment="Left" Margin="822,18,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblCentro_Copy2" Content="Doc. Ide." Height="28" HorizontalAlignment="Left" Margin="322,150,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy2" Content="DocIde" Height="28" HorizontalAlignment="Left" Margin="421,150,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy3" Content="Expedido:" Height="28" HorizontalAlignment="Left" Margin="322,175,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy3" Content="LugarExp" Height="28" HorizontalAlignment="Left" Margin="421,175,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy4" Content="F. Inscripción:" Height="28" HorizontalAlignment="Left" Margin="322,200,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy4" Content="Inscripción" Height="28" HorizontalAlignment="Left" Margin="421,200,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy5" Content="F. Nacimiento:" Height="28" HorizontalAlignment="Left" Margin="323,228,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy5" Content="Nacimiento" Height="28" HorizontalAlignment="Left" Margin="422,228,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblDepartamento_Copy1" Content="Nombres:" Height="28" HorizontalAlignment="Left" Margin="650,38,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblDepto_Copy1" Content="Nombres" Height="28" HorizontalAlignment="Left" Margin="749,38,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblMunicipio_Copy1" Content="Primér apellido:" Height="28" HorizontalAlignment="Left" Margin="650,66,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblMun_Copy1" Content="Paterno" Height="28" HorizontalAlignment="Left" Margin="749,66,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblRedDeSalud_Copy1" Content="Segundo apellido:" Height="28" HorizontalAlignment="Left" Margin="650,94,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblRed_Copy1" Content="Materno" Height="28" HorizontalAlignment="Left" Margin="749,94,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy1" Content="Tercér apellido:" Height="28" HorizontalAlignment="Left" Margin="650,122,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy1" Content="Conyuge" Height="28" HorizontalAlignment="Left" Margin="749,122,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy6" Content="Doc. Ide." Height="28" HorizontalAlignment="Left" Margin="650,150,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy6" Content="DocIde" Height="28" HorizontalAlignment="Left" Margin="749,150,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy7" Content="Expedido:" Height="28" HorizontalAlignment="Left" Margin="650,175,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy7" Content="LugarExp" Height="28" HorizontalAlignment="Left" Margin="749,175,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy8" Content="Parentesco:" Height="28" HorizontalAlignment="Left" Margin="650,200,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy8" Content="Parent" Height="28" HorizontalAlignment="Left" Margin="749,200,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblCentro_Copy9" Content="F. Nacimiento:" Height="28" HorizontalAlignment="Left" Margin="651,228,0,0" VerticalAlignment="Top" Width="94" />
+    <Label x:Name="lblEstablecimiento_Copy9" Content="Nacimiento" Height="28" HorizontalAlignment="Left" Margin="750,228,0,0" VerticalAlignment="Top" Width="55" />
+    <Label x:Name="lblDocIde" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="41,355,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde" Height="23" HorizontalAlignment="Left" Margin="83,360,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="41,383,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy" Height="23" HorizontalAlignment="Left" Margin="83,388,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy2" Content="1" Height="64" HorizontalAlignment="Left" Margin="17,347,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy" Content="Modificar" HorizontalAlignment="Left" Margin="81,444,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy1" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="41,411,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy1" Height="23" HorizontalAlignment="Left" Margin="83,416,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy3" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="193,355,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy2" Height="23" HorizontalAlignment="Left" Margin="235,360,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy4" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="193,383,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy3" Height="23" HorizontalAlignment="Left" Margin="235,388,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy5" Content="2" Height="64" HorizontalAlignment="Left" Margin="169,347,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy1" Content="Modificar" HorizontalAlignment="Left" Margin="233,444,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy6" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="193,411,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy4" Height="23" HorizontalAlignment="Left" Margin="235,416,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy7" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="349,355,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy5" Height="23" HorizontalAlignment="Left" Margin="391,360,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy8" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="349,383,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy6" Height="23" HorizontalAlignment="Left" Margin="391,388,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy9" Content="3" Height="64" HorizontalAlignment="Left" Margin="325,347,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy2" Content="Modificar" HorizontalAlignment="Left" Margin="389,444,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy10" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="349,411,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy7" Height="23" HorizontalAlignment="Left" Margin="391,416,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy11" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="499,355,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy8" Height="23" HorizontalAlignment="Left" Margin="541,360,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy12" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="499,383,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy9" Height="23" HorizontalAlignment="Left" Margin="541,388,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy13" Content="4" Height="64" HorizontalAlignment="Left" Margin="475,347,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy3" Content="Modificar" HorizontalAlignment="Left" Margin="539,444,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy14" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="499,411,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy10" Height="23" HorizontalAlignment="Left" Margin="541,416,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy15" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="651,355,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy11" Height="23" HorizontalAlignment="Left" Margin="693,360,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy16" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="651,383,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy12" Height="23" HorizontalAlignment="Left" Margin="693,388,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy17" Content="5" Height="64" HorizontalAlignment="Left" Margin="627,347,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy4" Content="Modificar" HorizontalAlignment="Left" Margin="691,444,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy18" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="651,411,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy13" Height="23" HorizontalAlignment="Left" Margin="693,416,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy19" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="807,355,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy14" Height="23" HorizontalAlignment="Left" Margin="849,360,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy20" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="807,383,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy15" Height="23" HorizontalAlignment="Left" Margin="849,388,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy21" Content="6" Height="64" HorizontalAlignment="Left" Margin="783,347,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy5" Content="Modificar" HorizontalAlignment="Left" Margin="847,444,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy22" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="807,411,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy16" Height="23" HorizontalAlignment="Left" Margin="849,416,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy23" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="39,475,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy17" Height="23" HorizontalAlignment="Left" Margin="81,480,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy24" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="39,503,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy18" Height="23" HorizontalAlignment="Left" Margin="81,508,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy25" Content="1" Height="64" HorizontalAlignment="Left" Margin="15,467,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy6" Content="Modificar" HorizontalAlignment="Left" Margin="79,564,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy26" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="39,531,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy19" Height="23" HorizontalAlignment="Left" Margin="81,536,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy27" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="191,475,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy20" Height="23" HorizontalAlignment="Left" Margin="233,480,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy28" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="191,503,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy21" Height="23" HorizontalAlignment="Left" Margin="233,508,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy29" Content="2" Height="64" HorizontalAlignment="Left" Margin="167,467,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy7" Content="Modificar" HorizontalAlignment="Left" Margin="231,564,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy30" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="191,531,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy22" Height="23" HorizontalAlignment="Left" Margin="233,536,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy31" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="347,475,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy23" Height="23" HorizontalAlignment="Left" Margin="389,480,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy32" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="347,503,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy24" Height="23" HorizontalAlignment="Left" Margin="389,508,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy33" Content="3" Height="64" HorizontalAlignment="Left" Margin="323,467,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy8" Content="Modificar" HorizontalAlignment="Left" Margin="387,564,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy34" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="347,531,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy25" Height="23" HorizontalAlignment="Left" Margin="389,536,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy35" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="497,475,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy26" Height="23" HorizontalAlignment="Left" Margin="539,480,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy36" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="497,503,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy27" Height="23" HorizontalAlignment="Left" Margin="539,508,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy37" Content="4" Height="64" HorizontalAlignment="Left" Margin="473,467,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy9" Content="Modificar" HorizontalAlignment="Left" Margin="537,564,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy38" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="497,531,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy28" Height="23" HorizontalAlignment="Left" Margin="539,536,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy39" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="649,475,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy29" Height="23" HorizontalAlignment="Left" Margin="691,480,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy40" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="649,503,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy30" Height="23" HorizontalAlignment="Left" Margin="691,508,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy41" Content="5" Height="64" HorizontalAlignment="Left" Margin="625,467,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy10" Content="Modificar" HorizontalAlignment="Left" Margin="689,564,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy42" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="649,531,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy31" Height="23" HorizontalAlignment="Left" Margin="691,536,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy43" Content="Talla:" Height="28" HorizontalAlignment="Left" Margin="805,475,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy32" Height="23" HorizontalAlignment="Left" Margin="847,480,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy44" Content="Peso:" Height="28" HorizontalAlignment="Left" Margin="805,503,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy33" Height="23" HorizontalAlignment="Left" Margin="847,508,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblDocIde_Copy45" Content="6" Height="64" HorizontalAlignment="Left" Margin="781,467,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold" FontSize="36" />
+    <Button x:Name="cmdModificarLugarGeografico_Copy11" Content="Modificar" HorizontalAlignment="Left" Margin="845,564,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblDocIde_Copy46" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="805,531,0,0" VerticalAlignment="Top" Width="52" />
+    <TextBox x:Name="txtDocIde_Copy34" Height="23" HorizontalAlignment="Left" Margin="847,536,0,0" VerticalAlignment="Top" Width="73" />
+    <Label x:Name="lblLugarGeografico_Copy4" Content="Salida de la beneficiaria" Height="28" HorizontalAlignment="Left" Margin="22,598,0,0" VerticalAlignment="Top" Width="154" FontWeight="Bold" />
+    <Label x:Name="lblFechaNacimiento" Content="Fecha:" Height="28" HorizontalAlignment="Left" Margin="39,627,0,0" VerticalAlignment="Top" Width="45" />
+    <DatePicker x:Name="dtpFechNac" HorizontalAlignment="Left" Margin="89,631,0,0" VerticalAlignment="Top" Width="92"/>
+    <RadioButton Content="Cumplimiento" HorizontalAlignment="Left" Margin="200,636,0,0" VerticalAlignment="Top"/>
+    <RadioButton Content="Transferencia" HorizontalAlignment="Left" Margin="311,636,0,0" VerticalAlignment="Top"/>
+    <RadioButton Content="Fallecimiento" HorizontalAlignment="Left" Margin="422,636,0,0" VerticalAlignment="Top"/>
+    <Button x:Name="cmdSalir" Content="Salir" HorizontalAlignment="Left" Margin="845,691,0,0" VerticalAlignment="Top" Width="75" Click="cmdSalir_Click"/>
+    <Button x:Name="cmdAplicar" Content="Aplicar" HorizontalAlignment="Left" Margin="718,656,0,0" VerticalAlignment="Top" Width="75"/>
+    <Label x:Name="lblPaterno" Content="Autorizado por:" Height="28" HorizontalAlignment="Left" Margin="39,667,0,0" VerticalAlignment="Top" Width="96" />
+    <TextBox x:Name="txtPaterno" Height="23" HorizontalAlignment="Left" Margin="135,672,0,0" VerticalAlignment="Top" Width="249" />
+    <Label x:Name="lblMaterno" Content="Cargo:" Height="28" HorizontalAlignment="Left" Margin="405,667,0,0" VerticalAlignment="Top" Width="47" />
+    <TextBox x:Name="txtMaterno" Height="23" HorizontalAlignment="Left" Margin="452,672,0,0" VerticalAlignment="Top" Width="249" />
+    <CheckBox Content="ENE" HorizontalAlignment="Left" Margin="34,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="FEB" HorizontalAlignment="Left" Margin="106,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="MAR" HorizontalAlignment="Left" Margin="177,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="ABR" HorizontalAlignment="Left" Margin="249,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="MAY" HorizontalAlignment="Left" Margin="320,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="JUN" HorizontalAlignment="Left" Margin="392,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="JUL" HorizontalAlignment="Left" Margin="464,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="AGO" HorizontalAlignment="Left" Margin="536,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="SEP" HorizontalAlignment="Left" Margin="607,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="OCT" HorizontalAlignment="Left" Margin="679,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="NOV" HorizontalAlignment="Left" Margin="750,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="DIC" HorizontalAlignment="Left" Margin="822,284,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="ENE" HorizontalAlignment="Left" Margin="34,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="FEB" HorizontalAlignment="Left" Margin="106,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="MAR" HorizontalAlignment="Left" Margin="177,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="ABR" HorizontalAlignment="Left" Margin="249,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="MAY" HorizontalAlignment="Left" Margin="320,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="JUN" HorizontalAlignment="Left" Margin="392,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="JUL" HorizontalAlignment="Left" Margin="464,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="AGO" HorizontalAlignment="Left" Margin="536,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="SEP" HorizontalAlignment="Left" Margin="607,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="OCT" HorizontalAlignment="Left" Margin="679,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="NOV" HorizontalAlignment="Left" Margin="750,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <CheckBox Content="DIC" HorizontalAlignment="Left" Margin="822,315,0,0" VerticalAlignment="Top" FontSize="20"/>
+    <Label x:Name="lblLugarGeografico_Copy5" Content="Datos del beneficiario" Height="28" HorizontalAlignment="Left" Margin="25,253,0,0" VerticalAlignment="Top" Width="135" FontWeight="Bold" />
+  </Grid>
+</Window>
