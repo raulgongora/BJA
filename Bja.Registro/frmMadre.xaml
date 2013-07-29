@@ -55,7 +55,7 @@
     <Label x:Name="lblTutor" Content="Tutor:" Height="28" HorizontalAlignment="Left" Margin="17,407,0,0" VerticalAlignment="Top" Width="41" />
     <ComboBox x:Name="cboTipoDocIde_Copy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="710" Margin="63,413,0,0" RenderTransformOrigin="0.508,11.636"/>
     <Button x:Name="cmdTutor" Content="..." HorizontalAlignment="Left" Margin="789,415,0,0" VerticalAlignment="Top" Width="75"/>
-    <Button x:Name="cmdAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="698,469,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.48,-0.55"/>
+    <Button x:Name="cmdAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="698,469,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.48,-0.55" Click="cmdAceptar_Click"/>
     <Button x:Name="cmdCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="789,469,0,0" VerticalAlignment="Top" Width="75" Click="cmdCancelar_Click"/>
     <Button x:Name="cmdNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="792,138,0,0" VerticalAlignment="Top" Width="75"/>
     <Label x:Name="lblFechaInscripcion" Content="F. Inscripción:" Height="28" HorizontalAlignment="Left" Margin="23,95,0,0" VerticalAlignment="Top" Width="89" />

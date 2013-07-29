@@ -23,18 +23,21 @@
     <TextBox x:Name="txtNombres" Height="23" HorizontalAlignment="Left" Margin="474,60,0,0" VerticalAlignment="Top" Width="160" />
     <Label x:Name="lblFechaNacimiento" Content="F. Nacimiento:" Height="28" HorizontalAlignment="Left" Margin="643,55,0,0" VerticalAlignment="Top" Width="89" />
     <DatePicker x:Name="dtpFechNac" HorizontalAlignment="Left" Margin="737,59,0,0" VerticalAlignment="Top" Width="92"/>
-    <Label x:Name="lblParentesco" Content="Parentesco:" Height="28" HorizontalAlignment="Left" Margin="267,97,0,0" VerticalAlignment="Top" Width="78" />
-    <ComboBox x:Name="cboParentesco" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="350,102,0,0"/>
+    <Label x:Name="lblParentesco" Content="Parentesco:" Height="28" HorizontalAlignment="Left" Margin="214,97,0,0" VerticalAlignment="Top" Width="78" />
+    <ComboBox x:Name="cboParentesco" HorizontalAlignment="Left" VerticalAlignment="Top" Width="218" Margin="297,102,0,0"/>
     <Label x:Name="lblExpedido" Content="Expedido en:" Height="28" HorizontalAlignment="Left" Margin="428,15,0,0" VerticalAlignment="Top" Width="76" />
     <ComboBox x:Name="cboExpedido" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Margin="520,20,0,0"/>
-    <Label x:Name="lblSexo" Content="Sexo:" Height="28" HorizontalAlignment="Left" Margin="22,96,0,0" VerticalAlignment="Top" Width="37" />
-    <RadioButton Content="Masculino" HorizontalAlignment="Left" Margin="74,102,0,0" VerticalAlignment="Top"/>
-    <RadioButton Content="Femenico" HorizontalAlignment="Left" Margin="174,102,0,0" VerticalAlignment="Top"/>
+    <GroupBox x:Name="gbxSexo" Header="Sexo" Padding="5" Margin="21,86,696,98" BorderBrush="Black">
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,-11">
+        <RadioButton Margin="3,3,0,3" GroupName="Sexo" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Femenino"/>
+        <RadioButton Margin="3,3,0,0" GroupName="Sexo" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Masculino"/>
+      </StackPanel>
+    </GroupBox>
     <Label x:Name="lblLugar" Content="Lugar:" Height="28" HorizontalAlignment="Left" Margin="539,97,0,0" VerticalAlignment="Top" Width="42" />
     <TextBox x:Name="txtLugar" Height="23" HorizontalAlignment="Left" Margin="586,102,0,0" VerticalAlignment="Top" Width="278" />
     <Label x:Name="lblDireccion" Content="Dirección:" Height="28" HorizontalAlignment="Left" Margin="21,137,0,0" VerticalAlignment="Top" Width="68" />
     <TextBox x:Name="txtDireccion" Height="23" HorizontalAlignment="Left" Margin="94,142,0,0" VerticalAlignment="Top" Width="770" />
-    <Button x:Name="cmdAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="698,186,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.48,-0.55"/>
+    <Button x:Name="cmdAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="698,186,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.48,-0.55" Click="cmdAceptar_Click"/>
     <Button x:Name="cmdCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="789,186,0,0" VerticalAlignment="Top" Width="75" Click="cmdCancelar_Click"/>
   </Grid>
 </Window>

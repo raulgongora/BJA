@@ -42,5 +42,15 @@ namespace Bja.Registro
       objMadresWindow = null;
       this.Cursor = Cursors.Arrow;
     }
+
+    private void cmdMenor_Click(object sender, RoutedEventArgs e)
+    {
+      this.Cursor = Cursors.Wait;
+      frmMenor objMenorWindow = new frmMenor();
+      objMenorWindow.Owner = this;
+      objMenorWindow.ShowDialog();
+      objMenorWindow = null;
+      this.Cursor = Cursors.Arrow;
+    }
   }
 }
