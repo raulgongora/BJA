@@ -33,5 +33,10 @@ namespace Bja.Registro
       this.Close();
     }
 
+    private void cmdAceptar_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
   }
 }

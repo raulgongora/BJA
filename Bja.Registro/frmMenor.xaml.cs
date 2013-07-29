@@ -21,6 +21,8 @@ namespace Bja.Registro
   /// </summary>
   public partial class frmMenor : Window
   {
+    private int IdSeleccionado { get; set; }
+
     public frmMenor()
     {
       this.Cursor = Cursors.Wait;
@@ -30,6 +32,53 @@ namespace Bja.Registro
 
     private void cmdCancelar_Click(object sender, RoutedEventArgs e)
     {
+      this.Close();
+    }
+
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+      SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
+      IdSeleccionado = 0;
+    }
+
+    private void cmdAceptar_Click(object sender, RoutedEventArgs e)
+    {
+      Menor menor = new Menor();
+      var modelomenor = new ModeloMenor();
+      if (IdSeleccionado <= 0)
+        {
+          menor.Nombres = txtNombres.Text;
+          menor.PrimerApellido = txtPaterno.Text;
+          menor.SegundoApellido = txtMaterno.Text;
+          menor.DocumentoIdentidad = txtDocIde.Text;
+          menor.IdTipoDocumentoIdentidad = 2;//(int)cboTipoDocIde.SelectedValue;
+          menor.FechaNacimiento = (DateTime)dtpFechNac.SelectedDate;
+          menor.IdLocalidadNacimiento = txtLugar.Text;
+          if (rdbFemenino.IsChecked.Value)
+            menor.Sexo = "F";
+          else if (rdbMasculino.IsChecked.Value)
+            menor.Sexo = "M";
+          else
+            menor.Sexo = "-";
+          modelomenor.AdicionMenor(menor, null);
+        }
+      else
+        {
+        menor.Nombres = txtNombres.Text;
+        menor.PrimerApellido = txtPaterno.Text;
+        menor.SegundoApellido = txtMaterno.Text;
+        menor.DocumentoIdentidad = txtDocIde.Text;
+        menor.IdTipoDocumentoIdentidad = 2; // (int)cboTipoDocIde.SelectedValue;
+        menor.FechaNacimiento = (DateTime)dtpFechNac.SelectedDate;
+        menor.IdLocalidadNacimiento = txtLugar.Text;
+        if (rdbFemenino.IsChecked.Value)
+          menor.Sexo = "F";
+        else if (rdbMasculino.IsChecked.Value)
+          menor.Sexo = "M";
+        else
+          menor.Sexo = "-";
+        modelomenor.ModificacionMenor(IdSeleccionado, menor, null);
+        }
       this.Close();
     }
 

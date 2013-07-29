@@ -49,5 +49,10 @@ namespace Bja.Registro
     {
     }
 
+    private void cmdAceptar_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
   }
 }
