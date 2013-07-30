@@ -14,6 +14,7 @@ namespace Bja.Entidades
         public DateTime FechaRegistro { get; set; }
 
         public long IdTutor { get; set; }
+        public Tutor Tutor { get; set; }
         public String NombreCompletoMadre { get; set; }
         public String NombreCompletoTutor { get; set; }
         public long IdBeneficiario { get; set; }

@@ -17,8 +17,10 @@ namespace Bja.Entidades
         public TipoInscripcion TipoInscripcionMenor { get; set; }
         public DateTime FechaInscripcion { get; set; }
         public long IdMenor { get; set; }
+        public Menor Menor { get; set; }
         public String DireccionMenor { get; set; }
         public long IdTutor { get; set; }
+        public Tutor Tutor { get; set; }
         public String DireccionTutor { get; set; }
         public String CodigoFormulario { get; set; }
         public DateTime FechaSalidaPrograma { get; set; }

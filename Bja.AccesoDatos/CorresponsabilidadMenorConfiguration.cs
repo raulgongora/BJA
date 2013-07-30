@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public CorresponsabilidadMenorConfiguration()
         {
+            ToTable("CorresponsabilidadMenores");
             HasKey(c => c.Id);
             Property(c => c.IdSesion).IsRequired();
             Property(c => c.FechaRegistro).IsRequired();

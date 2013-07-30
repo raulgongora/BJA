@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public UserConfiguration()
         {
+            ToTable("Users");
             HasKey(u => u.Id);
             Property(u => u.IdSession).IsRequired();
             Property(u => u.Password).IsRequired();

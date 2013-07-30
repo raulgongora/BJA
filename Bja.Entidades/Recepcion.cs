@@ -15,6 +15,7 @@ namespace Bja.Entidades
 
         public long IdEstablecimientoMedico { get; set; }
         public long IdMedico { get; set; }
+        public Medico Medico { get; set; }
         public DateTime FechaEnvio { get; set; }
         public DateTime FechaRecepcion { get; set; }
         public String CodigoVerificacion { get; set; } //md5, sha

@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public MedicoConfiguration()
         {
+            ToTable("Medicos");
             HasKey(m => m.Id);
             Property(m => m.IdSesion).IsRequired();
             Property(m => m.FechaRegistro).IsRequired();

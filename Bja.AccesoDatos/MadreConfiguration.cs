@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public MadreConfiguration()
         {
+            ToTable("Madres");
             HasKey(m => m.Id);
             Property(m => m.IdSesion).IsRequired();
             Property(m => m.FechaRegistro).IsRequired();

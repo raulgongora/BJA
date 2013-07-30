@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public PermissionConfiguration()
         {
+            ToTable("Permissions");
             HasKey(p => p.Id);
             Property(p => p.IdSession).IsRequired();
             Property(p => p.Name).IsRequired().HasMaxLength(250);

@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public RoleConfiguration() 
         {
+            ToTable("Rols");
             HasKey(r => r.Id);
             Property(r => r.IdSession).IsRequired();
             Property(r => r.Name).IsRequired().HasMaxLength(250);

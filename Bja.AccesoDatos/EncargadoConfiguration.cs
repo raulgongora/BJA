@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public EncargadoConfiguration()
         {
+            ToTable("Encargados");
             HasKey(e => e.Id);
             Property(e => e.IdSesion).IsRequired();
             Property(e => e.FechaRegistro).IsRequired();

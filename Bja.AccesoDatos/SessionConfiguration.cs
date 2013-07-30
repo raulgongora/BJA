@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public SessionConfiguration()
         {
+            ToTable("Sessions");
             HasKey(s => s.Id);
             Property(s => s.IdUser).IsRequired();
             Property(s => s.UserName).IsRequired().HasMaxLength(250);

@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public TutorConfiguration()
         {
+            ToTable("Tutores");
             HasKey(t => t.Id);
             Property(t => t.IdSesion).IsRequired();
             Property(t => t.FechaRegistro).IsRequired();
