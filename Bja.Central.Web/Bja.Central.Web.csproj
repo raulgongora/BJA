@@ -299,6 +299,10 @@
       <Project>{50022c86-9eb0-4d82-b456-23784d0044ec}</Project>
       <Name>Bja.Modelo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bja.Soporte.Paginacion\Bja.Soporte.Paginacion.csproj">
+      <Project>{d23792b8-2c66-48ce-81f8-4bfbc7b8b002}</Project>
+      <Name>Bja.Soporte.Paginacion</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

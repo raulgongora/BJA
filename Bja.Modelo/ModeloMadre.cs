@@ -32,20 +32,27 @@ namespace Bja.Modelo
           //en linq usar skip y take para la paginación
           //ej:myDataSource.Skip(saltarRegistros).Take(tamañoPagina)
 
+          
 
           Int64 totalRegistrosEncontrados = 0;
           Int64 totalRegistros = 0;
 
+          var lista = (from m in context.Madres
+                           where m.Nombres.Contains(criterioBusqueda) || 
+                           m.PrimerApellido.Contains(criterioBusqueda) || 
+                           m.SegundoApellido.Contains(criterioBusqueda)
+                           select m).ToList();
+
           //var lista = BuscarConveniosMantenimientoPaginada(ref totalRegistrosEncontrados, ref totalRegistros, saltarRegistros, tamañoPagina, criterioBusqueda);
 
           //crear la lista de objetos de tipo RegistroGrid
-          /*
+          
           var listaRegistroGrid = (from il in lista
-                                    select new RegistroGrid(il.id, il.descripcion + " Pago:" + SoporteEnumerador.nombreEnumerador((EnumTipoPeriodo)il.id_periodo_pago) + " Fecha inicio:" + il.fecha_inicio.ToString(), il)).ToList();
-          */  
+                                    select new RegistroGrid(il.Id, il.Nombres + " " + il.PrimerApellido, il)).ToList();
+            
           //crear resultado paginación
           var result = new ResultadoPaginacion();
-          result.resultados = new List<RegistroGrid>();//listaRegistroGrid;
+          result.resultados = listaRegistroGrid;
           result.totalEncontrados = totalRegistrosEncontrados;
           result.totalRegistros = totalRegistros;
           return result;
@@ -55,8 +62,7 @@ namespace Bja.Modelo
       public long totalRegistros()
       {
           //retorna el total de registros en la tabla madre
-          //return totalregistros;
-          return 0;
+          return context.Madres.Count(); 
       }
     }
 }

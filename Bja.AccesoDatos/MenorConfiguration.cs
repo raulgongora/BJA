@@ -12,6 +12,7 @@ namespace Bja.AccesoDatos
     {
         public MenorConfiguration()
         {
+            ToTable("Menores");
             HasKey(m => m.Id);
             Property(m => m.IdSesion).IsRequired();
             Property(m => m.FechaRegistro).IsRequired();
@@ -23,9 +24,9 @@ namespace Bja.AccesoDatos
             Property(m => m.DocumentoIdentidad).IsRequired().HasMaxLength(15);
             Property(m => m.TipoDocumentoIdentidad).IsRequired();
             Property(m => m.FechaNacimiento).IsRequired();
-            Property(m => m.IdLocalidadNacimiento).IsRequired();
+            Property(m => m.IdLocalidadNacimiento).IsRequired().HasMaxLength(32);
             Property(m => m.Defuncion).IsRequired();
-            Property(m => m.Sexo).IsRequired();
+            Property(m => m.Sexo).HasMaxLength(3).IsRequired();
             Property(m => m.Observaciones).HasMaxLength(1024);
         }
     }

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using Bja.Central.Web.Models;
+using Bja.Modelo;
 
 namespace Bja.Central.Web.Filters
 {
@@ -25,10 +26,13 @@ namespace Bja.Central.Web.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                //Database.SetInitializer<UsersContext>(null);
+                
 
                 try
                 {
+                    InicializacionBD.inicializarBD();
+                    /*
                     using (var context = new UsersContext())
                     {
                         if (!context.Database.Exists())
@@ -36,9 +40,9 @@ namespace Bja.Central.Web.Filters
                             // Create the SimpleMembership database without Entity Framework migration schema
                             ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                         }
-                    }
+                    }*/
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "Users", "Id", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {

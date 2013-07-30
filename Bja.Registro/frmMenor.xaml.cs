@@ -42,7 +42,7 @@ namespace Bja.Registro
     }
 
     private void cmdAceptar_Click(object sender, RoutedEventArgs e)
-    {
+    {   
       Menor menor = new Menor();
       var modelomenor = new ModeloMenor();
       if (IdSeleccionado <= 0)
