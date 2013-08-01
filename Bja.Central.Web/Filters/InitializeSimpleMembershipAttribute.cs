@@ -41,8 +41,8 @@ namespace Bja.Central.Web.Filters
                             ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                         }
                     }*/
-
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "Users", "Id", "UserName", autoCreateTables: true);
+                    //create membership tables
+                    WebSecurity.InitializeDatabaseConnection("BjaContext", "Users", "Id", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {

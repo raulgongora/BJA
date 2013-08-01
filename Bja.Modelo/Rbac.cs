@@ -42,7 +42,7 @@ namespace Bja.Modelo
 
             var newUser = new User();
 
-            newUser.Id = IdentifierGenerator.NewId();
+            newUser.Id = (int)IdentifierGenerator.NewId();
             newUser.IdSession = (sessionId == null)?SessionManager.getCurrentSession().Id:(long)sessionId;
             newUser.UserName = userName;
             newUser.CompleteName = completeName;
