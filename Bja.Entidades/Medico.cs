@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Bja.Entidades
 {
+    [MetadataType(typeof(MedicoMetaData))]
     public class Medico
     {
         public long Id { get; set; }
