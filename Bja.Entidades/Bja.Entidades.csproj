@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,9 +51,11 @@
     <Compile Include="Madre.cs" />
     <Compile Include="Medico.cs" />
     <Compile Include="Menor.cs" />
+    <Compile Include="MetaData.cs" />
     <Compile Include="OpcionBusqueda.cs" />
     <Compile Include="Pago.cs" />
     <Compile Include="Recepcion.cs" />
+    <Compile Include="Required.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="SolicitudPago.cs" />
     <Compile Include="TipoControlMadre.cs" />
