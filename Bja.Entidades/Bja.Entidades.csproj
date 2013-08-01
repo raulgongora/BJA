@@ -58,6 +58,7 @@
     <Compile Include="TipoControlMadre.cs" />
     <Compile Include="TipoDocumentoIdentidad.cs" />
     <Compile Include="TipoEstadoPago.cs" />
+    <Compile Include="TipoEstadoRegistro.cs" />
     <Compile Include="TipoInscripcion.cs" />
     <Compile Include="TipoSalidaMadre.cs" />
     <Compile Include="TipoSalidaMenor.cs" />
