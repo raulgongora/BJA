@@ -48,7 +48,7 @@ namespace Bja.Registro
         formularioListaMadres.MostrarDetallesRegistro += formularioListaMadres_MostrarDetallesRegistro;
         formularioListaMadres.ModificarRegistro += formularioListaMadres_ModificarRegistro;
         formularioListaMadres.BorrarRegistro += formularioListaMadres_BorrarRegistro;
-        formularioListaMadres.SeleccionarRegistro += formularioListaMadres_SeleccionarRegistro;
+        //formularioListaMadres.SeleccionarRegistro += formularioListaMadres_SeleccionarRegistro;
 
         ModeloMadre modelomadre = new ModeloMadre();
 
@@ -70,22 +70,36 @@ namespace Bja.Registro
 
     void formularioListaMadres_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        this.Cursor = Cursors.Wait;
+        frmMadre objMadreWindow = new frmMadre();
+        objMadreWindow.IdSeleccionado = fe.id;
+        objMadreWindow.Owner = this;
+        objMadreWindow.ShowDialog();
+        objMadreWindow = null;
+        this.Cursor = Cursors.Arrow;
     }
 
     void formularioListaMadres_ModificarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        this.Cursor = Cursors.Wait;
+        frmMadre objMadreWindow = new frmMadre();
+        objMadreWindow.IdSeleccionado = fe.id;
+        objMadreWindow.Owner = this;
+        objMadreWindow.ShowDialog();
+        objMadreWindow = null;
+        this.Cursor = Cursors.Arrow;
     }
 
     void formularioListaMadres_BorrarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
     }
 
     void formularioListaMadres_SeleccionarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
     }
 
     private void cmdTutores_Click(object sender, RoutedEventArgs e)
@@ -97,7 +111,7 @@ namespace Bja.Registro
         formularioListaTutores.MostrarDetallesRegistro += formularioListaTutores_MostrarDetallesRegistro;
         formularioListaTutores.ModificarRegistro += formularioListaTutores_ModificarRegistro;
         formularioListaTutores.BorrarRegistro += formularioListaTutores_BorrarRegistro;
-        formularioListaTutores.SeleccionarRegistro += formularioListaTutores_SeleccionarRegistro;
+        //formularioListaTutores.SeleccionarRegistro += formularioListaTutores_SeleccionarRegistro;
 
         ModeloTutor modelotutor = new ModeloTutor();
 
@@ -119,22 +133,36 @@ namespace Bja.Registro
 
     void formularioListaTutores_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        this.Cursor = Cursors.Wait;
+        frmTutor objTutorWindow = new frmTutor();
+        objTutorWindow.IdSeleccionado = fe.id;
+        objTutorWindow.Owner = this;
+        objTutorWindow.ShowDialog();
+        objTutorWindow = null;
+        this.Cursor = Cursors.Arrow;
     }
 
     void formularioListaTutores_ModificarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        this.Cursor = Cursors.Wait;
+        frmTutor objTutorWindow = new frmTutor();
+        objTutorWindow.IdSeleccionado = fe.id;
+        objTutorWindow.Owner = this;
+        objTutorWindow.ShowDialog();
+        objTutorWindow = null;
+        this.Cursor = Cursors.Arrow;
     }
 
     void formularioListaTutores_BorrarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
     }
 
     void formularioListaTutores_SeleccionarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
     }
 
     private void cmdMenores_Click(object sender, RoutedEventArgs e)
@@ -146,7 +174,7 @@ namespace Bja.Registro
         formularioListaMenores.MostrarDetallesRegistro += formularioListaMenores_MostrarDetallesRegistro;
         formularioListaMenores.ModificarRegistro += formularioListaMenores_ModificarRegistro;
         formularioListaMenores.BorrarRegistro += formularioListaMenores_BorrarRegistro;
-        formularioListaMenores.SeleccionarRegistro += formularioListaMenores_SeleccionarRegistro;
+        //formularioListaMenores.SeleccionarRegistro += formularioListaMenores_SeleccionarRegistro;
 
         ModeloMenor modelomenor = new ModeloMenor();
 
@@ -168,22 +196,36 @@ namespace Bja.Registro
 
     void formularioListaMenores_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        this.Cursor = Cursors.Wait;
+        frmMenor objMenorWindow = new frmMenor();
+        objMenorWindow.IdSeleccionado = fe.id;
+        objMenorWindow.Owner = this;
+        objMenorWindow.ShowDialog();
+        objMenorWindow = null;
+        this.Cursor = Cursors.Arrow;
     }
 
     void formularioListaMenores_ModificarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        this.Cursor = Cursors.Wait;
+        frmMenor objMenorWindow = new frmMenor();
+        objMenorWindow.IdSeleccionado = fe.id;
+        objMenorWindow.Owner = this;
+        objMenorWindow.ShowDialog();
+        objMenorWindow = null;
+        this.Cursor = Cursors.Arrow;
     }
 
     void formularioListaMenores_BorrarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
     }
 
     void formularioListaMenores_SeleccionarRegistro(object sender, IdentidadEventArgs fe)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
     }
 
     private void cmdPassword_Click(object sender, RoutedEventArgs e)

@@ -21,7 +21,7 @@ namespace Bja.Registro
     /// </summary>
     public partial class frmTutor : Window
     {
-        private int IdSeleccionado { get; set; }
+        public long IdSeleccionado { get; set; }
 
         public frmTutor()
         {
@@ -33,13 +33,15 @@ namespace Bja.Registro
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
-            this.cboTipoDocIde.SelectedIndex = 0;
-            IdSeleccionado = 0;
-            this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
             SoporteCombo.cargarEnumerador(cboExpedido, typeof(Lugar));
-            this.cboExpedido.SelectedIndex = 0;
             SoporteCombo.cargarEnumerador(cboParentesco, typeof(Parentesco));
-            this.cboParentesco.SelectedIndex = 0;
+            if (IdSeleccionado == 0)
+            {
+                this.cboTipoDocIde.SelectedIndex = 0;
+                this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
+                this.cboExpedido.SelectedIndex = 0;
+                this.cboParentesco.SelectedIndex = 0;
+            }
         }
 
         private void cmdCancelar_Click(object sender, RoutedEventArgs e)
@@ -49,7 +51,31 @@ namespace Bja.Registro
 
         private void cmdAceptar_Click(object sender, RoutedEventArgs e)
         {
+            ModeloTutor modelotutor = new ModeloTutor();
 
+            Tutor tutor = new Tutor();
+
+            tutor.DocumentoIdentidad = txtDocIde.Text;
+            tutor.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
+            //tutor.TipoDocumentoIdentidad = (TipoDocumentoIdentidad)cboTipoDocIde.SelectedValue;
+            tutor.PrimerApellido = txtPaterno.Text;
+            tutor.SegundoApellido = txtMaterno.Text;
+            tutor.TercerApellido = txtConyuge.Text;
+            tutor.Nombres = txtNombres.Text;
+            tutor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
+            tutor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
+            tutor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
+            tutor.Observaciones = txtObservaciones.Text;
+            if ((long)cboTipoDocIde.SelectedValue == 1)
+                tutor.Sexo = "F";
+            else if ((long)cboTipoDocIde.SelectedValue == 2)
+                tutor.Sexo = "M";
+            else
+                tutor.Sexo = "-";
+
+            modelotutor.Crear(tutor);
+
+            this.Close();
         }
     }
 }

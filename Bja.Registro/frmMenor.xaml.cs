@@ -21,7 +21,7 @@ namespace Bja.Registro
     /// </summary>
     public partial class frmMenor : Window
     {
-        private int IdSeleccionado { get; set; }
+        public long IdSeleccionado { get; set; }
 
         public frmMenor()
         {
@@ -33,16 +33,41 @@ namespace Bja.Registro
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
-            this.cboTipoDocIde.SelectedIndex = 0;
-            IdSeleccionado = 0;
-            this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
             SoporteCombo.cargarEnumerador(cboExpedido, typeof(Lugar));
-            this.cboExpedido.SelectedIndex = 0;
+            if (IdSeleccionado == 0)
+            {
+                this.cboTipoDocIde.SelectedIndex = 0;
+                this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
+                this.cboExpedido.SelectedIndex = 0;
+            }
         }
 
         private void cmdAceptar_Click(object sender, RoutedEventArgs e)
         {
+            ModeloMenor modelomenor = new ModeloMenor();
 
+            Menor menor = new Menor();
+
+            menor.DocumentoIdentidad = txtDocIde.Text;
+            menor.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
+            //menor.TipoDocumentoIdentidad = (TipoDocumentoIdentidad)cboTipoDocIde.SelectedValue;
+            menor.PrimerApellido = txtPaterno.Text;
+            menor.SegundoApellido = txtMaterno.Text;
+            menor.Nombres = txtNombres.Text;
+            menor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
+            menor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
+            menor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
+            menor.Observaciones = txtObservaciones.Text;
+            if ((long)cboTipoDocIde.SelectedValue == 1)
+                menor.Sexo = "F";
+            else if ((long)cboTipoDocIde.SelectedValue == 2)
+                menor.Sexo = "M";
+            else
+                menor.Sexo = "-";
+
+            modelomenor.Crear(menor);
+
+            this.Close();
         }
 
         private void cmdCancelar_Click(object sender, RoutedEventArgs e)
