@@ -56,14 +56,14 @@ namespace Bja.Registro
       }
     }
 
-    private void cmdSalir_Click(object sender, RoutedEventArgs e)
-    {
-      this.Close();
-    }
-
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
-      txtUsuario.Focus();
+        txtUsuario.Focus();
+    }
+
+    private void cmdCancelar_Click(object sender, RoutedEventArgs e)
+    {
+        this.Close();
     }
 
   }

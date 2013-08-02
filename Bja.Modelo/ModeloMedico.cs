@@ -12,6 +12,10 @@ namespace Bja.Modelo
     public class ModeloMedico
     {
         BjaContext db = new BjaContext();
+        //
+        //Sugerencia de rrsc 01/08/2013
+        //BjaContext context = new BjaContext();
+        //
 
         public List<Medico> Listar()
         {

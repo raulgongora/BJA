@@ -16,43 +16,89 @@ using System.Windows.Shapes;
 
 namespace Bja.Registro
 {
-  /// <summary>
-  /// Lógica de interacción para frmMadre.xaml
-  /// </summary>
-  public partial class frmMadre : Window
-  {
-    public frmMadre()
+    /// <summary>
+    /// Lógica de interacción para frmMadre.xaml
+    /// </summary>
+    public partial class frmMadre : Window
     {
-      this.Cursor = Cursors.Wait;
-      InitializeComponent();
-      this.Cursor = Cursors.Arrow;
+        private int IdSeleccionado { get; set; }
+
+        public frmMadre()
+        {
+            this.Cursor = Cursors.Wait;
+            InitializeComponent();
+            this.Cursor = Cursors.Arrow;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
+            this.cboTipoDocIde.SelectedIndex = 0;
+            IdSeleccionado = 0;
+            this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
+            string[] Cadena = new string[] { "<No Especificado>" };
+            cboTutor.ItemsSource = Cadena;
+            cboTutor.SelectedIndex = 0;
+        }
+
+        private void cmdAceptar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmdCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cmdTutor_Click(object sender, RoutedEventArgs e)
+        {
+            this.Cursor = Cursors.Wait;
+            WindowListaRegistros formularioListaTutores = new WindowListaRegistros();
+
+            formularioListaTutores.NuevoRegistro += formularioListaTutores_NuevoRegistro;
+            formularioListaTutores.MostrarDetallesRegistro += formularioListaTutores_MostrarDetallesRegistro;
+            formularioListaTutores.ModificarRegistro += formularioListaTutores_ModificarRegistro;
+            formularioListaTutores.BorrarRegistro += formularioListaTutores_BorrarRegistro;
+            formularioListaTutores.SeleccionarRegistro += formularioListaTutores_SeleccionarRegistro;
+
+            ModeloTutor modelotutor = new ModeloTutor();
+
+            formularioListaTutores.proveedorDatos = modelotutor;
+            formularioListaTutores.titulo = "Tutores";
+            formularioListaTutores.ShowDialog();
+            this.Cursor = Cursors.Arrow;
+        }
+
+        void formularioListaTutores_NuevoRegistro(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Wait;
+            frmTutor objTutorWindow = new frmTutor();
+            objTutorWindow.Owner = this;
+            objTutorWindow.ShowDialog();
+            objTutorWindow = null;
+            this.Cursor = Cursors.Arrow;
+        }
+
+        void formularioListaTutores_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
+        {
+            throw new NotImplementedException();
+        }
+
+        void formularioListaTutores_ModificarRegistro(object sender, IdentidadEventArgs fe)
+        {
+            throw new NotImplementedException();
+        }
+
+        void formularioListaTutores_BorrarRegistro(object sender, IdentidadEventArgs fe)
+        {
+            throw new NotImplementedException();
+        }
+
+        void formularioListaTutores_SeleccionarRegistro(object sender, IdentidadEventArgs fe)
+        {
+            throw new NotImplementedException();
+        }
+
     }
-
-    private void cmdCancelar_Click(object sender, RoutedEventArgs e)
-    {
-      this.Close();
-    }
-
-    private void Window_Loaded(object sender, RoutedEventArgs e)
-    {
-    }
-
-    private void Button_Click_Detalles(object sender, RoutedEventArgs e)
-    {
-    }
-
-    private void Button_Click_Modificar(object sender, RoutedEventArgs e)
-    {
-    }
-
-    private void Button_Click_Borrar(object sender, RoutedEventArgs e)
-    {
-    }
-
-    private void cmdAceptar_Click(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-  }
 }

@@ -1,6 +1,4 @@
-﻿using Bja.Entidades;
-using Bja.Modelo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,13 +15,11 @@ using System.Windows.Shapes;
 namespace Bja.Registro
 {
     /// <summary>
-    /// Lógica de interacción para frmTutor.xaml
+    /// Lógica de interacción para frmPassword.xaml
     /// </summary>
-    public partial class frmTutor : Window
+    public partial class frmPassword : Window
     {
-        private int IdSeleccionado { get; set; }
-
-        public frmTutor()
+        public frmPassword()
         {
             this.Cursor = Cursors.Wait;
             InitializeComponent();
@@ -32,14 +28,7 @@ namespace Bja.Registro
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
-            this.cboTipoDocIde.SelectedIndex = 0;
-            IdSeleccionado = 0;
-            this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
-            SoporteCombo.cargarEnumerador(cboExpedido, typeof(Lugar));
-            this.cboExpedido.SelectedIndex = 0;
-            SoporteCombo.cargarEnumerador(cboParentesco, typeof(Parentesco));
-            this.cboParentesco.SelectedIndex = 0;
+            pasContrasenaActual.Focus();
         }
 
         private void cmdCancelar_Click(object sender, RoutedEventArgs e)

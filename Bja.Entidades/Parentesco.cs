@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace Bja.Entidades
 {
-    public enum TipoDocumentoIdentidad
+    public enum Parentesco
     {
         NoEspecificado = 0,
-        CarnetIdentidad,
-        CertificadoNacimiento,
-        Pasaporte
+        Padre,
+        Abuelo, //Abuela
+        Tio, //Tia
+        Hermano, //Hermana
+        Primo, //Prima
+        Suegro //Suegra
     }
 }
