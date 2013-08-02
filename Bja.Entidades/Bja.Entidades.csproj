@@ -41,20 +41,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlMadre.cs" />
+    <Compile Include="ControlMadreLog.cs" />
     <Compile Include="ControlMenor.cs" />
+    <Compile Include="ControlMenorLog.cs" />
     <Compile Include="CorresponsabilidadMadre.cs" />
+    <Compile Include="CorresponsabilidadMadreLog.cs" />
     <Compile Include="CorresponsabilidadMenor.cs" />
+    <Compile Include="CorresponsabilidadMenorLog.cs" />
     <Compile Include="Encargado.cs" />
+    <Compile Include="EncargadoLog.cs" />
     <Compile Include="Envio.cs" />
+    <Compile Include="EnvioLog.cs" />
     <Compile Include="EstadoPago.cs" />
     <Compile Include="Lugar.cs" />
     <Compile Include="Madre.cs" />
+    <Compile Include="MadreLog.cs" />
     <Compile Include="Medico.cs" />
+    <Compile Include="MedicoLog.cs" />
     <Compile Include="Menor.cs" />
+    <Compile Include="MenorLog.cs" />
     <Compile Include="MetaData.cs" />
     <Compile Include="OpcionBusqueda.cs" />
     <Compile Include="Pago.cs" />
+    <Compile Include="PermissionLog.cs" />
     <Compile Include="Recepcion.cs" />
+    <Compile Include="RecepcionLog.cs" />
     <Compile Include="Required.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="SolicitudPago.cs" />
@@ -66,6 +77,8 @@
     <Compile Include="TipoSalidaMadre.cs" />
     <Compile Include="TipoSalidaMenor.cs" />
     <Compile Include="Tutor.cs" />
+    <Compile Include="TutorLog.cs" />
+    <Compile Include="UserLog.cs" />
     <Compile Include="UserStatus.cs" />
     <Compile Include="Permission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

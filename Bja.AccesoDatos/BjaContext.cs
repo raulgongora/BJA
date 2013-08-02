@@ -29,6 +29,8 @@ namespace Bja.AccesoDatos
         public DbSet<SolicitudPago> SolicitudesPago { get; set; }
         public DbSet<Pago> Pagos { get; set; }
 
+        public DbSet<MadreLog> MadresLog { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PermissionConfiguration());
@@ -47,6 +49,9 @@ namespace Bja.AccesoDatos
             modelBuilder.Configurations.Add(new ControlMenorConfiguration());
             modelBuilder.Configurations.Add(new EnvioConfiguration());
             modelBuilder.Configurations.Add(new RecepcionConfiguration());
+            modelBuilder.Configurations.Add(new PagoConfiguration());
+
+            modelBuilder.Configurations.Add(new MadreLogConfiguration());
         }
     }
 }

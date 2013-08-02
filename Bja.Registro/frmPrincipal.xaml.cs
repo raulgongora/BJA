@@ -35,6 +35,11 @@ namespace Bja.Registro
 
     private void cmdMadres_Click(object sender, RoutedEventArgs e)
     {
+        //var madre = new Madre { Id = 100, Nombres = "Nombre madre", PrimerApellido = "primer apellido", SegundoApellido = "Segundo apellido", IdSesion = 123, FechaRegistro = DateTime.Now,DocumentoIdentidad = "aderf", TipoDocumentoIdentidad = TipoDocumentoIdentidad.CarnetIdentidad, FechaNacimiento = DateTime.Now, IdLocalidadNacimiento =  "lp", Defuncion = false, FechaUltimaTransaccion = DateTime.Now };
+        //Logger.log(madre);
+
+
+
       this.Cursor = Cursors.Wait;
       frmMadres objMadresWindow = new frmMadres();
       objMadresWindow.Owner = this;

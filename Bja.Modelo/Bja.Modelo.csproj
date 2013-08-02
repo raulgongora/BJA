@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="IdentifierGenerator.cs" />
     <Compile Include="InitializationBD.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="ModeloMadre.cs" />
     <Compile Include="ModeloMedico.cs" />
     <Compile Include="ModeloMenor.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rbac.cs" />
     <Compile Include="SessionManager.cs" />
+    <Compile Include="SoporteObjetos.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bja.Entidades\Bja.Entidades.csproj">
