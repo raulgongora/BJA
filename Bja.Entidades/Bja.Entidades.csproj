@@ -52,11 +52,12 @@
     <Compile Include="Medico.cs" />
     <Compile Include="Menor.cs" />
     <Compile Include="MetaData.cs" />
-    <Compile Include="OpcionBusqueda.cs" />
     <Compile Include="Pago.cs" />
+    <Compile Include="Parentesco.cs" />
     <Compile Include="Recepcion.cs" />
     <Compile Include="Required.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="Sexo.cs" />
     <Compile Include="SolicitudPago.cs" />
     <Compile Include="TipoControlMadre.cs" />
     <Compile Include="TipoDocumentoIdentidad.cs" />

@@ -8,6 +8,7 @@ namespace Bja.Entidades
 {
   public enum Lugar
   {
+    NoEspecificado = 0,
     Chu,
     Lpz,
     Cba,
