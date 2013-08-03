@@ -39,6 +39,30 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Create()
         {
+            //var listaEnumerador = new List<SelectListItem>();            
+
+            //var tipoEnumerador = typeof(TipoDocumentoIdentidad);
+            //String[] nombres = Enum.GetNames(tipoEnumerador);
+            //foreach (var item in nombres)
+            //{
+            //    SelectListItem itemEnumerador = new SelectListItem();
+
+            //    var idEnum = Enum.Parse(tipoEnumerador, item);
+
+            //    itemEnumerador.Value = ((Int32)idEnum).ToString();
+            //    itemEnumerador.Text = item;
+
+            //    listaEnumerador.Add(itemEnumerador);
+            //}
+
+            //ViewBag.cboTipoDocumentoIdentidad = listaEnumerador;
+
+
+            //ViewBag.cboTipoDocumentoIdentidad = (from TipoDocumentoIdentidad e in Enum.GetValues(typeof(TipoDocumentoIdentidad))
+            //                                     select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() });
+
+            ViewBag.cboTipoDI = (from TipoDocumentoIdentidad e in Enum.GetValues(typeof(TipoDocumentoIdentidad))
+                                 select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() });
             return View();
         }
 
@@ -48,6 +72,14 @@ namespace Bja.Central.Web.Controllers
         [HttpPost]
         public ActionResult Create(Medico medico)
         {
+            //var sss = form["cboTipoDocumentoIdentidad"];
+
+            //FormCollection
+
+            //string myTextBox = Form["textbox"];
+
+
+
             if (ModelState.IsValid)
             {
                 modMedico.Crear(medico);

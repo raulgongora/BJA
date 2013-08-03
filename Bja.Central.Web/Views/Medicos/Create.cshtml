@@ -5,6 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section PageScripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cboTipoDI").change(function () {  
+            //alert("cambio " + $('#cboTipoDI').val());
+            $('#IdTipoDocumentoIdentidad').val($('#cboTipoDI').val());
+        })
+        //$("p").click(function () {
+        //    $(this).slideUp();
+        //}); 
+    });
+</script>    
+}
+
 <h2>Create</h2>
 
 @using (Html.BeginForm()) {
@@ -81,7 +95,15 @@
             @Html.LabelFor(model => model.IdTipoDocumentoIdentidad)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.IdTipoDocumentoIdentidad)
+            @Html.DropDownList("cboTipoDI","--Seleccione tipo de documento--")
+            @*@Html.DropDownListFor(model => model.IdTipoDocumentoIdentidad, "cboTipoDocumentoIdentidad", null, null, "")*@
+            @*@Html.EditorFor(model => model.IdTipoDocumentoIdentidad, new { @class = "message-error" })*@
+            @Html.EditorFor(model => model.IdTipoDocumentoIdentidad, null, "algunaClass", null)
+            
+            @*@Html.TextBox("hola", 50)
+            @Html.TextBox("hola", "", new { style="width:50px" })
+            
+            @Html.EditorFor(model => model.IdTipoDocumentoIdentidad, new {style="width: 25px;" })*@
             @Html.ValidationMessageFor(model => model.IdTipoDocumentoIdentidad)
         </div>
 
@@ -131,6 +153,7 @@
     </fieldset>
 }
 
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
@@ -138,3 +161,9 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<p>First Paragraph</p>
+<p>Second Paragraph</p>
+<p>Yet one more Paragraph</p>
+
+
