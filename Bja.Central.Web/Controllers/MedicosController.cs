@@ -18,6 +18,7 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.TiposDI = TipoDocumentoIdentidad.GetNames(typeof(TipoDocumentoIdentidad));
             return View(modMedico.Listar());
         }
 
