@@ -13,6 +13,10 @@ namespace Bja.Entidades
 
     public class MedicoMetaData
     {
+        [Display(Name = "Fecha de Registro")]
+        [StringLength(10)]
+        public DateTime FechaRegistro { get; set; }
+
         [Required]
         [StringLength(50)]
         public String Nombres { get; set; }
@@ -33,6 +37,10 @@ namespace Bja.Entidades
         [Required]
         [StringLength(15)]
         public String DocumentoIdentidad { get; set; }
+
+        [Display(Name = "Tipo de Documento de Identidad")]
+        [Required]
+        public long IdTipoDocumentoIdentidad { get; set; }
 
         [Display(Name = "Fecha de Nacimiento")]
         [DataType(DataType.DateTime)]

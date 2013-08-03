@@ -6,20 +6,23 @@
 }
 
 @section PageScripts{
+<script src="/Content/themes/base/jquery.ui.datepicker-es.js"></script>
+<script src="/Scripts/jquery-ui-1.8.20.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#cboTipoDI").change(function () {  
-            //alert("cambio " + $('#cboTipoDI').val());
             $('#IdTipoDocumentoIdentidad').val($('#cboTipoDI').val());
         })
-        //$("p").click(function () {
-        //    $(this).slideUp();
-        //}); 
+
+        $(function () {
+            //$("#FechaRegistro").datepicker();
+            $("#FechaRegistro").datepicker($.datepicker.regional["es"]);
+        });
     });
 </script>    
 }
 
-<h2>Create</h2>
+<h2>Registro de Médico</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -27,11 +30,11 @@
     <fieldset>
         <legend>Medico</legend>
 
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.IdSesion)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.IdSesion)
+            @Html.TextBoxFor(model => model.IdSesion)
             @Html.ValidationMessageFor(model => model.IdSesion)
         </div>
 
@@ -39,15 +42,15 @@
             @Html.LabelFor(model => model.FechaUltimaTransaccion)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.FechaUltimaTransaccion)
+            @Html.TextBoxFor(model => model.FechaUltimaTransaccion)
             @Html.ValidationMessageFor(model => model.FechaUltimaTransaccion)
-        </div>
+        </div>*@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.FechaRegistro)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.FechaRegistro)
+            @Html.TextBoxFor(model => model.FechaRegistro, new {style="width:120px;", @readonly = "readonly", maxlength=10})
             @Html.ValidationMessageFor(model => model.FechaRegistro)
         </div>
 
@@ -55,7 +58,7 @@
             @Html.LabelFor(model => model.Nombres)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Nombres)
+            @Html.TextBoxFor(model => model.Nombres)
             @Html.ValidationMessageFor(model => model.Nombres)
         </div>
 
@@ -63,7 +66,7 @@
             @Html.LabelFor(model => model.PrimerApellido)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.PrimerApellido)
+            @Html.TextBoxFor(model => model.PrimerApellido)
             @Html.ValidationMessageFor(model => model.PrimerApellido)
         </div>
 
@@ -71,7 +74,7 @@
             @Html.LabelFor(model => model.SegundoApellido)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.SegundoApellido)
+            @Html.TextBoxFor(model => model.SegundoApellido)
             @Html.ValidationMessageFor(model => model.SegundoApellido)
         </div>
 
@@ -79,7 +82,7 @@
             @Html.LabelFor(model => model.TercerApellido)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TercerApellido)
+            @Html.TextBoxFor(model => model.TercerApellido)
             @Html.ValidationMessageFor(model => model.TercerApellido)
         </div>
 
@@ -87,7 +90,7 @@
             @Html.LabelFor(model => model.DocumentoIdentidad)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.DocumentoIdentidad)
+            @Html.TextBoxFor(model => model.DocumentoIdentidad, new {style="width: 150px;" })
             @Html.ValidationMessageFor(model => model.DocumentoIdentidad)
         </div>
 
@@ -95,15 +98,13 @@
             @Html.LabelFor(model => model.IdTipoDocumentoIdentidad)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("cboTipoDI","--Seleccione tipo de documento--")
-            @*@Html.DropDownListFor(model => model.IdTipoDocumentoIdentidad, "cboTipoDocumentoIdentidad", null, null, "")*@
-            @*@Html.EditorFor(model => model.IdTipoDocumentoIdentidad, new { @class = "message-error" })*@
-            @Html.EditorFor(model => model.IdTipoDocumentoIdentidad, null, "algunaClass", null)
+            @*@Html.DropDownList("cboTipoDI","--Seleccione tipo de documento--")*@
+            @Html.DropDownList("cboTipoDI", null, new{style="width:180px; height:25px"})
+
             
-            @*@Html.TextBox("hola", 50)
-            @Html.TextBox("hola", "", new { style="width:50px" })
-            
-            @Html.EditorFor(model => model.IdTipoDocumentoIdentidad, new {style="width: 25px;" })*@
+
+
+            @Html.TextBoxFor(model => model.IdTipoDocumentoIdentidad, new {style="width: 1px;visibility:hidden" })
             @Html.ValidationMessageFor(model => model.IdTipoDocumentoIdentidad)
         </div>
 
@@ -111,7 +112,7 @@
             @Html.LabelFor(model => model.FechaNacimiento)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.FechaNacimiento)
+            @Html.TextBoxFor(model => model.FechaNacimiento, new { style="width: 120px;"})
             @Html.ValidationMessageFor(model => model.FechaNacimiento)
         </div>
 
@@ -119,7 +120,7 @@
             @Html.LabelFor(model => model.IdLocalidadNacimiento)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.IdLocalidadNacimiento)
+            @Html.TextBoxFor(model => model.IdLocalidadNacimiento)
             @Html.ValidationMessageFor(model => model.IdLocalidadNacimiento)
         </div>
 
@@ -127,7 +128,7 @@
             @Html.LabelFor(model => model.MatriculaColegioMedico)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.MatriculaColegioMedico)
+            @Html.TextBoxFor(model => model.MatriculaColegioMedico)
             @Html.ValidationMessageFor(model => model.MatriculaColegioMedico)
         </div>
 
@@ -135,7 +136,7 @@
             @Html.LabelFor(model => model.CorreoElectronico)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.CorreoElectronico)
+            @Html.TextBoxFor(model => model.CorreoElectronico)
             @Html.ValidationMessageFor(model => model.CorreoElectronico)
         </div>
 
@@ -143,27 +144,21 @@
             @Html.LabelFor(model => model.Observaciones)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Observaciones)
+            @Html.TextAreaFor(model => model.Observaciones)
             @Html.ValidationMessageFor(model => model.Observaciones)
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Guardar" />
         </p>
     </fieldset>
 }
 
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retornar al listado", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-<p>First Paragraph</p>
-<p>Second Paragraph</p>
-<p>Yet one more Paragraph</p>
-
-
