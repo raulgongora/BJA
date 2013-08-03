@@ -11,6 +11,7 @@
         @Styles.Render("~/Content/themes/base/css")
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryui") 
+        @RenderSection("PageCSS",false)
     </head>
     <body>
         <header>
@@ -48,7 +49,6 @@
 
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
-
         @RenderSection("PageScripts",false)
     </body>
 </html>

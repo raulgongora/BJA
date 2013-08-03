@@ -5,6 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section PageCSS{
+    <style type="text/css">
+        #cboTipoDI { 
+            height:25px;
+        }
+    </style>
+}
+
 @section PageScripts{
 <script src="/Scripts/jquery-ui-1.8.20.js"></script>
 <script src="/Scripts/jquery.ui.datepicker-es.js"></script>
@@ -104,8 +112,9 @@
         </div>
         <div class="editor-field">
             @*@Html.DropDownList("cboTipoDI","--Seleccione tipo de documento--")*@
-            @Html.DropDownList("cboTipoDI", null, new{style="width:180px; height:25px"})
-            @Html.TextBoxFor(model => model.IdTipoDocumentoIdentidad, new {style="width: 1px;visibility:hidden" })
+            @*@Html.DropDownList("cboTipoDI", null, new{style="width:180px; height:25px"})*@
+            @Html.DropDownList("cboTipoDI", "--Seleccione tipo de documento--")
+            @Html.TextBoxFor(model => model.IdTipoDocumentoIdentidad, new {style="width: 1px; visibility:hidden" })
             @Html.ValidationMessageFor(model => model.IdTipoDocumentoIdentidad)
         </div>
 

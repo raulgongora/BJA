@@ -14,7 +14,8 @@ namespace Bja.Entidades
     public class MedicoMetaData
     {
         [Display(Name = "Fecha de Registro")]
-        [StringLength(10)]
+        [DataType(DataType.DateTime)]    
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime FechaRegistro { get; set; }
 
         [Required]
