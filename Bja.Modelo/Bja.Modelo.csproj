@@ -49,6 +49,7 @@
     <Compile Include="ModeloMadre.cs" />
     <Compile Include="ModeloMedico.cs" />
     <Compile Include="ModeloMenor.cs" />
+    <Compile Include="ModeloReclamo.cs" />
     <Compile Include="ModeloTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rbac.cs" />

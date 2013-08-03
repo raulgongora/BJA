@@ -55,6 +55,7 @@
     <Compile Include="Pago.cs" />
     <Compile Include="Parentesco.cs" />
     <Compile Include="Recepcion.cs" />
+    <Compile Include="Reclamo.cs" />
     <Compile Include="Required.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="Sexo.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="TipoEstadoPago.cs" />
     <Compile Include="TipoEstadoRegistro.cs" />
     <Compile Include="TipoInscripcion.cs" />
+    <Compile Include="TipoReclamo.cs" />
     <Compile Include="TipoSalidaMadre.cs" />
     <Compile Include="TipoSalidaMenor.cs" />
     <Compile Include="Tutor.cs" />

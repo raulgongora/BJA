@@ -49,6 +49,6 @@ namespace Bja.Modelo
             Medico medico = this.Buscar(id);
             db.Medicos.Remove(medico);
             db.SaveChanges();
-        }    
+        }
     }
 }

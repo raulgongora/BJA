@@ -28,6 +28,7 @@ namespace Bja.AccesoDatos
         public DbSet<Recepcion> Recepciones { get; set; }
         public DbSet<SolicitudPago> SolicitudesPago { get; set; }
         public DbSet<Pago> Pagos { get; set; }
+        public DbSet<Reclamo> Reclamos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

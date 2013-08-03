@@ -14,7 +14,7 @@ namespace Bja.Entidades
     public class MedicoMetaData
     {
         [Display(Name = "Fecha de Registro")]
-        [DataType(DataType.DateTime)]    
+        [DataType(DataType.DateTime)]
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime FechaRegistro { get; set; }
 
@@ -59,5 +59,26 @@ namespace Bja.Entidades
         [Display(Name = "Email")]
         [EmailAddress]
         public String CorreoElectronico { get; set; }
+    }
+
+    public class ReclamoMetaData
+    {
+        [Display(Name = "Fecha")]
+        [DataType(DataType.DateTime)]
+        public DateTime FechaReclamo { get; set; }
+
+        [Display(Name = "Tipo de reclamo")]
+        [Required]
+        public long IdTipoReclamo { get; set; }
+
+        [Display(Name = "Nombre")]
+        [StringLength(50)]
+        [Required]
+        public String NombreBeneficiario { get; set; }
+
+        [Display(Name = "Detalle del reclamo")]
+        [StringLength(250)]
+        [Required]
+        public String DetalleReclamo { get; set; }
     }
 }

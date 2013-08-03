@@ -1,0 +1,68 @@
+﻿@model Bja.Entidades.Reclamo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Reclamo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdSesion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdSesion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaUltimaTransaccion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaUltimaTransaccion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaRegistro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaRegistro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaReclamo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaReclamo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdTipoReclamo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdTipoReclamo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NombreBeneficiario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NombreBeneficiario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DetalleReclamo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DetalleReclamo)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
