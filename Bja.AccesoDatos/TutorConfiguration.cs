@@ -27,7 +27,7 @@ namespace Bja.AccesoDatos
             Property(t => t.FechaNacimiento).IsRequired();
             Property(t => t.IdLocalidadNacimiento).IsRequired();
             Property(t => t.Defuncion).IsRequired();
-            Property(t => t.Sexo).IsRequired();
+            Property(t => t.Sexo).HasMaxLength(1).IsRequired();
             Property(t => t.Observaciones).HasMaxLength(1024);
         }
     }

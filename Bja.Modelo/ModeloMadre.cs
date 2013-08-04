@@ -39,6 +39,7 @@ namespace Bja.Modelo
           _madre.FechaUltimaTransaccion = DateTime.Now;
           _madre.FechaRegistro = DateTime.Now;
           _madre.EstadoRegistro = TipoEstadoRegistro.Vigente;
+
           _madre.Nombres = madre.Nombres;
           _madre.PrimerApellido = madre.PrimerApellido;
           _madre.SegundoApellido = madre.SegundoApellido;
@@ -55,16 +56,16 @@ namespace Bja.Modelo
 
       public void Eliminar(int Id)
       {
-          Madre _madre = null;
+          Madre madre = null;
 
-          _madre = (from m in context.Madres 
+          madre = (from m in context.Madres 
                     where m.Id == Id
                     select m).FirstOrDefault();
 
-          _madre.IdSesion = SessionManager.getCurrentSession().Id;
-          _madre.FechaUltimaTransaccion = DateTime.Now;
-          _madre.FechaRegistro = DateTime.Now;
-          _madre.EstadoRegistro = TipoEstadoRegistro.BorradoLogico;
+          madre.IdSesion = SessionManager.getCurrentSession().Id;
+          madre.FechaUltimaTransaccion = DateTime.Now;
+          madre.FechaRegistro = DateTime.Now;
+          madre.EstadoRegistro = TipoEstadoRegistro.BorradoLogico;
 
           context.SaveChanges();
       }

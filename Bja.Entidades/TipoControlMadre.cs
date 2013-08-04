@@ -10,6 +10,6 @@ namespace Bja.Entidades
     {
         Control,
         Parto,
-        Posparto
+        PosParto
     }
 }
