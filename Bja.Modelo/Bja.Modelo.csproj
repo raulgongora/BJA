@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="IdentifierGenerator.cs" />
     <Compile Include="InitializationBD.cs" />
+    <Compile Include="ModeloEncargado.cs" />
     <Compile Include="ModeloMadre.cs" />
     <Compile Include="ModeloMedico.cs" />
     <Compile Include="ModeloMenor.cs" />

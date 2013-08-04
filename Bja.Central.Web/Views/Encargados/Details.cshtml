@@ -1,0 +1,99 @@
+﻿@model Bja.Entidades.Encargado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>Encargado</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdTipoEncargado)
+    </div>
+    <div class="display-field">
+        @ViewBag.TipoEncargado
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombres)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombres)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PrimerApellido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrimerApellido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SegundoApellido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SegundoApellido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TercerApellido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TercerApellido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DocumentoIdentidad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DocumentoIdentidad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdTipoDocumentoIdentidad)
+    </div>
+    <div class="display-field">
+        @ViewBag.TipoDI
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaNacimiento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaNacimiento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sexo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sexo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdLocalidadNacimiento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdLocalidadNacimiento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Observaciones)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Observaciones)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdTipoEstadoRegistro)
+    </div>
+    <div class="display-field">
+        @ViewBag.TipoEstadoRegistro
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Retornar al listado", "Index")
+</p>

@@ -96,7 +96,7 @@
             @Html.LabelFor(model => model.DetalleReclamo)
         </div>
         <div class="editor-field">
-            @Html.TextAreaFor(model => model.DetalleReclamo)
+            @Html.TextAreaFor(model => model.DetalleReclamo, new {rows=6})
             @Html.ValidationMessageFor(model => model.DetalleReclamo)
         </div>
 

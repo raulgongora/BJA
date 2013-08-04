@@ -1,0 +1,169 @@
+﻿@model Bja.Entidades.Encargado
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PageCSS{
+    <style type="text/css">
+        #cboTipoDI, #cboTipoEncargado { 
+            height:25px;
+        }
+
+        #Sexo { 
+            background-color : transparent;
+            width : auto;
+        }
+        
+    </style>
+}
+
+@section PageScripts{
+<script src="/Scripts/jquery-ui-1.8.20.js"></script>
+<script src="/Scripts/jquery.ui.datepicker-es.js"></script>
+<script src="/Scripts/jquery.maskedinput.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cboTipoEncargado").change(function () {
+            $('#IdTipoEncargado').val($('#cboTipoEncargado').val());
+        })
+
+        $("#cboTipoDI").change(function () {  
+            $('#IdTipoDocumentoIdentidad').val($('#cboTipoDI').val());
+        })
+
+        jQuery(function ($) {
+            $("#FechaNacimiento").mask("99/99/9999");
+        });
+    });
+</script>    
+}
+
+
+<h2>Registrar Encargado</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Encargado</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdTipoEncargado)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("cboTipoEncargado", "--Seleccione tipo encargado--")
+            @Html.TextBoxFor(model => model.IdTipoEncargado, new {style="width: 1px; visibility:hidden" })
+            @Html.ValidationMessageFor(model => model.IdTipoEncargado)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nombres)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Nombres)
+            @Html.ValidationMessageFor(model => model.Nombres)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimerApellido)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.PrimerApellido)
+            @Html.ValidationMessageFor(model => model.PrimerApellido)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SegundoApellido)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.SegundoApellido)
+            @Html.ValidationMessageFor(model => model.SegundoApellido)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TercerApellido)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.TercerApellido)
+            @Html.ValidationMessageFor(model => model.TercerApellido)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DocumentoIdentidad)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.DocumentoIdentidad, new {style="width: 150px;" })
+            @Html.ValidationMessageFor(model => model.DocumentoIdentidad)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdTipoDocumentoIdentidad)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("cboTipoDI", "--Seleccione tipo de documento--")
+            @Html.TextBoxFor(model => model.IdTipoDocumentoIdentidad, new {style="width: 1px; visibility:hidden" })
+            @Html.ValidationMessageFor(model => model.IdTipoDocumentoIdentidad)
+            @*@Html.ListBox("cboTipoDI")*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaNacimiento)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FechaNacimiento, new { style="width: 120px;"}) (dd/mm/aaaa)
+            @Html.ValidationMessageFor(model => model.FechaNacimiento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sexo)
+        </div>
+        <div class="editor-field">
+            @*@Html.TextBoxFor(model => model.Sexo)*@
+            @Html.RadioButtonFor(model =>model.Sexo,"M",false) Masculino
+            @Html.RadioButtonFor(model =>model.Sexo,"F",false) Femenino
+            @Html.ValidationMessageFor(model => model.Sexo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdLocalidadNacimiento)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.IdLocalidadNacimiento)
+            @Html.ValidationMessageFor(model => model.IdLocalidadNacimiento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Observaciones)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Observaciones)
+            @Html.ValidationMessageFor(model => model.Observaciones)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdTipoEstadoRegistro)
+        </div>
+
+        @*<div class="editor-field">
+            @Html.TextBoxFor(model => model.IdTipoEstadoRegistro)
+
+            @Html.RadioButtonFor(model =>model.IdTipoEstadoRegistro, 0, false) Vigente
+            @Html.RadioButtonFor(model =>model.IdTipoEstadoRegistro, 1, false) Borrado Lógico
+            @Html.ValidationMessageFor(model => model.IdTipoEstadoRegistro)
+        </div>*@
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Retornar al listado", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
