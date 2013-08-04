@@ -48,10 +48,12 @@
             @Html.DisplayFor(modelItem => item.FechaRegistro)
         </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.FechaReclamo)
+            @*@Html.DisplayFor(modelItem => item.FechaReclamo)*@
+            @item.FechaReclamo.ToString("dd/MM/yyyy")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IdTipoReclamo)
+            @*@Html.DisplayFor(modelItem => item.IdTipoReclamo)*@
+            @ViewBag.TiposReclamos[item.IdTipoReclamo]
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NombreBeneficiario)

@@ -19,6 +19,7 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.TiposReclamos = TipoReclamo.GetNames(typeof(TipoReclamo));
             return View(modReclamo.Listar());
         }
 
@@ -32,6 +33,7 @@ namespace Bja.Central.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.TipoReclamo = TipoReclamo.GetNames(typeof(TipoReclamo))[reclamo.IdTipoReclamo];
             return View(reclamo);
         }
 
@@ -40,6 +42,8 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.cboTipoReclamo = (from TipoReclamo e in Enum.GetValues(typeof(TipoReclamo))
+                                      select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() });
             return View();
         }
 
@@ -71,6 +75,8 @@ namespace Bja.Central.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.cboTipoReclamo = (from TipoReclamo e in Enum.GetValues(typeof(TipoReclamo))
+                                      select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() });
             return View(reclamo);
         }
 
@@ -102,6 +108,7 @@ namespace Bja.Central.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.TipoReclamo = TipoReclamo.GetNames(typeof(TipoReclamo))[reclamo.IdTipoReclamo];
             return View(reclamo);
         }
 
