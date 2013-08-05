@@ -26,7 +26,7 @@ namespace Bja.Modelo
         context.SaveChanges();
     }
 
-    public void Editar(int Id, Tutor tutor)
+    public void Editar(long Id, Tutor tutor)
     {
         Tutor _tutor = null;
 
@@ -50,11 +50,12 @@ namespace Bja.Modelo
         _tutor.Defuncion = tutor.Defuncion;
         _tutor.Observaciones = tutor.Observaciones;
         _tutor.Sexo = tutor.Sexo;
+        _tutor.Direccion = tutor.Direccion;
 
         context.SaveChanges();
     }
 
-    public void Eliminar(int Id)
+    public void Eliminar(long Id)
     {
         Tutor _tutor = null;
 

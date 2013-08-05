@@ -37,9 +37,6 @@ namespace Bja.Registro
             {
                 this.cboTipoDocIde.SelectedIndex = 0;
                 this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
-                string[] Cadena = new string[] { "<No Especificado>" };
-                cboTutor.ItemsSource = Cadena;
-                cboTutor.SelectedIndex = 0;
             }
         }
 
@@ -51,7 +48,6 @@ namespace Bja.Registro
 
             madre.DocumentoIdentidad = txtDocIde.Text;
             madre.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
-            //madre.TipoDocumentoIdentidad = (TipoDocumentoIdentidad)cboTipoDocIde.SelectedValue;
             madre.PrimerApellido = txtPaterno.Text;
             madre.SegundoApellido = txtMaterno.Text;
             madre.TercerApellido =txtConyuge.Text;
@@ -60,6 +56,7 @@ namespace Bja.Registro
             madre.IdLocalidadNacimiento = txtLugarNacimiento.Text;
             madre.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
             madre.Observaciones = txtObservaciones.Text;
+            madre.Direccion = txtDireccion.Text;
 
             modelomadre.Crear(madre);
 
@@ -69,69 +66,6 @@ namespace Bja.Registro
         private void cmdCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void cmdTutor_Click(object sender, RoutedEventArgs e)
-        {
-            this.Cursor = Cursors.Wait;
-            WindowListaRegistros formularioListaTutores = new WindowListaRegistros();
-
-            formularioListaTutores.NuevoRegistro += formularioListaTutores_NuevoRegistro;
-            formularioListaTutores.MostrarDetallesRegistro += formularioListaTutores_MostrarDetallesRegistro;
-            formularioListaTutores.ModificarRegistro += formularioListaTutores_ModificarRegistro;
-            formularioListaTutores.BorrarRegistro += formularioListaTutores_BorrarRegistro;
-            formularioListaTutores.SeleccionarRegistro += formularioListaTutores_SeleccionarRegistro;
-
-            ModeloTutor modelotutor = new ModeloTutor();
-
-            formularioListaTutores.proveedorDatos = modelotutor;
-            formularioListaTutores.titulo = "Tutores";
-            formularioListaTutores.ShowDialog();
-            this.Cursor = Cursors.Arrow;
-        }
-
-        void formularioListaTutores_NuevoRegistro(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.Wait;
-            frmTutor objTutorWindow = new frmTutor();
-            objTutorWindow.Owner = this;
-            objTutorWindow.ShowDialog();
-            objTutorWindow = null;
-            this.Cursor = Cursors.Arrow;
-        }
-
-        void formularioListaTutores_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
-        {
-            this.Cursor = Cursors.Wait;
-            frmTutor objTutorWindow = new frmTutor();
-            objTutorWindow.IdSeleccionado = fe.id;
-            objTutorWindow.Owner = this;
-            objTutorWindow.ShowDialog();
-            objTutorWindow = null;
-            this.Cursor = Cursors.Arrow;
-        }
-
-        void formularioListaTutores_ModificarRegistro(object sender, IdentidadEventArgs fe)
-        {
-            this.Cursor = Cursors.Wait;
-            frmTutor objTutorWindow = new frmTutor();
-            objTutorWindow.IdSeleccionado = fe.id;
-            objTutorWindow.Owner = this;
-            objTutorWindow.ShowDialog();
-            objTutorWindow = null;
-            this.Cursor = Cursors.Arrow;
-        }
-
-        void formularioListaTutores_BorrarRegistro(object sender, IdentidadEventArgs fe)
-        {
-            //throw new NotImplementedException();
-            MessageBox.Show("Por Implementar.", "Mensaje");
-        }
-
-        void formularioListaTutores_SeleccionarRegistro(object sender, IdentidadEventArgs fe)
-        {
-            //throw new NotImplementedException();
-            MessageBox.Show("Por Implementar.", "Mensaje");
         }
 
     }

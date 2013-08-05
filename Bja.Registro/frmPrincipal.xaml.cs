@@ -238,5 +238,15 @@ namespace Bja.Registro
         this.Cursor = Cursors.Arrow;
     }
 
+    private void cmdCorrMenor_Click(object sender, RoutedEventArgs e)
+    {
+        this.Cursor = Cursors.Wait;
+        frmCorresponsabilidadMenor objCorresponsabilidadMenorWindow = new frmCorresponsabilidadMenor();
+        objCorresponsabilidadMenorWindow.Owner = this;
+        objCorresponsabilidadMenorWindow.ShowDialog();
+        objCorresponsabilidadMenorWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
   }
 }

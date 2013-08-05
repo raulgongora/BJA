@@ -30,6 +30,7 @@ namespace Bja.AccesoDatos
             Property(c => c.NumeroControl).IsRequired();
             Property(c => c.EstadoPago).IsRequired();
             Property(c => c.Observaciones).HasMaxLength(1024);
+            Property(c => c.TipoBenerficiario).IsRequired();
         }
     }
 }

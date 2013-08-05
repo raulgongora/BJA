@@ -13,7 +13,8 @@ namespace Bja.Entidades
         //no pueda salir
         AunEnProceso = 0,
         Cumplimiento,
-        Traslado,
-        Fallecimiento
+        Transferencia,
+        Fallecimiento,
+        Incumplimiento
     }
 }

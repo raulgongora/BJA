@@ -27,7 +27,7 @@ namespace Bja.Modelo
           context.SaveChanges();
       }
 
-      public void Editar(int Id, Madre madre)
+      public void Editar(long Id, Madre madre)
       {
           Madre _madre = null;
 
@@ -50,11 +50,12 @@ namespace Bja.Modelo
           _madre.IdLocalidadNacimiento = madre.IdLocalidadNacimiento;
           _madre.Defuncion = madre.Defuncion;
           _madre.Observaciones = madre.Observaciones;
+          _madre.Direccion = madre.Direccion;
 
           context.SaveChanges();
       }
 
-      public void Eliminar(int Id)
+      public void Eliminar(long Id)
       {
           Madre madre = null;
 

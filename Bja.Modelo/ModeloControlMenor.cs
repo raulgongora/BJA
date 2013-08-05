@@ -48,6 +48,7 @@ namespace Bja.Modelo
             _controlmenor.NumeroControl = controlmenor.NumeroControl;
             _controlmenor.Observaciones = controlmenor.Observaciones;
             _controlmenor.EstadoPago = controlmenor.EstadoPago;
+            _controlmenor.TipoBenerficiario = controlmenor.TipoBenerficiario;
 
             context.SaveChanges();
         }

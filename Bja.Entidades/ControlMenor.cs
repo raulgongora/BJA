@@ -15,6 +15,7 @@ namespace Bja.Entidades
         public TipoEstadoRegistro EstadoRegistro { get; set; }
 
         public long IdCorresponsabilidadMenor { get; set; }
+        public CorresponsabilidadMenor CorresponsabilidadMenor { get; set; }
         public long IdMedico { get; set; }
         public Medico Medico { get; set; }
         public long IdTutor { get; set; }
@@ -25,6 +26,7 @@ namespace Bja.Entidades
         public float PesoKg { get; set; }
         public int NumeroControl { get; set; }
         public String Observaciones { get; set; }
-        public TipoEstadoPago EstadoPago { get; set; } 
+        public TipoEstadoPago EstadoPago { get; set; }
+        public TipoBenerficiario TipoBenerficiario { get; set; }
     }
 }

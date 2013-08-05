@@ -11,7 +11,7 @@ namespace Bja.Entidades
         //Por que hay que agregar una opción en la aplicación
         //por que puede suceder de que al usuario selecciones una opción de la que
         //no pueda salir
-        AunEnProceso = 0, 
+        AunEnProceso = 0,
         Cumplimiento,
         Transferencia,
         Aborto,

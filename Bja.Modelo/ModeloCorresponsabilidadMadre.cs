@@ -42,9 +42,9 @@ namespace Bja.Modelo
           _corresponsabilidadmadre.TipoInscripcionMadre = corresponsabilidadmadre.TipoInscripcionMadre;
           _corresponsabilidadmadre.FechaInscripcion = corresponsabilidadmadre.FechaInscripcion;
           _corresponsabilidadmadre.IdMadre = corresponsabilidadmadre.IdMadre;
-          _corresponsabilidadmadre.DireccionMadre = corresponsabilidadmadre.DireccionMadre;
+          //_corresponsabilidadmadre.DireccionMadre = corresponsabilidadmadre.DireccionMadre;
           _corresponsabilidadmadre.IdTutor = corresponsabilidadmadre.IdTutor;
-          _corresponsabilidadmadre.DireccionTutor = corresponsabilidadmadre.DireccionTutor;
+          //_corresponsabilidadmadre.DireccionTutor = corresponsabilidadmadre.DireccionTutor;
           _corresponsabilidadmadre.CodigoFormulario = corresponsabilidadmadre.CodigoFormulario;
           _corresponsabilidadmadre.FechaUltimaMenstruacion = corresponsabilidadmadre.FechaUltimaMenstruacion;
           _corresponsabilidadmadre.FechaUltimoParto = corresponsabilidadmadre.FechaUltimoParto;

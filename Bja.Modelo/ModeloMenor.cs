@@ -27,7 +27,7 @@ namespace Bja.Modelo
       context.SaveChanges();
     }
 
-    public void Editar(int Id, Menor menor)
+    public void Editar(long Id, Menor menor)
     {
       Menor _menor = null;
 
@@ -51,11 +51,12 @@ namespace Bja.Modelo
       _menor.Sexo = menor.Sexo;
       _menor.Defuncion = menor.Defuncion;
       _menor.Observaciones = menor.Observaciones;
+      _menor.Direccion = menor.Direccion;
 
       context.SaveChanges();
     }
 
-    public void Eliminar(int Id)
+    public void Eliminar(long Id)
     {
         Menor menor = null;
 

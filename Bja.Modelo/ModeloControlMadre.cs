@@ -49,6 +49,7 @@ namespace Bja.Modelo
             _controlmadre.NumeroControl = controlmadre.NumeroControl;
             _controlmadre.Observaciones = controlmadre.Observaciones;
             _controlmadre.EstadoPago = controlmadre.EstadoPago;
+            _controlmadre.TipoBenerficiario = controlmadre.TipoBenerficiario;
 
             context.SaveChanges();
         }
