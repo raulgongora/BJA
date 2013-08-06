@@ -10,6 +10,11 @@ namespace Bja.AccesoDatos
 {
     public class BjaContext : DbContext
     {
+        public BjaContext() : base()
+        {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
+        }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
