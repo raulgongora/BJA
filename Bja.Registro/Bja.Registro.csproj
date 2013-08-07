@@ -80,11 +80,11 @@
     <Compile Include="frmMadre.xaml.cs">
       <DependentUpon>frmMadre.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frmMadres.xaml.cs">
-      <DependentUpon>frmMadres.xaml</DependentUpon>
-    </Compile>
     <Compile Include="frmMenor.xaml.cs">
       <DependentUpon>frmMenor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassword.xaml.cs">
+      <DependentUpon>frmPassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.xaml.cs">
       <DependentUpon>frmPrincipal.xaml</DependentUpon>
@@ -118,11 +118,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="frmMadres.xaml">
+    <Page Include="frmMenor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="frmMenor.xaml">
+    <Page Include="frmPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

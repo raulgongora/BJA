@@ -16,127 +16,64 @@ using System.Windows.Shapes;
 
 namespace Bja.Registro
 {
-  /// <summary>
-  /// Lógica de interacción para frmMenor.xaml
-  /// </summary>
-  public partial class frmMenor : Window
-  {
-    private int IdSeleccionado { get; set; }
-
-    public frmMenor()
+    /// <summary>
+    /// Lógica de interacción para frmMenor.xaml
+    /// </summary>
+    public partial class frmMenor : Window
     {
-      this.Cursor = Cursors.Wait;
-      InitializeComponent();
-      this.Cursor = Cursors.Arrow;
-    }
+        public long IdSeleccionado { get; set; }
 
-    private void cmdCancelar_Click(object sender, RoutedEventArgs e)
-    {
-      this.Close();
-    }
-
-    private void Window_Loaded(object sender, RoutedEventArgs e)
-    {
-      SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
-      IdSeleccionado = 0;
-    }
-
-    private void cmdAceptar_Click(object sender, RoutedEventArgs e)
-    {   
-      Menor menor = new Menor();
-      var modelomenor = new ModeloMenor();
-      if (IdSeleccionado <= 0)
+        public frmMenor()
         {
-          menor.Nombres = txtNombres.Text;
-          menor.PrimerApellido = txtPaterno.Text;
-          menor.SegundoApellido = txtMaterno.Text;
-          menor.DocumentoIdentidad = txtDocIde.Text;
-          menor.IdTipoDocumentoIdentidad = 2;//(int)cboTipoDocIde.SelectedValue;
-          menor.FechaNacimiento = (DateTime)dtpFechNac.SelectedDate;
-          menor.IdLocalidadNacimiento = txtLugar.Text;
-          if (rdbFemenino.IsChecked.Value)
-            menor.Sexo = "F";
-          else if (rdbMasculino.IsChecked.Value)
-            menor.Sexo = "M";
-          else
-            menor.Sexo = "-";
-          modelomenor.AdicionMenor(menor, null);
+            this.Cursor = Cursors.Wait;
+            InitializeComponent();
+            this.Cursor = Cursors.Arrow;
         }
-      else
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-        menor.Nombres = txtNombres.Text;
-        menor.PrimerApellido = txtPaterno.Text;
-        menor.SegundoApellido = txtMaterno.Text;
-        menor.DocumentoIdentidad = txtDocIde.Text;
-        menor.IdTipoDocumentoIdentidad = 2; // (int)cboTipoDocIde.SelectedValue;
-        menor.FechaNacimiento = (DateTime)dtpFechNac.SelectedDate;
-        menor.IdLocalidadNacimiento = txtLugar.Text;
-        if (rdbFemenino.IsChecked.Value)
-          menor.Sexo = "F";
-        else if (rdbMasculino.IsChecked.Value)
-          menor.Sexo = "M";
-        else
-          menor.Sexo = "-";
-        modelomenor.ModificacionMenor(IdSeleccionado, menor, null);
+            SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
+            SoporteCombo.cargarEnumerador(cboExpedido, typeof(Lugar));
+            if (IdSeleccionado == 0)
+            {
+                this.cboTipoDocIde.SelectedIndex = 0;
+                this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
+                this.cboExpedido.SelectedIndex = 0;
+            }
         }
-      this.Close();
+
+        private void cmdAceptar_Click(object sender, RoutedEventArgs e)
+        {
+            ModeloMenor modelomenor = new ModeloMenor();
+
+            Menor menor = new Menor();
+
+            menor.DocumentoIdentidad = txtDocIde.Text;
+            menor.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
+            //menor.TipoDocumentoIdentidad = (TipoDocumentoIdentidad)cboTipoDocIde.SelectedValue;
+            menor.PrimerApellido = txtPaterno.Text;
+            menor.SegundoApellido = txtMaterno.Text;
+            menor.Nombres = txtNombres.Text;
+            menor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
+            menor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
+            menor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
+            menor.Observaciones = txtObservaciones.Text;
+            if ((long)cboTipoDocIde.SelectedValue == 1)
+                menor.Sexo = "F";
+            else if ((long)cboTipoDocIde.SelectedValue == 2)
+                menor.Sexo = "M";
+            else
+                menor.Sexo = "-";
+
+            modelomenor.Crear(menor);
+
+            this.Close();
+        }
+
+        private void cmdCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
-
-    /*
-     * rrsc 26/07/2013
-     * Por el momento, mientras se analiza como utilizarlo. 
-    */
-
-    //#region Lista Madre
-    //private void btnMadre_Click(object sender, RoutedEventArgs e)
-    //{
-    //  WindowListaRegistros ventanaListaMadres = new WindowListaRegistros();
-
-    //  ventanaListaMadres.NuevoRegistro += ventanaListaMadres_NuevoRegistro;
-    //  ventanaListaMadres.MostrarDetallesRegistro += ventanaListaMadres_MostrarDetallesRegistro;
-    //  ventanaListaMadres.ModificarRegistro += ventanaListaMadres_ModificarRegistro;
-    //  ventanaListaMadres.BorrarRegistro += ventanaListaMadres_BorrarRegistro;
-
-    //  ModeloMadre modelo = new ModeloMadre();
-
-    //  ventanaListaMadres.proveedorDatos = modelo;
-    //  ventanaListaMadres.titulo = "Lista de madres";
-    //  ventanaListaMadres.ShowDialog();
-    //}
-
-    //void ventanaListaMadres_ModificarRegistro(object sender, IdentidadEventArgs fe)
-    //{
-    //  /*
-    //   * Mostrar ventana de mantenimiento
-    //   WindowNuevoConvenioMantenimiento wcm = new WindowNuevoConvenioMantenimiento();
-    //  wcm.idConvenioMantenimiento = fe.id;
-    //  wcm.accionVentana = Perseve.Admedif.Entidades.EnumAccionVentana.Modificar;
-    //  wcm.ShowDialog();
-    //   * * 
-    //   */
-    //  throw new NotImplementedException();
-    //}
-
-    //void ventanaListaMadres_BorrarRegistro(object sender, IdentidadEventArgs fe)
-    //{
-    //  throw new NotImplementedException();
-    //}
-
-    //void ventanaListaMadres_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
-    //{
-    //  throw new NotImplementedException();
-    //}
-
-    //void ventanaListaMadres_NuevoRegistro(object sender, EventArgs e)
-    //{
-    //  throw new NotImplementedException();
-    //}
-    //#endregion
-
-    //private void Window_Closed_1(object sender, EventArgs e)
-    //{
-    //  SessionManager.endSession();
-    //}
-    
-  }
 }

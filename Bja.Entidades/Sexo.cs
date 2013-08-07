@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bja.Entidades
 {
-  public enum OpcionBusqueda
-  {
-    Identificacion,
-    Paterno,
-    Materno,
-    Nombres
-  }
+    public enum Sexo
+    {
+      NoEspecificado = 0,
+      Femenino,
+      Masculino
+    }
 }

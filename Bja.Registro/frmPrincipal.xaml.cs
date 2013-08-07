@@ -28,34 +28,215 @@ namespace Bja.Registro
       this.Cursor = Cursors.Arrow;
     }
 
+    private void Window_Closed(object sender, EventArgs e)
+    {
+        SessionManager.endSession();
+    }
+
     private void cmdSalir_Click(object sender, RoutedEventArgs e)
     {
-      this.Close();
+        SessionManager.endSession();
+        this.Close();
     }
 
-    private void cmdMadres_Click(object sender, RoutedEventArgs e)
+     private void cmdMadres_Click(object sender, RoutedEventArgs e)
     {
-        //var madre = new Madre { Id = 100, Nombres = "Nombre madre", PrimerApellido = "primer apellido", SegundoApellido = "Segundo apellido", IdSesion = 123, FechaRegistro = DateTime.Now,DocumentoIdentidad = "aderf", TipoDocumentoIdentidad = TipoDocumentoIdentidad.CarnetIdentidad, FechaNacimiento = DateTime.Now, IdLocalidadNacimiento =  "lp", Defuncion = false, FechaUltimaTransaccion = DateTime.Now };
-        //Logger.log(madre);
+        this.Cursor = Cursors.Wait;
+        WindowListaRegistros formularioListaMadres = new WindowListaRegistros();
 
+        formularioListaMadres.NuevoRegistro += formularioListaMadres_NuevoRegistro;
+        formularioListaMadres.MostrarDetallesRegistro += formularioListaMadres_MostrarDetallesRegistro;
+        formularioListaMadres.ModificarRegistro += formularioListaMadres_ModificarRegistro;
+        formularioListaMadres.BorrarRegistro += formularioListaMadres_BorrarRegistro;
+        //formularioListaMadres.SeleccionarRegistro += formularioListaMadres_SeleccionarRegistro;
 
+        ModeloMadre modelomadre = new ModeloMadre();
 
-      this.Cursor = Cursors.Wait;
-      frmMadres objMadresWindow = new frmMadres();
-      objMadresWindow.Owner = this;
-      objMadresWindow.ShowDialog();
-      objMadresWindow = null;
-      this.Cursor = Cursors.Arrow;
+        formularioListaMadres.proveedorDatos = modelomadre;
+        formularioListaMadres.titulo = "Madres";
+        formularioListaMadres.ShowDialog();
+        this.Cursor = Cursors.Arrow;
     }
 
-    private void cmdMenor_Click(object sender, RoutedEventArgs e)
+    void formularioListaMadres_NuevoRegistro(object sender, EventArgs e)
     {
-      this.Cursor = Cursors.Wait;
-      frmMenor objMenorWindow = new frmMenor();
-      objMenorWindow.Owner = this;
-      objMenorWindow.ShowDialog();
-      objMenorWindow = null;
-      this.Cursor = Cursors.Arrow;
+        this.Cursor = Cursors.Wait;
+        frmMadre objMadreWindow = new frmMadre();
+        objMadreWindow.Owner = this;
+        objMadreWindow.ShowDialog();
+        objMadreWindow = null;
+        this.Cursor = Cursors.Arrow;
     }
+
+    void formularioListaMadres_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
+    {
+        this.Cursor = Cursors.Wait;
+        frmMadre objMadreWindow = new frmMadre();
+        objMadreWindow.IdSeleccionado = fe.id;
+        objMadreWindow.Owner = this;
+        objMadreWindow.ShowDialog();
+        objMadreWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaMadres_ModificarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        this.Cursor = Cursors.Wait;
+        frmMadre objMadreWindow = new frmMadre();
+        objMadreWindow.IdSeleccionado = fe.id;
+        objMadreWindow.Owner = this;
+        objMadreWindow.ShowDialog();
+        objMadreWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaMadres_BorrarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
+    }
+
+    void formularioListaMadres_SeleccionarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
+    }
+
+    private void cmdTutores_Click(object sender, RoutedEventArgs e)
+    {
+        this.Cursor = Cursors.Wait;
+        WindowListaRegistros formularioListaTutores = new WindowListaRegistros();
+
+        formularioListaTutores.NuevoRegistro += formularioListaTutores_NuevoRegistro;
+        formularioListaTutores.MostrarDetallesRegistro += formularioListaTutores_MostrarDetallesRegistro;
+        formularioListaTutores.ModificarRegistro += formularioListaTutores_ModificarRegistro;
+        formularioListaTutores.BorrarRegistro += formularioListaTutores_BorrarRegistro;
+        //formularioListaTutores.SeleccionarRegistro += formularioListaTutores_SeleccionarRegistro;
+
+        ModeloTutor modelotutor = new ModeloTutor();
+
+        formularioListaTutores.proveedorDatos = modelotutor;
+        formularioListaTutores.titulo = "Tutores";
+        formularioListaTutores.ShowDialog();
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaTutores_NuevoRegistro(object sender, EventArgs e)
+    {
+        this.Cursor = Cursors.Wait;
+        frmTutor objTutorWindow = new frmTutor();
+        objTutorWindow.Owner = this;
+        objTutorWindow.ShowDialog();
+        objTutorWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaTutores_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
+    {
+        this.Cursor = Cursors.Wait;
+        frmTutor objTutorWindow = new frmTutor();
+        objTutorWindow.IdSeleccionado = fe.id;
+        objTutorWindow.Owner = this;
+        objTutorWindow.ShowDialog();
+        objTutorWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaTutores_ModificarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        this.Cursor = Cursors.Wait;
+        frmTutor objTutorWindow = new frmTutor();
+        objTutorWindow.IdSeleccionado = fe.id;
+        objTutorWindow.Owner = this;
+        objTutorWindow.ShowDialog();
+        objTutorWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaTutores_BorrarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
+    }
+
+    void formularioListaTutores_SeleccionarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
+    }
+
+    private void cmdMenores_Click(object sender, RoutedEventArgs e)
+    {
+        this.Cursor = Cursors.Wait;
+        WindowListaRegistros formularioListaMenores = new WindowListaRegistros();
+
+        formularioListaMenores.NuevoRegistro += formularioListaMenores_NuevoRegistro;
+        formularioListaMenores.MostrarDetallesRegistro += formularioListaMenores_MostrarDetallesRegistro;
+        formularioListaMenores.ModificarRegistro += formularioListaMenores_ModificarRegistro;
+        formularioListaMenores.BorrarRegistro += formularioListaMenores_BorrarRegistro;
+        //formularioListaMenores.SeleccionarRegistro += formularioListaMenores_SeleccionarRegistro;
+
+        ModeloMenor modelomenor = new ModeloMenor();
+
+        formularioListaMenores.proveedorDatos = modelomenor;
+        formularioListaMenores.titulo = "Menores";
+        formularioListaMenores.ShowDialog();
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaMenores_NuevoRegistro(object sender, EventArgs e)
+    {
+        this.Cursor = Cursors.Wait;
+        frmMenor objMenorWindow = new frmMenor();
+        objMenorWindow.Owner = this;
+        objMenorWindow.ShowDialog();
+        objMenorWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaMenores_MostrarDetallesRegistro(object sender, IdentidadEventArgs fe)
+    {
+        this.Cursor = Cursors.Wait;
+        frmMenor objMenorWindow = new frmMenor();
+        objMenorWindow.IdSeleccionado = fe.id;
+        objMenorWindow.Owner = this;
+        objMenorWindow.ShowDialog();
+        objMenorWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaMenores_ModificarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        this.Cursor = Cursors.Wait;
+        frmMenor objMenorWindow = new frmMenor();
+        objMenorWindow.IdSeleccionado = fe.id;
+        objMenorWindow.Owner = this;
+        objMenorWindow.ShowDialog();
+        objMenorWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
+    void formularioListaMenores_BorrarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
+    }
+
+    void formularioListaMenores_SeleccionarRegistro(object sender, IdentidadEventArgs fe)
+    {
+        //throw new NotImplementedException();
+        MessageBox.Show("Por Implementar.", "Mensaje");
+    }
+
+    private void cmdPassword_Click(object sender, RoutedEventArgs e)
+    {
+        this.Cursor = Cursors.Wait;
+        frmPassword objPasswordWindow = new frmPassword();
+        objPasswordWindow.Owner = this;
+        objPasswordWindow.ShowDialog();
+        objPasswordWindow = null;
+        this.Cursor = Cursors.Arrow;
+    }
+
   }
 }

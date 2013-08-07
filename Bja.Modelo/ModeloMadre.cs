@@ -14,25 +14,82 @@ namespace Bja.Modelo
 
       BjaContext context = new BjaContext();
 
-      public void AdicionMadre()
+      public void Crear(Madre madre)
       {
+          madre.Id = IdentifierGenerator.NewId();
+          madre.IdSesion = SessionManager.getCurrentSession().Id;
+          madre.FechaUltimaTransaccion = DateTime.Now;
+          madre.FechaRegistro = DateTime.Now;
+          madre.EstadoRegistro = TipoEstadoRegistro.Vigente;
+
+          context.Madres.Add(madre);
+
+          context.SaveChanges();
       }
 
-      public void ModificacionMadre()
+      public void Editar(int Id, Madre madre)
       {
+          Madre _madre = null;
+
+          _madre = (from p in context.Madres
+                    where p.Id == Id
+                    select p).FirstOrDefault();
+
+          _madre.IdSesion = SessionManager.getCurrentSession().Id;
+          _madre.FechaUltimaTransaccion = DateTime.Now;
+          _madre.FechaRegistro = DateTime.Now;
+          _madre.EstadoRegistro = TipoEstadoRegistro.Vigente;
+          _madre.Nombres = madre.Nombres;
+          _madre.PrimerApellido = madre.PrimerApellido;
+          _madre.SegundoApellido = madre.SegundoApellido;
+          _madre.TercerApellido = madre.TercerApellido;
+          _madre.IdTipoDocumentoIdentidad = madre.IdTipoDocumentoIdentidad;
+          _madre.TipoDocumentoIdentidad = madre.TipoDocumentoIdentidad;
+          _madre.FechaNacimiento = madre.FechaNacimiento;
+          _madre.IdLocalidadNacimiento = madre.IdLocalidadNacimiento;
+          _madre.Defuncion = madre.Defuncion;
+          _madre.Observaciones = madre.Observaciones;
+
+          context.SaveChanges();
       }
 
-      public void EliminacionMadre()
+      public void Eliminar(int Id)
       {
+          Madre _madre = null;
+
+          _madre = (from m in context.Madres 
+                    where m.Id == Id
+                    select m).FirstOrDefault();
+
+          _madre.IdSesion = SessionManager.getCurrentSession().Id;
+          _madre.FechaUltimaTransaccion = DateTime.Now;
+          _madre.FechaRegistro = DateTime.Now;
+          _madre.EstadoRegistro = TipoEstadoRegistro.BorradoLogico;
+
+          context.SaveChanges();
       }
-  
+
+      public Madre Recuperar(long Id)
+      {
+          Madre madre = null;
+
+          madre = (from m in context.Madres 
+                   where m.Id == Id
+                   select m).FirstOrDefault();
+
+          return madre;
+      }
+
+      public List<Madre> Listar()
+      {
+          return context.Madres.ToList();
+      }
+
       public ResultadoPaginacion listaPaginada(long saltarRegistros = 0, long tamañoPagina = 20, string criterioBusqueda = "")
       {
           //buscar lista de registros paginados en base al criterio de búsqueda
           //en linq usar skip y take para la paginación
           //ej:myDataSource.Skip(saltarRegistros).Take(tamañoPagina)
-
-          
 
           Int64 totalRegistrosEncontrados = 0;
           Int64 totalRegistros = 0;
@@ -44,7 +101,6 @@ namespace Bja.Modelo
                            select m).ToList();
 
           //var lista = BuscarConveniosMantenimientoPaginada(ref totalRegistrosEncontrados, ref totalRegistros, saltarRegistros, tamañoPagina, criterioBusqueda);
-
           //crear la lista de objetos de tipo RegistroGrid
           
           var listaRegistroGrid = (from il in lista
@@ -64,5 +120,6 @@ namespace Bja.Modelo
           //retorna el total de registros en la tabla madre
           return context.Madres.Count(); 
       }
+
     }
 }
