@@ -1,35 +1,19 @@
-﻿@model Bja.Entidades.Medico
+﻿@model Bja.Entidades.Encargado
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Detalles</h2>
 
 <fieldset>
-    <legend>Medico</legend>
-
-    @*<div class="display-label">
-         @Html.DisplayNameFor(model => model.IdSesion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.IdSesion)
-    </div>
+    <legend>Encargado</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.FechaUltimaTransaccion)
+         @Html.DisplayNameFor(model => model.IdTipoEncargado)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.FechaUltimaTransaccion)
-    </div>*@
-
-    <div class="display-label">
-        @*@Html.DisplayNameFor(model => model.FechaRegistro)*@
-        @Model.FechaRegistro.ToString("dd/MM/yyyy")
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FechaRegistro)
+        @ViewBag.TipoEncargado
     </div>
 
     <div class="display-label">
@@ -71,8 +55,6 @@
          @Html.DisplayNameFor(model => model.IdTipoDocumentoIdentidad)
     </div>
     <div class="display-field">
-        @*@Html.DisplayFor(model => model.IdTipoDocumentoIdentidad)
-        -*@
         @ViewBag.TipoDI
     </div>
 
@@ -84,6 +66,13 @@
     </div>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sexo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sexo)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.IdLocalidadNacimiento)
     </div>
     <div class="display-field">
@@ -91,24 +80,17 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.MatriculaColegioMedico)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.MatriculaColegioMedico)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CorreoElectronico)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CorreoElectronico)
-    </div>
-
-    <div class="display-label">
          @Html.DisplayNameFor(model => model.Observaciones)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Observaciones)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdTipoEstadoRegistro)
+    </div>
+    <div class="display-field">
+        @ViewBag.TipoEstadoRegistro
     </div>
 </fieldset>
 <p>

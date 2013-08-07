@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Bja.Entidades.Encargado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Encargados</h2>
+
+<p>
+    @Html.ActionLink("Registrar Encargado", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTipoEncargado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimerApellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SegundoApellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TercerApellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentoIdentidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTipoDocumentoIdentidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            Es Reg
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @ViewBag.TiposEncargados[item.IdTipoEncargado]
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimerApellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SegundoApellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TercerApellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentoIdentidad)
+        </td>
+        <td>
+            @ViewBag.TiposDI[item.IdTipoDocumentoIdentidad]
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTipoEstadoRegistro)
+            @*@ViewBag.TiposEstadosRegistros[item.IdTipoEstadoRegistro]*@
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar Médico</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Esta seguro de eliminar este registro?</h3>
 <fieldset>
     <legend>Medico</legend>
 
-    <div class="display-label">
+    @*<div class="display-label">
          @Html.DisplayNameFor(model => model.IdSesion)
     </div>
     <div class="display-field">
@@ -23,13 +23,14 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.FechaUltimaTransaccion)
-    </div>
+    </div>*@
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.FechaRegistro)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.FechaRegistro)
+        @*@Html.DisplayFor(model => model.FechaRegistro)*@
+        @Model.FechaRegistro.ToString("dd/MM/yyyy")
     </div>
 
     <div class="display-label">
@@ -71,7 +72,9 @@
          @Html.DisplayNameFor(model => model.IdTipoDocumentoIdentidad)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.IdTipoDocumentoIdentidad)
+        @*@Html.DisplayFor(model => model.IdTipoDocumentoIdentidad)
+        -*@
+        @ViewBag.TipoDI
     </div>
 
     <div class="display-label">
@@ -111,7 +114,7 @@
 </fieldset>
 @using (Html.BeginForm()) {
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Eliminar" /> |
+        @Html.ActionLink("Retornar al listado", "Index")
     </p>
 }

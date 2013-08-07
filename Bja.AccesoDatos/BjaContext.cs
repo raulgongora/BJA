@@ -10,6 +10,11 @@ namespace Bja.AccesoDatos
 {
     public class BjaContext : DbContext
     {
+        public BjaContext() : base()
+        {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
+        }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
@@ -28,6 +33,7 @@ namespace Bja.AccesoDatos
         public DbSet<Recepcion> Recepciones { get; set; }
         public DbSet<SolicitudPago> SolicitudesPago { get; set; }
         public DbSet<Pago> Pagos { get; set; }
+        public DbSet<Reclamo> Reclamos { get; set; }
 
         public DbSet<MadreLog> MadresLog { get; set; }
 
