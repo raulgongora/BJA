@@ -12,14 +12,60 @@ namespace Bja.Modelo
     public class ModeloMedico
     {
         BjaContext db = new BjaContext();
-        //
-        //Sugerencia de rrsc 01/08/2013
-        //BjaContext context = new BjaContext();
-        //
+        const int TAMANIO_PAGINA = 3;
 
         public List<Medico> Listar()
         {
-            return db.Medicos.ToList();
+            //return db.Medicos.ToList();
+            return db.Medicos.OrderBy(p => p.Id).Skip(2).Take(5).ToList();
+        }
+
+        public List<Medico> Listar(string criterio)
+        {
+            //return db.Medicos.Where(p => criterio == null || p.Nombres.StartsWith(criterio)).ToList();
+
+            return (from m in db.Medicos
+                    where m.Nombres.Contains(criterio) ||
+                    m.PrimerApellido.Contains(criterio) ||
+                    m.SegundoApellido.Contains(criterio)
+                    select m).ToList();
+        }
+
+        public List<Medico> Listar(string criterio, int pagina)
+        {
+            if (criterio != null)
+            {
+                return (from m in db.Medicos
+                        where m.Nombres.Contains(criterio) ||
+                        m.PrimerApellido.Contains(criterio) ||
+                        m.SegundoApellido.Contains(criterio)
+                        select m).OrderBy(p=>p.Nombres).Skip((pagina - 1) * TAMANIO_PAGINA).Take(TAMANIO_PAGINA).ToList();
+            }
+            else
+            {
+                return db.Medicos.OrderBy(p => p.Id).Skip((pagina - 1) * TAMANIO_PAGINA).Take(TAMANIO_PAGINA).ToList();
+            }
+        }
+
+        public int TotalRegistros(string criterio)
+        {
+            if (criterio != null)
+            {
+                return (from m in db.Medicos
+                        where m.Nombres.Contains(criterio) ||
+                        m.PrimerApellido.Contains(criterio) ||
+                        m.SegundoApellido.Contains(criterio)
+                        select m).Count();
+            }
+            else
+            {
+                return db.Medicos.Count();
+            }
+        }
+
+        public int TamanioPagina()
+        {
+            return TAMANIO_PAGINA;
         }
 
         public void Crear(Medico medico)
