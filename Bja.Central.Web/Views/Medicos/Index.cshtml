@@ -10,7 +10,38 @@
 <p>
     @Html.ActionLink("Registrar Médico", "Create")
 </p>
+
+<form method="get">
+    <input type="text" name="criterioBusqueda" />
+    <input type="submit" value="Buscar" id="Buscar" />
+</form>
+<br />
+@{
+    if (ViewBag.paginaActual == null)
+    {
+        ViewBag.paginaActual = 1;
+    }
+    
+    if (ViewBag.criterioBusqueda == null)
+    {
+        ViewBag.criterioBusqueda = "";
+    }    
+    
+    @Html.ActionLink("<<", "index", new { paginaActual = 1, criterioBusqueda = ViewBag.criterioBusqueda })
+    @Html.ActionLink("<", "index", new { paginaActual = (ViewBag.paginaActual - 1), criterioBusqueda = ViewBag.criterioBusqueda })
+    @Html.Name("página ") @ViewBag.paginaActual @Html.Name(" de ") @ViewBag.totalPaginas
+    @Html.ActionLink(">", "index", new { paginaActual = (ViewBag.paginaActual + 1), criterioBusqueda = ViewBag.criterioBusqueda })
+    @Html.ActionLink(">>", "index", new { paginaActual = (ViewBag.totalPaginas), criterioBusqueda = ViewBag.criterioBusqueda })
+    @Html.Name("Total registros ") @ViewBag.totalRegistros
+}
+
+
+
+
+
+<div class="datagrid">
 <table>
+    <thead>
     <tr>
         @*<th>
             @Html.DisplayNameFor(model => model.IdSesion)
@@ -56,8 +87,9 @@
         </th>*@
         <th></th>
     </tr>
-
+    </thead>
 @foreach (var item in Model) {
+    <tbody>
     <tr>
         @*<td>
             @Html.DisplayFor(modelItem => item.IdSesion)
@@ -108,6 +140,8 @@
             @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
         </td>
     </tr>
+    </tbody>
 }
 
 </table>
+</div>

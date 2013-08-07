@@ -16,10 +16,34 @@ namespace Bja.Central.Web.Controllers
         //
         // GET: /Medicos/
 
-        public ActionResult Index()
+        public ActionResult Index(string criterioBusqueda = null, int paginaActual = 1)
         {
             ViewBag.TiposDI = TipoDocumentoIdentidad.GetNames(typeof(TipoDocumentoIdentidad));
-            return View(modMedico.Listar());
+
+            ViewBag.totalRegistros = modMedico.TotalRegistros(criterioBusqueda);
+            ViewBag.tamanioPagina = modMedico.TamanioPagina();
+            ViewBag.totalPaginas = (ViewBag.totalRegistros + ViewBag.tamanioPagina - 1) / ViewBag.tamanioPagina;
+
+            int totalPaginas = (ViewBag.totalRegistros + ViewBag.tamanioPagina - 1) / ViewBag.tamanioPagina;
+
+            if (paginaActual <= 0)
+            {
+                paginaActual = 1;
+                ViewBag.paginaActual = 1;
+            }
+            else if (paginaActual > totalPaginas)
+            {
+                paginaActual = totalPaginas;
+                ViewBag.paginaActual = totalPaginas;
+            }
+            else
+            {
+                ViewBag.paginaActual = paginaActual;
+            }
+
+            ViewBag.criterioBusqueda = criterioBusqueda;
+            var resp = modMedico.Listar(criterioBusqueda, paginaActual);
+            return View(resp);
         }
 
         //
