@@ -22,6 +22,7 @@ namespace Bja.Registro
     public partial class frmMadre : Window
     {
         public long IdSeleccionado { get; set; }
+        public int OpcionDeVisualizacion { get; set; }
 
         public frmMadre()
         {
@@ -38,6 +39,36 @@ namespace Bja.Registro
                 this.cboTipoDocIde.SelectedIndex = 0;
                 this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
             }
+            else
+            {
+                ModeloMadre modelomadre = new ModeloMadre();
+                Madre madre = new Madre();
+                madre = modelomadre.Recuperar(IdSeleccionado);
+                txtDocIde.Text = madre.DocumentoIdentidad;
+                cboTipoDocIde.SelectedIndex = (int)madre.IdTipoDocumentoIdentidad;
+                txtPaterno.Text = madre.PrimerApellido;
+                txtMaterno.Text = madre.SegundoApellido;
+                txtNombres.Text = madre.Nombres;
+                dtpFechaNacimiento.SelectedDate = madre.FechaNacimiento;
+                if (madre.Defuncion == true)
+                    chkDefuncion.IsChecked = true;
+                txtLugarNacimiento.Text = madre.IdLocalidadNacimiento;
+                txtObservaciones.Text = madre.Observaciones;
+                if (OpcionDeVisualizacion == 2)
+                {
+                    txtDocIde.IsEnabled = false;
+                    cboTipoDocIde.IsEnabled = false;
+                    txtPaterno.IsEnabled = false;
+                    txtMaterno.IsEnabled = false;
+                    txtConyuge.IsEnabled = false;
+                    txtNombres.IsEnabled = false;
+                    dtpFechaNacimiento.IsEnabled = false;
+                    chkDefuncion.IsEnabled = false;
+                    txtLugarNacimiento.IsEnabled = false;
+                    txtObservaciones.IsEnabled = false;
+                    cmdAceptar.IsEnabled = false;
+                }
+            }
         }
 
         private void cmdAceptar_Click(object sender, RoutedEventArgs e)
@@ -50,15 +81,17 @@ namespace Bja.Registro
             madre.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
             madre.PrimerApellido = txtPaterno.Text;
             madre.SegundoApellido = txtMaterno.Text;
-            madre.TercerApellido =txtConyuge.Text;
+            madre.TercerApellido = txtConyuge.Text;
             madre.Nombres = txtNombres.Text;
             madre.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
             madre.IdLocalidadNacimiento = txtLugarNacimiento.Text;
             madre.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
             madre.Observaciones = txtObservaciones.Text;
-            madre.Direccion = txtDireccion.Text;
 
-            modelomadre.Crear(madre);
+            if (IdSeleccionado > 0)
+                modelomadre.Editar(IdSeleccionado, madre);
+            else
+                modelomadre.Crear(madre);
 
             this.Close();
         }

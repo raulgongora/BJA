@@ -42,11 +42,11 @@ namespace Bja.Modelo
             _corresponsabilidadmenor.TipoInscripcionMenor = corresponsabilidadmenor.TipoInscripcionMenor;
             _corresponsabilidadmenor.FechaInscripcion = corresponsabilidadmenor.FechaInscripcion;
             _corresponsabilidadmenor.IdMenor = corresponsabilidadmenor.IdMenor;
-            //_corresponsabilidadmenor.DireccionMenor = corresponsabilidadmenor.DireccionMenor;
+            _corresponsabilidadmenor.DireccionMenor = corresponsabilidadmenor.DireccionMenor;
             _corresponsabilidadmenor.IdMadre = corresponsabilidadmenor.IdMadre;
-            //_corresponsabilidadmenor.DireccionMadre = corresponsabilidadmenor.DireccionMadre;
+            _corresponsabilidadmenor.DireccionMadre = corresponsabilidadmenor.DireccionMadre;
             _corresponsabilidadmenor.IdTutor = corresponsabilidadmenor.IdTutor;
-            //_corresponsabilidadmenor.DireccionTutor = corresponsabilidadmenor.DireccionTutor;
+            _corresponsabilidadmenor.DireccionTutor = corresponsabilidadmenor.DireccionTutor;
             _corresponsabilidadmenor.CodigoFormulario = corresponsabilidadmenor.CodigoFormulario;
             _corresponsabilidadmenor.FechaSalidaPrograma = corresponsabilidadmenor.FechaSalidaPrograma;
             _corresponsabilidadmenor.TipoSalidaMenor = corresponsabilidadmenor.TipoSalidaMenor;

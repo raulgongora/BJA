@@ -68,6 +68,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="frmAdministracion.xaml.cs">
+      <DependentUpon>frmAdministracion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmCorresponsabilidadMadre.xaml.cs">
       <DependentUpon>frmCorresponsabilidadMadre.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="frmAdministracion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frmCorresponsabilidadMadre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

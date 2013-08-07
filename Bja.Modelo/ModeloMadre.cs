@@ -50,7 +50,6 @@ namespace Bja.Modelo
           _madre.IdLocalidadNacimiento = madre.IdLocalidadNacimiento;
           _madre.Defuncion = madre.Defuncion;
           _madre.Observaciones = madre.Observaciones;
-          _madre.Direccion = madre.Direccion;
 
           context.SaveChanges();
       }

@@ -51,7 +51,6 @@ namespace Bja.Modelo
       _menor.Sexo = menor.Sexo;
       _menor.Defuncion = menor.Defuncion;
       _menor.Observaciones = menor.Observaciones;
-      _menor.Direccion = menor.Direccion;
 
       context.SaveChanges();
     }

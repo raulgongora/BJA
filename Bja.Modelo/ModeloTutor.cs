@@ -50,7 +50,6 @@ namespace Bja.Modelo
         _tutor.Defuncion = tutor.Defuncion;
         _tutor.Observaciones = tutor.Observaciones;
         _tutor.Sexo = tutor.Sexo;
-        _tutor.Direccion = tutor.Direccion;
 
         context.SaveChanges();
     }

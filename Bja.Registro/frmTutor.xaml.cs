@@ -22,6 +22,7 @@ namespace Bja.Registro
     public partial class frmTutor : Window
     {
         public long IdSeleccionado { get; set; }
+        public int OpcionDeVisualizacion { get; set; }
 
         public frmTutor()
         {
@@ -37,6 +38,42 @@ namespace Bja.Registro
             {
                 this.cboTipoDocIde.SelectedIndex = 0;
                 this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
+            }
+            else
+            {
+                ModeloTutor modelotutor = new ModeloTutor();
+                Tutor tutor = new Tutor();
+                tutor = modelotutor.Recuperar(IdSeleccionado);
+                txtDocIde.Text = tutor.DocumentoIdentidad;
+                cboTipoDocIde.SelectedIndex = (int)tutor.IdTipoDocumentoIdentidad;
+                txtPaterno.Text = tutor.PrimerApellido;
+                txtMaterno.Text = tutor.SegundoApellido;
+                txtNombres.Text = tutor.Nombres;
+                dtpFechaNacimiento.SelectedDate = tutor.FechaNacimiento;
+                if (tutor.Sexo == "F")
+                    rdbFemenino.IsChecked = true;
+                else if (tutor.Sexo == "M")
+                    rdbMasculino.IsChecked = true;
+                if (tutor.Defuncion == true)
+                    chkDefuncion.IsChecked = true;
+                txtLugarNacimiento.Text = tutor.IdLocalidadNacimiento;
+                txtObservaciones.Text = tutor.Observaciones;
+                if (OpcionDeVisualizacion == 2)
+                {
+                    txtDocIde.IsEnabled = false;
+                    cboTipoDocIde.IsEnabled = false;
+                    txtPaterno.IsEnabled = false;
+                    txtMaterno.IsEnabled = false;
+                    txtConyuge.IsEnabled = false;
+                    txtNombres.IsEnabled = false;
+                    dtpFechaNacimiento.IsEnabled = false;
+                    rdbFemenino.IsEnabled = false;
+                    rdbMasculino.IsEnabled = false;
+                    chkDefuncion.IsEnabled = false;
+                    txtLugarNacimiento.IsEnabled = false;
+                    txtObservaciones.IsEnabled = false;
+                    cmdAceptar.IsEnabled = false;
+                }
             }
         }
 
@@ -61,7 +98,6 @@ namespace Bja.Registro
             tutor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
             tutor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
             tutor.Observaciones = txtObservaciones.Text;
-            tutor.Direccion = txtDireccion.Text;
             if (rdbFemenino.IsChecked == true)
                 tutor.Sexo = "F";
             else if (rdbFemenino.IsChecked == false)
@@ -69,7 +105,10 @@ namespace Bja.Registro
             else
                 tutor.Sexo = "-";
 
-            modelotutor.Crear(tutor);
+            if (IdSeleccionado > 0)
+                modelotutor.Editar(IdSeleccionado, tutor);
+            else
+                modelotutor.Crear(tutor);
 
             this.Close();
         }

@@ -23,7 +23,6 @@ namespace Bja.AccesoDatos
             Property(c => c.IdTutor).IsOptional();
             Property(c => c.FechaProgramada).IsRequired();
             Property(c => c.FechaControl).IsRequired();
-
             Property(c => c.TallaCm).IsRequired();
             Property(c => c.PesoKg).IsRequired();
             Property(c => c.TipoControlMadre).IsRequired();

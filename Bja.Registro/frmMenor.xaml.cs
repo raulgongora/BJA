@@ -22,6 +22,7 @@ namespace Bja.Registro
     public partial class frmMenor : Window
     {
         public long IdSeleccionado { get; set; }
+        public int OpcionDeVisualizacion { get; set; }
 
         public frmMenor()
         {
@@ -56,7 +57,6 @@ namespace Bja.Registro
                 if (menor.Defuncion == true)
                     chkDefuncion.IsChecked = true;
                 txtLugarNacimiento.Text = menor.IdLocalidadNacimiento;
-                txtDireccion.Text = menor.Direccion;
                 txtObservaciones.Text = menor.Observaciones;
             }
         }
@@ -76,7 +76,6 @@ namespace Bja.Registro
             menor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
             menor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
             menor.Observaciones = txtObservaciones.Text;
-            menor.Direccion = txtDireccion.Text;
             if (rdbFemenino.IsChecked == true)
                 menor.Sexo = "F";
             else if (rdbFemenino.IsChecked == false)

@@ -29,7 +29,6 @@ namespace Bja.AccesoDatos
             Property(t => t.Defuncion).IsRequired();
             Property(t => t.Sexo).HasMaxLength(1).IsRequired();
             Property(t => t.Observaciones).HasMaxLength(1024);
-            Property(c => c.Direccion).IsOptional().HasMaxLength(512);
         }
     }
 }
