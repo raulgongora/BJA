@@ -9,13 +9,9 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid Name="Principal" >
-        <Button x:Name="cmdMadres" Content="Madres" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="202" Click="cmdMadres_Click"/>
-        <Button x:Name="cmdTutores" Content="Tutores" HorizontalAlignment="Left" Margin="20,35,0,0" VerticalAlignment="Top" Width="202" Click="cmdTutores_Click"/>
-        <Button x:Name="cmdMenores" Content="Menores" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top" Width="202" Click="cmdMenores_Click"/>
-        <Button x:Name="cmdTransferencias" Content="Transferencias" HorizontalAlignment="Left" Margin="20,85,0,0" VerticalAlignment="Top" Width="202"/>
-        <Button x:Name="cmdEnvio" Content="Enviar información" HorizontalAlignment="Left" Margin="20,110,0,0" VerticalAlignment="Top" Width="202"/>
-        <Button x:Name="cmdRecepcion" Content="Recepción de Información" HorizontalAlignment="Left" Margin="20,135,0,0" VerticalAlignment="Top" Width="202"/>
-        <Button x:Name="cmdPassword" Content="Cambiar contraseña" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top" Width="202" Click="cmdPassword_Click"/>
-        <Button x:Name="cmdSalir" Content="Salir" HorizontalAlignment="Left" Margin="20,185,0,0" VerticalAlignment="Top" Width="202" Click="cmdSalir_Click"/>
+        <Button x:Name="cmdCorresponsabilidadesDeMadres" Content="Corresponsabilidades de Madres" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Width="202" Click="cmdCorresponsabilidadesDeMadres_Click"/>
+        <Button x:Name="cmdCorresponsabilidadesDeMenores" Content="Corresponsabilidades de Menores" HorizontalAlignment="Left" Margin="20,68,0,0" VerticalAlignment="Top" Width="202" Click="cmdCorresponsabilidadesDeMenores_Click"/>
+        <Button x:Name="cmdAdministracion" Content="Administración" HorizontalAlignment="Left" Margin="20,113,0,0" VerticalAlignment="Top" Width="202" Click="cmdAdministracion_Click"/>
+        <Button x:Name="cmdSalir" Content="Salir" HorizontalAlignment="Left" Margin="20,164,0,0" VerticalAlignment="Top" Width="202" Click="cmdSalir_Click"/>
     </Grid>
 </Window>

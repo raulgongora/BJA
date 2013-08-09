@@ -22,6 +22,7 @@ namespace Bja.Registro
     public partial class frmMenor : Window
     {
         public long IdSeleccionado { get; set; }
+        public int OpcionDeVisualizacion { get; set; }
 
         public frmMenor()
         {
@@ -33,12 +34,30 @@ namespace Bja.Registro
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
-            SoporteCombo.cargarEnumerador(cboExpedido, typeof(Lugar));
             if (IdSeleccionado == 0)
             {
                 this.cboTipoDocIde.SelectedIndex = 0;
                 this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
-                this.cboExpedido.SelectedIndex = 0;
+            }
+            else
+            {
+                ModeloMenor modelomenor = new ModeloMenor();
+                Menor menor = new Menor();
+                menor = modelomenor.Recuperar(IdSeleccionado);
+                txtDocIde.Text = menor.DocumentoIdentidad;
+                cboTipoDocIde.SelectedIndex = (int)menor.IdTipoDocumentoIdentidad;
+                txtPaterno.Text = menor.PrimerApellido;
+                txtMaterno.Text = menor.SegundoApellido;
+                txtNombres.Text = menor.Nombres;
+                if (menor.Sexo == "F")
+                    rdbFemenino.IsChecked = true;
+                else if (menor.Sexo == "M")
+                    rdbMasculino.IsChecked = true;
+                dtpFechaNacimiento.SelectedDate = menor.FechaNacimiento;
+                if (menor.Defuncion == true)
+                    chkDefuncion.IsChecked = true;
+                txtLugarNacimiento.Text = menor.IdLocalidadNacimiento;
+                txtObservaciones.Text = menor.Observaciones;
             }
         }
 
@@ -50,7 +69,6 @@ namespace Bja.Registro
 
             menor.DocumentoIdentidad = txtDocIde.Text;
             menor.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
-            //menor.TipoDocumentoIdentidad = (TipoDocumentoIdentidad)cboTipoDocIde.SelectedValue;
             menor.PrimerApellido = txtPaterno.Text;
             menor.SegundoApellido = txtMaterno.Text;
             menor.Nombres = txtNombres.Text;
@@ -58,14 +76,17 @@ namespace Bja.Registro
             menor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
             menor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
             menor.Observaciones = txtObservaciones.Text;
-            if ((long)cboTipoDocIde.SelectedValue == 1)
+            if (rdbFemenino.IsChecked == true)
                 menor.Sexo = "F";
-            else if ((long)cboTipoDocIde.SelectedValue == 2)
+            else if (rdbFemenino.IsChecked == false)
                 menor.Sexo = "M";
             else
                 menor.Sexo = "-";
 
-            modelomenor.Crear(menor);
+            if (IdSeleccionado > 0)
+                modelomenor.Editar(IdSeleccionado, menor);
+            else
+                modelomenor.Crear(menor);
 
             this.Close();
         }

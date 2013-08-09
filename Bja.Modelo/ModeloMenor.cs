@@ -27,18 +27,19 @@ namespace Bja.Modelo
       context.SaveChanges();
     }
 
-    public void Editar(int Id, Menor menor)
+    public void Editar(long Id, Menor menor)
     {
       Menor _menor = null;
 
-      _menor = (from p in context.Menores
-                where p.Id == Id
-                select p).FirstOrDefault();
+      _menor = (from n in context.Menores
+                where n.Id == Id
+                select n).FirstOrDefault();
 
       _menor.IdSesion = SessionManager.getCurrentSession().Id;
       _menor.FechaUltimaTransaccion = DateTime.Now;
       _menor.FechaRegistro = DateTime.Now;
       _menor.EstadoRegistro = TipoEstadoRegistro.Vigente;
+
       _menor.Nombres = menor.Nombres;
       _menor.PrimerApellido = menor.PrimerApellido;
       _menor.SegundoApellido = menor.SegundoApellido;
@@ -54,18 +55,18 @@ namespace Bja.Modelo
       context.SaveChanges();
     }
 
-    public void Eliminar(int Id)
+    public void Eliminar(long Id)
     {
-        Menor _menor = null;
+        Menor menor = null;
 
-        _menor = (from m in context.Menores
-                  where m.Id == Id
-                  select m).FirstOrDefault();
+        menor = (from n in context.Menores
+                  where n.Id == Id
+                  select n).FirstOrDefault();
 
-        _menor.IdSesion = SessionManager.getCurrentSession().Id;
-        _menor.FechaUltimaTransaccion = DateTime.Now;
-        _menor.FechaRegistro = DateTime.Now;
-        _menor.EstadoRegistro = TipoEstadoRegistro.BorradoLogico;
+        menor.IdSesion = SessionManager.getCurrentSession().Id;
+        menor.FechaUltimaTransaccion = DateTime.Now;
+        menor.FechaRegistro = DateTime.Now;
+        menor.EstadoRegistro = TipoEstadoRegistro.BorradoLogico;
 
         context.SaveChanges();
     }
@@ -74,9 +75,9 @@ namespace Bja.Modelo
     {
         Menor menor = null;
 
-        menor = (from m in context.Menores
-                where m.Id == Id
-                select m).FirstOrDefault();
+        menor = (from n in context.Menores
+                where n.Id == Id
+                select n).FirstOrDefault();
 
         return menor;
     }
@@ -94,11 +95,11 @@ namespace Bja.Modelo
 
         Int64 totalRegistrosEncontrados = 0;
         Int64 totalRegistros = 0;
-        var lista = (from m in context.Menores
-                     where m.Nombres.Contains(criterioBusqueda) ||
-                     m.PrimerApellido.Contains(criterioBusqueda) ||
-                     m.SegundoApellido.Contains(criterioBusqueda)
-                     select m).ToList();
+        var lista = (from n in context.Menores
+                     where n.Nombres.Contains(criterioBusqueda) ||
+                     n.PrimerApellido.Contains(criterioBusqueda) ||
+                     n.SegundoApellido.Contains(criterioBusqueda)
+                     select n).ToList();
         //var lista = BuscarConveniosMantenimientoPaginada(ref totalRegistrosEncontrados, ref totalRegistros, saltarRegistros, tamañoPagina, criterioBusqueda);
         //crear la lista de objetos de tipo RegistroGrid
         var listaRegistroGrid = (from il in lista
