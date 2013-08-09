@@ -173,7 +173,7 @@ namespace Bja.Registro
               controlmadre.NumeroControl = i + 1;
               controlmadre.Observaciones = "";
               controlmadre.EstadoPago = TipoEstadoPago.NoPagado;
-              controlmadre.TipoBenerficiario = TipoBenerficiario.Madre;
+              controlmadre.TipoBeneficiario = TipoBeneficiario.Madre;
               modelocontrolmadre.Crear(controlmadre);
               IdControlMadre[i] = controlmadre.Id;
           }

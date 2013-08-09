@@ -420,7 +420,7 @@ namespace Bja.Registro
               controlmenor.NumeroControl = i + 1;
               controlmenor.Observaciones = "";
               controlmenor.EstadoPago = TipoEstadoPago.NoPagado;
-              controlmenor.TipoBenerficiario = TipoBenerficiario.Madre;
+              controlmenor.TipoBeneficiario = TipoBeneficiario.Madre;
               modelocontrolmenor.Crear(controlmenor);
               IdControlMenor[i] = controlmenor.Id;
           }

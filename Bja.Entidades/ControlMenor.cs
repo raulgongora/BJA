@@ -27,6 +27,6 @@ namespace Bja.Entidades
         public int NumeroControl { get; set; }
         public String Observaciones { get; set; }
         public TipoEstadoPago EstadoPago { get; set; }
-        public TipoBenerficiario TipoBenerficiario { get; set; }
+        public TipoBeneficiario TipoBeneficiario { get; set; }
     }
 }

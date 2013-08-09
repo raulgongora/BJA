@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bja.Entidades
 {
-    public enum TipoBenerficiario
+    public enum TipoBeneficiario
     {
         NoEspecificado = 0,
         Madre,
