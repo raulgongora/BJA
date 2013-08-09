@@ -8,7 +8,6 @@ namespace Bja.Entidades
 {
     public enum TipoBeneficiario
     {
-        NoEspecificado = 0,
         Madre,
         Tutor
     }

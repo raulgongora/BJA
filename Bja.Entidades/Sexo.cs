@@ -8,7 +8,6 @@ namespace Bja.Entidades
 {
     public enum Sexo
     {
-      NoEspecificado = 0,
       Femenino,
       Masculino
     }

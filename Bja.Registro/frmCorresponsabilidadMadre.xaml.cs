@@ -41,9 +41,29 @@ namespace Bja.Registro
               this.dtpFechaInscripcion.SelectedDate = DateTime.Today;
               this.dtpFechaFUM.SelectedDate = DateTime.Today;
               this.dtpFechaUltimoParto.SelectedDate = DateTime.Today;
-              this.dtpFechaParto.SelectedDate = DateTime.Today;
-              this.dtpFechaPostParto.SelectedDate = DateTime.Today;
               this.dtpFechaSalida.SelectedDate = DateTime.Today;
+              this.cmdModificar11.IsEnabled = false;
+              this.cmdModificar12.IsEnabled = false;
+              this.cmdModificar13.IsEnabled = false;
+              this.cmdModificar14.IsEnabled = false;
+              this.cmdModificar15.IsEnabled = false;
+              this.cmdModificar16.IsEnabled = false;
+              lblPrevisto11.Content = "";
+              lblTalla11.Content = "";
+              lblPeso11.Content = "";
+              lblFecha11.Content = "";
+              lblPrevisto12.Content = "";
+              lblTalla12.Content = "";
+              lblPeso12.Content = "";
+              lblFecha12.Content = "";
+              lblPrevisto13.Content = "";
+              lblTalla13.Content = "";
+              lblPeso13.Content = "";
+              lblFecha13.Content = "";
+              lblPrevisto14.Content = "";
+              lblTalla14.Content = "";
+              lblPeso14.Content = "";
+              lblFecha14.Content = "";
           }
       }
 
@@ -126,58 +146,6 @@ namespace Bja.Registro
           IdTutor = fe.id;
       }
 
-      private void cmdAplicar_Click(object sender, RoutedEventArgs e)
-      {
-          ModeloCorresponsabilidadMadre modelocorresponsabilidadmadre = new ModeloCorresponsabilidadMadre();
-          CorresponsabilidadMadre corresponsabilidadmadre = new CorresponsabilidadMadre();
-
-          corresponsabilidadmadre.IdEstablecimientoSalud = 1;
-          if (rdbNuevo.IsChecked == true)
-              corresponsabilidadmadre.TipoInscripcionMadre = TipoInscripcion.Nueva;
-          else if (rdbTransferencia.IsChecked == true)
-              corresponsabilidadmadre.TipoInscripcionMadre = TipoInscripcion.Transferencia;
-
-          corresponsabilidadmadre.FechaInscripcion = dtpFechaInscripcion.SelectedDate.Value;
-          corresponsabilidadmadre.IdMadre = 1; //IdMadre;
-          corresponsabilidadmadre.IdTutor = 1; //IdTutor;
-          corresponsabilidadmadre.CodigoFormulario = txtCodigoFormulario.Text;
-          corresponsabilidadmadre.FechaUltimaMenstruacion = dtpFechaFUM.SelectedDate.Value; ;
-          corresponsabilidadmadre.FechaUltimoParto = dtpFechaUltimoParto.SelectedDate.Value; ;
-          corresponsabilidadmadre.NumeroEmbarazo = 1; //(int) txtNroEmbarazo.Text;
-          corresponsabilidadmadre.ARO = (bool)chkARO.IsChecked;
-          corresponsabilidadmadre.FechaSalidaPrograma = dtpFechaSalida.SelectedDate.Value;
-          corresponsabilidadmadre.TipoSalidaMadre = 0;
-          corresponsabilidadmadre.Observaciones = "";
-          corresponsabilidadmadre.AutorizadoPor = txtAutorizado.Text;
-          corresponsabilidadmadre.CargoAutorizador = txtCargo.Text;
-          corresponsabilidadmadre.DireccionMadre = "";
-          corresponsabilidadmadre.DireccionTutor = "";
-
-          modelocorresponsabilidadmadre.Crear(corresponsabilidadmadre);
-          IdSeleccionado = corresponsabilidadmadre.Id;
-
-          //generamos los 6 registro de controles
-
-          ModeloControlMadre modelocontrolmadre = new ModeloControlMadre();
-
-          for (int i = 0; i <= 5; i++)
-          {
-              ControlMadre controlmadre = new ControlMadre();
-              controlmadre.IdCorresponsabilidadMadre = IdSeleccionado;
-              controlmadre.IdMedico = 1;
-              controlmadre.IdTutor = 1; //IdTutor;
-              controlmadre.FechaProgramada = DateTime.Now;
-              controlmadre.FechaControl = DateTime.Now;
-              controlmadre.TallaCm = 0;
-              controlmadre.PesoKg = 1;
-              controlmadre.NumeroControl = i + 1;
-              controlmadre.Observaciones = "";
-              controlmadre.EstadoPago = TipoEstadoPago.NoPagado;
-              controlmadre.TipoBeneficiario = TipoBeneficiario.Madre;
-              modelocontrolmadre.Crear(controlmadre);
-              IdControlMadre[i] = controlmadre.Id;
-          }
-      }
 
       private void cmdBuscarMadre_Click(object sender, RoutedEventArgs e)
       {
@@ -400,30 +368,226 @@ namespace Bja.Registro
           lblFechaNacimientoTutor.Content = string.Format("{0:dd/MM/yyyy}", tutor.FechaNacimiento);
       }
 
-      private void cmdPrueba_Click(object sender, RoutedEventArgs e)
+      private void cmdGuardar_Click(object sender, RoutedEventArgs e)
       {
-          DateTime fechitaControles;
-          string strMesesProgramados = "";
-          string strMesesPerdidos = "";
-
-          fechitaControles = dtpFechaFUM.SelectedDate.Value;
-          fechitaControles = fechitaControles.AddMonths(-1);
-          for (int i = 0; i < 4; i++)
+          if (IdMadre > 0 && IdSeleccionado == 0)
           {
-              fechitaControles = fechitaControles.AddMonths(2);
-              //strMesesProgramados += "01/" + fechitaControles.Month.ToString() + "/" + fechitaControles.Year.ToString() + "      "; FECHA COMPLETA
-              strMesesProgramados += string.Format("{0:MM/yyyy}", fechitaControles) + "            ";
+              ModeloCorresponsabilidadMadre modelocorresponsabilidadmadre = new ModeloCorresponsabilidadMadre();
+              CorresponsabilidadMadre corresponsabilidadmadre = new CorresponsabilidadMadre();
 
-              //controles perdidos---------------------------------------------------------------
-              if ((fechitaControles.Month >= dtpFechaInscripcion.SelectedDate.Value.Month) && (fechitaControles.Year >= dtpFechaInscripcion.SelectedDate.Value.Year))
+              corresponsabilidadmadre.IdEstablecimientoSalud = 1;
+              if (rdbNueva.IsChecked == true)
+                  corresponsabilidadmadre.TipoInscripcionMadre = TipoInscripcion.Nueva;
+              else if (rdbTransferencia.IsChecked == true)
+                  corresponsabilidadmadre.TipoInscripcionMadre = TipoInscripcion.Transferencia;
+
+              corresponsabilidadmadre.FechaInscripcion = dtpFechaInscripcion.SelectedDate.Value;
+              corresponsabilidadmadre.IdMadre = IdMadre;
+              corresponsabilidadmadre.IdTutor = IdTutor;
+              corresponsabilidadmadre.CodigoFormulario = txtCodigoFormulario.Text;
+              corresponsabilidadmadre.FechaUltimaMenstruacion = dtpFechaFUM.SelectedDate.Value; ;
+              corresponsabilidadmadre.FechaUltimoParto = dtpFechaUltimoParto.SelectedDate.Value; ;
+              corresponsabilidadmadre.NumeroEmbarazo = Convert.ToInt32(txtNumeroEmbarazo.Text);
+              corresponsabilidadmadre.ARO = (bool)chkARO.IsChecked;
+              corresponsabilidadmadre.FechaSalidaPrograma = dtpFechaSalida.SelectedDate.Value;
+              corresponsabilidadmadre.TipoSalidaMadre = 0;
+              corresponsabilidadmadre.Observaciones = "";
+              corresponsabilidadmadre.AutorizadoPor = txtAutorizado.Text;
+              corresponsabilidadmadre.CargoAutorizador = txtCargo.Text;
+              corresponsabilidadmadre.DireccionMadre = "";
+              corresponsabilidadmadre.DireccionTutor = "";
+
+              modelocorresponsabilidadmadre.Crear(corresponsabilidadmadre);
+              IdSeleccionado = corresponsabilidadmadre.Id;
+
+              //generamos los 6 registro de controles
+
+              ModeloControlMadre modelocontrolmadre = new ModeloControlMadre();
+              DateTime fechitaControles;
+
+              fechitaControles = dtpFechaFUM.SelectedDate.Value;
+              fechitaControles = fechitaControles.AddMonths(-1);
+
+              for (int i = 0; i < 6; i++)
               {
-                  //strMesesPerdidos += fechitaControles.Date; FECHA COMPLETA
-                  strMesesPerdidos += string.Format("{0:MM/yyyy}", fechitaControles) + "        ";
+                  fechitaControles = fechitaControles.AddMonths(2);
+
+                  ControlMadre controlmadre = new ControlMadre();
+                  controlmadre.IdCorresponsabilidadMadre = IdSeleccionado;
+                  controlmadre.IdMedico = 1;
+                  controlmadre.IdTutor = IdTutor;
+                  controlmadre.FechaProgramada = fechitaControles;
+                  controlmadre.FechaControl = DateTime.Now;
+                  controlmadre.TallaCm = 0;
+                  controlmadre.PesoKg = 0;
+                  controlmadre.NumeroControl = i + 1;
+                  controlmadre.Observaciones = "";
+                  controlmadre.EstadoPago = TipoEstadoPago.NoPagado;
+                  controlmadre.TipoBeneficiario = TipoBeneficiario.Madre;
+                  modelocontrolmadre.Crear(controlmadre);
+                  IdControlMadre[i] = controlmadre.Id;
+                  if (i == 0)
+                      lblPrevisto11.Content = string.Format("{0:dd/MM/yyyy}", fechitaControles);
+                  else if (i == 1)
+                      lblPrevisto12.Content = string.Format("{0:dd/MM/yyyy}", fechitaControles);
+                  else if (i == 2)
+                      lblPrevisto13.Content = string.Format("{0:dd/MM/yyyy}", fechitaControles);
+                  else if (i == 3)
+                      lblPrevisto14.Content = string.Format("{0:dd/MM/yyyy}", fechitaControles);
               }
+              this.cmdModificar11.IsEnabled = true;
+              this.cmdModificar12.IsEnabled = true;
+              this.cmdModificar13.IsEnabled = true;
+              this.cmdModificar14.IsEnabled = true;
+              this.cmdModificar15.IsEnabled = true;
+              this.cmdModificar16.IsEnabled = true;
+              txtCodigoFormulario.IsEnabled = false;
+              dtpFechaInscripcion.IsEnabled = false;
+              rdbNueva.IsEnabled = false;
+              rdbTransferencia.IsEnabled = false;
+              dtpFechaFUM.IsEnabled = false;
+              dtpFechaUltimoParto.IsEnabled = false;
+              txtNumeroEmbarazo.IsEnabled = false;
+              chkARO.IsEnabled = false;
+              cmdGuardar.IsEnabled = false;
           }
-          lblFechas.Content = "Fechas: " + strMesesProgramados;
-          lblMesesPerdidos.Content = "A Pagar: " + strMesesPerdidos;
       }
+
+      private void cmdModificar11_Click(object sender, RoutedEventArgs e)
+      {
+          if (IdControlMadre[0] > 0)
+          {
+              this.Cursor = Cursors.Wait;
+              frmControl objControlWindow = new frmControl();
+              objControlWindow.IdSeleccionado = IdControlMadre[0];
+              objControlWindow.IdMadre = IdMadre;
+              objControlWindow.IdTutor = IdTutor;
+              objControlWindow.OpcionDeVisualizacion = 1;
+              objControlWindow.Tipo = false;
+              objControlWindow.Owner = this;
+              objControlWindow.ShowDialog();
+              objControlWindow = null;
+              this.Cursor = Cursors.Arrow;
+              RecuperarControlMadre(IdControlMadre[0], 0);
+          }
+      }
+
+      private void cmdModificar12_Click(object sender, RoutedEventArgs e)
+      {
+          if (IdControlMadre[1] > 0)
+          {
+              this.Cursor = Cursors.Wait;
+              frmControl objControlWindow = new frmControl();
+              objControlWindow.IdSeleccionado = IdControlMadre[1];
+              objControlWindow.IdMadre = IdMadre;
+              objControlWindow.IdTutor = IdTutor;
+              objControlWindow.OpcionDeVisualizacion = 1;
+              objControlWindow.Tipo = false;
+              objControlWindow.Owner = this;
+              objControlWindow.ShowDialog();
+              objControlWindow = null;
+              this.Cursor = Cursors.Arrow;
+              RecuperarControlMadre(IdControlMadre[1], 1);
+          }
+      }
+
+      private void cmdModificar13_Click(object sender, RoutedEventArgs e)
+      {
+          if (IdControlMadre[2] > 0)
+          {
+              this.Cursor = Cursors.Wait;
+              frmControl objControlWindow = new frmControl();
+              objControlWindow.IdSeleccionado = IdControlMadre[2];
+              objControlWindow.IdMadre = IdMadre;
+              objControlWindow.IdTutor = IdTutor;
+              objControlWindow.OpcionDeVisualizacion = 1;
+              objControlWindow.Tipo = false;
+              objControlWindow.Owner = this;
+              objControlWindow.ShowDialog();
+              objControlWindow = null;
+              this.Cursor = Cursors.Arrow;
+              RecuperarControlMadre(IdControlMadre[2], 2);
+          }
+      }
+
+      private void cmdModificar14_Click(object sender, RoutedEventArgs e)
+      {
+          if (IdControlMadre[3] > 0)
+          {
+              this.Cursor = Cursors.Wait;
+              frmControl objControlWindow = new frmControl();
+              objControlWindow.IdSeleccionado = IdControlMadre[3];
+              objControlWindow.IdMadre = IdMadre;
+              objControlWindow.IdTutor = IdTutor;
+              objControlWindow.OpcionDeVisualizacion = 1;
+              objControlWindow.Tipo = false;
+              objControlWindow.Owner = this;
+              objControlWindow.ShowDialog();
+              objControlWindow = null;
+              this.Cursor = Cursors.Arrow;
+              RecuperarControlMadre(IdControlMadre[3], 3);
+          }
+      }
+
+      void RecuperarControlMadre(long id, int opcion)
+      {
+          ModeloControlMadre modelocontrolmadre = new ModeloControlMadre();
+          ControlMadre controlmadre = new ControlMadre();
+          controlmadre = modelocontrolmadre.Recuperar(id);
+          if (opcion == 0)
+          {
+              lblPrevisto11.Content = string.Format("{0:dd/MM/yyyy}", controlmadre.FechaProgramada);
+              lblTalla11.Content = Convert.ToString(controlmadre.TallaCm);
+              lblPeso11.Content = Convert.ToString(controlmadre.PesoKg);
+              lblFecha11.Content = string.Format("{0:dd/MM/yyyy}", controlmadre.FechaControl);
+          }
+          else if (opcion == 1)
+          {
+              lblPrevisto12.Content = string.Format("{0:dd/MM/yyyy}", controlmadre.FechaProgramada);
+              lblTalla12.Content = Convert.ToString(controlmadre.TallaCm);
+              lblPeso12.Content = Convert.ToString(controlmadre.PesoKg);
+              lblFecha12.Content = string.Format("{0:dd/MM/yyyy}", controlmadre.FechaControl);
+          }
+          else if (opcion == 2)
+          {
+              lblPrevisto13.Content = string.Format("{0:dd/MM/yyyy}", controlmadre.FechaProgramada);
+              lblTalla13.Content = Convert.ToString(controlmadre.TallaCm);
+              lblPeso13.Content = Convert.ToString(controlmadre.PesoKg);
+              lblFecha13.Content = string.Format("{0:dd/MM/yyyy}", controlmadre.FechaControl);
+          }
+          else if (opcion == 3)
+          {
+              lblPrevisto14.Content = string.Format("{0:dd/MM/yyyy}", controlmadre.FechaProgramada);
+              lblTalla14.Content = Convert.ToString(controlmadre.TallaCm);
+              lblPeso14.Content = Convert.ToString(controlmadre.PesoKg);
+              lblFecha14.Content = string.Format("{0:dd/MM/yyyy}", controlmadre.FechaControl);
+          }
+      }
+
+      //private void cmdPrueba_Click(object sender, RoutedEventArgs e)
+      //{
+      //    DateTime fechitaControles;
+      //    string strMesesProgramados = "";
+      //    string strMesesPerdidos = "";
+
+      //    fechitaControles = dtpFechaFUM.SelectedDate.Value;
+      //    fechitaControles = fechitaControles.AddMonths(-1);
+      //    for (int i = 0; i < 4; i++)
+      //    {
+      //        fechitaControles = fechitaControles.AddMonths(2);
+      //        //strMesesProgramados += "01/" + fechitaControles.Month.ToString() + "/" + fechitaControles.Year.ToString() + "      "; FECHA COMPLETA
+      //        strMesesProgramados += string.Format("{0:MM/yyyy}", fechitaControles) + "            ";
+
+      //        //controles perdidos---------------------------------------------------------------
+      //        if ((fechitaControles.Month >= dtpFechaInscripcion.SelectedDate.Value.Month) && (fechitaControles.Year >= dtpFechaInscripcion.SelectedDate.Value.Year))
+      //        {
+      //            //strMesesPerdidos += fechitaControles.Date; FECHA COMPLETA
+      //            strMesesPerdidos += string.Format("{0:MM/yyyy}", fechitaControles) + "        ";
+      //        }
+      //    }
+      //    lblFechas.Content = "Fechas: " + strMesesProgramados;
+      //    lblMesesPerdidos.Content = "A Pagar: " + strMesesPerdidos;
+      //}
 
   }
 }

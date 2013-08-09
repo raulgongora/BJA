@@ -25,7 +25,7 @@ namespace Bja.Modelo
             context.SaveChanges();
         }
 
-        public void Editar(int Id, ControlMadre controlmadre)
+        public void Editar(long Id, ControlMadre controlmadre)
         {
             ControlMadre _controlmadre = null;
 
@@ -54,7 +54,7 @@ namespace Bja.Modelo
             context.SaveChanges();
         }
 
-        public void Eliminar(int Id)
+        public void Eliminar(long Id)
         {
             ControlMadre controlmadre = null;
 
