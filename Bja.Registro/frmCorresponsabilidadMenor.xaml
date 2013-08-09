@@ -10,7 +10,7 @@
     </Window.Background>
     <Grid Name="CorresponsabilidadMenor">
         <Label x:Name="lblFormulario" Content="No Formulario:" Height="28" HorizontalAlignment="Left" Margin="20,111,0,0" VerticalAlignment="Top" Width="88" />
-        <TextBox x:Name="txtFormulario" Height="23" HorizontalAlignment="Left" Margin="110,116,0,0" VerticalAlignment="Top" Width="94" />
+        <TextBox x:Name="txtCodigoFormulario" Height="23" HorizontalAlignment="Left" Margin="110,116,0,0" VerticalAlignment="Top" Width="94" />
         <Label x:Name="lblLugarGeografico" Content="Lugar Geográfico" Height="28" HorizontalAlignment="Left" Margin="20,16,0,0" VerticalAlignment="Top" Width="113" FontWeight="Bold" />
         <Label x:Name="lblDepto" Content="Departamento:" Height="28" HorizontalAlignment="Left" Margin="20,44,0,0" VerticalAlignment="Top" Width="94" />
         <Label x:Name="lblDepartamento" Content="Departamento" Height="28" HorizontalAlignment="Left" Margin="119,44,0,0" VerticalAlignment="Top" Width="94" />

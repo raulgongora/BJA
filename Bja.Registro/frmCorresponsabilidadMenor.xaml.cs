@@ -452,8 +452,8 @@ namespace Bja.Registro
               corresponsabilidadmenor.FechaInscripcion = dtpFechaInscripcion.SelectedDate.Value;
               corresponsabilidadmenor.IdMenor = IdMenor;
               corresponsabilidadmenor.IdMadre = IdMadre; 
-              corresponsabilidadmenor.IdTutor = IdMadre; 
-              corresponsabilidadmenor.CodigoFormulario = txtFormulario.Text;
+              corresponsabilidadmenor.IdTutor = IdMadre;
+              corresponsabilidadmenor.CodigoFormulario = txtCodigoFormulario.Text;
               corresponsabilidadmenor.FechaSalidaPrograma = dtpFechaSalida.SelectedDate.Value;
               corresponsabilidadmenor.TipoSalidaMenor = 0;
               corresponsabilidadmenor.Observaciones = "";
@@ -530,7 +530,7 @@ namespace Bja.Registro
               this.cmdModificar24.IsEnabled = true;
               this.cmdModificar25.IsEnabled = true;
               this.cmdModificar26.IsEnabled = true;
-              txtFormulario.IsEnabled = false;
+              txtCodigoFormulario.IsEnabled = false;
               dtpFechaInscripcion.IsEnabled = false;
               rdbNueva.IsEnabled = false;
               rdbTranferencia.IsEnabled = false;

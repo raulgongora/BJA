@@ -23,7 +23,8 @@ namespace Bja.Registro
     {
         public long IdSeleccionado { get; set; }
         public bool Tipo { get; set; }
-        public long IdMedico { get; set; }
+        private ControlMadre _controlmadre = new ControlMadre();
+        private ControlMenor _controlmenor = new ControlMenor();
         public long IdMadre { get; set; }
         public long IdMenor { get; set; }
         public long IdTutor { get; set; }
@@ -43,43 +44,32 @@ namespace Bja.Registro
                 if (Tipo == false)
                 {
                     ModeloControlMadre modelocontrolmadre = new ModeloControlMadre();
-                    ControlMadre controlmadre = new ControlMadre();
                     
-                    IdMadre = IdSeleccionado;
-
-                    controlmadre = modelocontrolmadre.Recuperar(IdSeleccionado);
-                    dtpFechaProgramada.SelectedDate = controlmadre.FechaProgramada;
-                    txtPeso.Text = Convert.ToString(controlmadre.PesoKg);
-                    txtTalla.Text = Convert.ToString(controlmadre.TallaCm);
-                    dtpFechaControl.SelectedDate = controlmadre.FechaControl;
-                    lblNumeroControl.Content = controlmadre.NumeroControl;
-                    IdTutor = controlmadre.IdTutor;
-                    if (controlmadre.IdTutor > 0)
+                    _controlmadre = modelocontrolmadre.Recuperar(IdSeleccionado);
+                    dtpFechaProgramada.SelectedDate = _controlmadre.FechaProgramada;
+                    txtPeso.Text = Convert.ToString(_controlmadre.PesoKg);
+                    txtTalla.Text = Convert.ToString(_controlmadre.TallaCm);
+                    dtpFechaControl.SelectedDate = _controlmadre.FechaControl;
+                    lblNumeroControl.Content = _controlmadre.NumeroControl;
+                    if (_controlmadre.IdTutor > 0)
                         rdbTutor.IsChecked = true;
                     else
                         rdbMadre.IsChecked = true;
-                    IdMedico = controlmadre.IdMedico;
                 }
                 else
                 {
                     ModeloControlMenor modelocontrolmenor = new ModeloControlMenor();
-                    ControlMenor controlmenor = new ControlMenor();
 
-                    IdMenor = IdSeleccionado;
-
-                    controlmenor = modelocontrolmenor.Recuperar(IdSeleccionado);
-                    dtpFechaProgramada.SelectedDate = controlmenor.FechaProgramada;
-                    txtPeso.Text = Convert.ToString(controlmenor.PesoKg);
-                    txtTalla.Text = Convert.ToString(controlmenor.TallaCm);
-                    dtpFechaControl.SelectedDate = controlmenor.FechaControl;
-                    lblNumeroControl.Content = controlmenor.NumeroControl;
-                    IdTutor = controlmenor.IdTutor;
-                    IdMadre = controlmenor.IdMadre;
-                    if (controlmenor.IdTutor > 0)
+                    _controlmenor = modelocontrolmenor.Recuperar(IdSeleccionado);
+                    dtpFechaProgramada.SelectedDate = _controlmenor.FechaProgramada;
+                    txtPeso.Text = Convert.ToString(_controlmenor.PesoKg);
+                    txtTalla.Text = Convert.ToString(_controlmenor.TallaCm);
+                    dtpFechaControl.SelectedDate = _controlmenor.FechaControl;
+                    lblNumeroControl.Content = _controlmenor.NumeroControl;
+                    if (_controlmenor.IdTutor > 0)
                         rdbTutor.IsChecked = true;
                     else
                         rdbMadre.IsChecked = true;
-                    IdMedico = controlmenor.IdMedico;
                 }
             }
         }
@@ -90,27 +80,26 @@ namespace Bja.Registro
             {
                 ModeloControlMadre modelocontrolmadre = new ModeloControlMadre();
 
-                ControlMadre controlmadre = new ControlMadre();
+                _controlmadre.IdTutor = IdTutor;
+                _controlmadre.FechaProgramada = dtpFechaProgramada.SelectedDate.Value;
+                _controlmadre.PesoKg = Convert.ToSingle(txtPeso.Text);
+                _controlmadre.TallaCm = Convert.ToInt32(txtTalla.Text);
+                _controlmadre.FechaControl = dtpFechaControl.SelectedDate.Value;
 
-                controlmadre.FechaProgramada = dtpFechaProgramada.SelectedDate.Value;
-                controlmadre.PesoKg = Convert.ToSingle(txtPeso.Text);
-                controlmadre.TallaCm = Convert.ToInt32(txtTalla.Text);
-                controlmadre.FechaControl = dtpFechaControl.SelectedDate.Value;
-
-                modelocontrolmadre.Editar(IdMadre, controlmadre);
+                modelocontrolmadre.Editar(IdSeleccionado, _controlmadre);
             }
             else
             {
                 ModeloControlMenor modelocontrolmenor = new ModeloControlMenor();
 
-                ControlMenor controlmenor = new ControlMenor();
+                _controlmenor.IdMadre = IdMadre;
+                _controlmenor.IdTutor = IdTutor;
+                _controlmenor.FechaProgramada = dtpFechaProgramada.SelectedDate.Value;
+                _controlmenor.PesoKg = Convert.ToSingle(txtPeso.Text);
+                _controlmenor.TallaCm = Convert.ToInt32(txtTalla.Text);
+                _controlmenor.FechaControl = dtpFechaControl.SelectedDate.Value;
 
-                controlmenor.FechaProgramada = dtpFechaProgramada.SelectedDate.Value;
-                controlmenor.PesoKg = Convert.ToSingle(txtPeso.Text);
-                controlmenor.TallaCm = Convert.ToInt32(txtTalla.Text);
-                controlmenor.FechaControl = dtpFechaControl.SelectedDate.Value;
-
-                modelocontrolmenor.Editar(IdMadre, controlmenor);
+                modelocontrolmenor.Editar(IdSeleccionado, _controlmenor);
             }
 
             this.Close();
