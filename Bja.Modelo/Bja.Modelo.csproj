@@ -50,13 +50,17 @@
     <Compile Include="ModeloControlMenor.cs" />
     <Compile Include="ModeloCorresponsabilidadMadre.cs" />
     <Compile Include="ModeloCorresponsabilidadMenor.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ModeloEncargado.cs" />
     <Compile Include="ModeloMadre.cs" />
     <Compile Include="ModeloMedico.cs" />
     <Compile Include="ModeloMenor.cs" />
+    <Compile Include="ModeloReclamo.cs" />
     <Compile Include="ModeloTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rbac.cs" />
     <Compile Include="SessionManager.cs" />
+    <Compile Include="SoporteObjetos.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bja.Entidades\Bja.Entidades.csproj">

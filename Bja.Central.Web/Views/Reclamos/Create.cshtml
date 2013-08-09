@@ -1,0 +1,110 @@
+﻿@model Bja.Entidades.Reclamo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PageCSS{
+    <style type="text/css">
+        #cboTipoReclamo { 
+            height:25px;
+        }
+    </style>
+}
+
+@section PageScripts{
+<script src="/Scripts/jquery-ui-1.8.20.js"></script>
+<script src="/Scripts/jquery.ui.datepicker-es.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cboTipoReclamo").change(function () {
+            $('#IdTipoReclamo').val($('#cboTipoReclamo').val());
+        })
+
+        $(function () {
+            $("#FechaReclamo").datepicker($.datepicker.regional["es"]);
+        });
+    });
+</script>    
+}
+
+
+<h2>Registro de reclamo</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Reclamo</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.IdSesion)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.IdSesion)
+            @Html.ValidationMessageFor(model => model.IdSesion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaUltimaTransaccion)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FechaUltimaTransaccion)
+            @Html.ValidationMessageFor(model => model.FechaUltimaTransaccion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaRegistro)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FechaRegistro)
+            @Html.ValidationMessageFor(model => model.FechaRegistro)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaReclamo)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FechaReclamo, new {style="width:120px;", @readonly = "readonly", maxlength=10})
+            @Html.ValidationMessageFor(model => model.FechaReclamo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdTipoReclamo)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("cboTipoReclamo", "--Seleccione tipo de reclamo--")
+            @Html.TextBoxFor(model => model.IdTipoReclamo, new {style="width: 10px; visibility:hidden" })
+            @Html.ValidationMessageFor(model => model.IdTipoReclamo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NombreBeneficiario)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.NombreBeneficiario, new {style="width: 500px"})
+            @Html.ValidationMessageFor(model => model.NombreBeneficiario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DetalleReclamo)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.DetalleReclamo, new {rows=6})
+            @Html.ValidationMessageFor(model => model.DetalleReclamo)
+        </div>
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Retornar al listado", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

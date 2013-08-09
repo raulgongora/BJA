@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Bja.Entidades.Reclamo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reclamos</h2>
+
+<p>
+    @Html.ActionLink("Crear Reclamo", "Create")
+</p>
+<table>
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IdSesion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaUltimaTransaccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.FechaReclamo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTipoReclamo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreBeneficiario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DetalleReclamo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IdSesion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaUltimaTransaccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+        </td>*@
+        <td>
+            @*@Html.DisplayFor(modelItem => item.FechaReclamo)*@
+            @item.FechaReclamo.ToString("dd/MM/yyyy")
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.IdTipoReclamo)*@
+            @ViewBag.TiposReclamos[item.IdTipoReclamo]
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreBeneficiario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetalleReclamo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

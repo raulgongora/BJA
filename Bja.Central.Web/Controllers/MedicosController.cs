@@ -16,9 +16,37 @@ namespace Bja.Central.Web.Controllers
         //
         // GET: /Medicos/
 
-        public ActionResult Index()
+        public ActionResult Index(string criterioBusqueda = null, int paginaActual = 1)
         {
-            return View(modMedico.Listar());
+            ViewBag.TiposDI = TipoDocumentoIdentidad.GetNames(typeof(TipoDocumentoIdentidad));
+
+            ViewBag.totalRegistros = modMedico.TotalRegistros(criterioBusqueda);
+            ViewBag.tamanioPagina = modMedico.TamanioPagina();
+            ViewBag.totalPaginas = (ViewBag.totalRegistros + ViewBag.tamanioPagina - 1) / ViewBag.tamanioPagina;
+
+            int totalPaginas = (ViewBag.totalRegistros + ViewBag.tamanioPagina - 1) / ViewBag.tamanioPagina;
+
+            if (totalPaginas > 0)
+            {
+                if (paginaActual <= 0)
+                {
+                    paginaActual = 1;
+                    ViewBag.paginaActual = 1;
+                }
+                else if (paginaActual > totalPaginas)
+                {
+                    paginaActual = totalPaginas;
+                    ViewBag.paginaActual = totalPaginas;
+                }
+                else
+                {
+                    ViewBag.paginaActual = paginaActual;
+                }
+            }
+
+            ViewBag.criterioBusqueda = criterioBusqueda;
+            var resp = modMedico.Listar(criterioBusqueda, paginaActual);
+            return View(resp);
         }
 
         //
@@ -31,6 +59,7 @@ namespace Bja.Central.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.TipoDI = TipoDocumentoIdentidad.GetNames(typeof(TipoDocumentoIdentidad))[medico.IdTipoDocumentoIdentidad];
             return View(medico);
         }
 
@@ -39,6 +68,8 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.cboTipoDI = (from TipoDocumentoIdentidad e in Enum.GetValues(typeof(TipoDocumentoIdentidad))
+                                 select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() });
             return View();
         }
 
@@ -48,6 +79,9 @@ namespace Bja.Central.Web.Controllers
         [HttpPost]
         public ActionResult Create(Medico medico)
         {
+            medico.IdSesion = 1;
+            medico.FechaUltimaTransaccion = System.DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 modMedico.Crear(medico);
@@ -66,6 +100,9 @@ namespace Bja.Central.Web.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.cboTipoDI = (from TipoDocumentoIdentidad e in Enum.GetValues(typeof(TipoDocumentoIdentidad))
+                                 select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() });
             return View(medico);
         }
 
@@ -77,6 +114,9 @@ namespace Bja.Central.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                medico.IdSesion = 1;
+                medico.FechaUltimaTransaccion = System.DateTime.Now;
+
                 modMedico.Editar(medico);
                 return RedirectToAction("Index");
             }
@@ -93,6 +133,8 @@ namespace Bja.Central.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.TipoDI = TipoDocumentoIdentidad.GetNames(typeof(TipoDocumentoIdentidad))[medico.IdTipoDocumentoIdentidad];
+
             return View(medico);
         }
 

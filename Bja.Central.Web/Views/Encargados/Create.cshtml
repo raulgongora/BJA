@@ -1,15 +1,21 @@
-﻿@model Bja.Entidades.Medico
+﻿@model Bja.Entidades.Encargado
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @section PageCSS{
     <style type="text/css">
-        #cboTipoDI { 
+        #cboTipoDI, #cboTipoEncargado { 
             height:25px;
         }
+
+        #Sexo { 
+            background-color : transparent;
+            width : auto;
+        }
+        
     </style>
 }
 
@@ -19,57 +25,37 @@
 <script src="/Scripts/jquery.maskedinput.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        $("#cboTipoEncargado").change(function () {
+            $('#IdTipoEncargado').val($('#cboTipoEncargado').val());
+        })
+
         $("#cboTipoDI").change(function () {  
             $('#IdTipoDocumentoIdentidad').val($('#cboTipoDI').val());
         })
 
-        $(function () {
-            //$("#FechaRegistro").datepicker();
-            $("#FechaRegistro").datepicker($.datepicker.regional["es"]);
-        });
-
         jQuery(function ($) {
             $("#FechaNacimiento").mask("99/99/9999");
         });
-
-        $("#cboTipoDI").val($('#IdTipoDocumentoIdentidad').val());
     });
 </script>    
 }
 
 
-<h2>Editar Médico</h2>
+<h2>Registrar Encargado</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Medico</legend>
-
-        @Html.HiddenFor(model => model.Id)
-
-        @*<div class="editor-label">
-            @Html.LabelFor(model => model.IdSesion)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.IdSesion)
-            @Html.ValidationMessageFor(model => model.IdSesion)
-        </div>
+        <legend>Encargado</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.FechaUltimaTransaccion)
+            @Html.LabelFor(model => model.IdTipoEncargado)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.FechaUltimaTransaccion)
-            @Html.ValidationMessageFor(model => model.FechaUltimaTransaccion)
-        </div>*@
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FechaRegistro)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.FechaRegistro, new {style="width:120px;", @readonly = "readonly", maxlength=10,  @Value = Model.FechaRegistro.ToString("dd/MM/yyyy")})
-            @Html.ValidationMessageFor(model => model.FechaRegistro)
+            @Html.DropDownList("cboTipoEncargado", "--Seleccione tipo encargado--")
+            @Html.TextBoxFor(model => model.IdTipoEncargado, new {style="width: 1px; visibility:hidden" })
+            @Html.ValidationMessageFor(model => model.IdTipoEncargado)
         </div>
 
         <div class="editor-label">
@@ -116,18 +102,28 @@
             @Html.LabelFor(model => model.IdTipoDocumentoIdentidad)
         </div>
         <div class="editor-field">
-            @*@Html.DropDownList("cboTipoDI", "--Seleccione tipo de documento--")*@
-            @Html.DropDownList("cboTipoDI", "CertificadoNacimiento")
-            @Html.TextBoxFor(model => model.IdTipoDocumentoIdentidad, new {style="width:10px; visibility:hidden" })
+            @Html.DropDownList("cboTipoDI", "--Seleccione tipo de documento--")
+            @Html.TextBoxFor(model => model.IdTipoDocumentoIdentidad, new {style="width: 1px; visibility:hidden" })
             @Html.ValidationMessageFor(model => model.IdTipoDocumentoIdentidad)
+            @*@Html.ListBox("cboTipoDI")*@
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.FechaNacimiento)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.FechaNacimiento, new { style="width: 120px;", @Value = Model.FechaNacimiento.ToString("dd/MM/yyyy")}) (dd/mm/aaaa)
+            @Html.TextBoxFor(model => model.FechaNacimiento, new { style="width: 120px;"}) (dd/mm/aaaa)
             @Html.ValidationMessageFor(model => model.FechaNacimiento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sexo)
+        </div>
+        <div class="editor-field">
+            @*@Html.TextBoxFor(model => model.Sexo)*@
+            @Html.RadioButtonFor(model =>model.Sexo,"M",false) Masculino
+            @Html.RadioButtonFor(model =>model.Sexo,"F",false) Femenino
+            @Html.ValidationMessageFor(model => model.Sexo)
         </div>
 
         <div class="editor-label">
@@ -139,22 +135,6 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.MatriculaColegioMedico)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.MatriculaColegioMedico)
-            @Html.ValidationMessageFor(model => model.MatriculaColegioMedico)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CorreoElectronico)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.CorreoElectronico)
-            @Html.ValidationMessageFor(model => model.CorreoElectronico)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.Observaciones)
         </div>
         <div class="editor-field">
@@ -162,12 +142,27 @@
             @Html.ValidationMessageFor(model => model.Observaciones)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdTipoEstadoRegistro)
+        </div>
+
+        @*<div class="editor-field">
+            @Html.TextBoxFor(model => model.IdTipoEstadoRegistro)
+
+            @Html.RadioButtonFor(model =>model.IdTipoEstadoRegistro, 0, false) Vigente
+            @Html.RadioButtonFor(model =>model.IdTipoEstadoRegistro, 1, false) Borrado Lógico
+            @Html.ValidationMessageFor(model => model.IdTipoEstadoRegistro)
+        </div>*@
+
         <p>
-            <input type="submit" value="Guardar" class="btn btn-primary" />
-            @Html.ActionLink("Retornar al listado", "Index", null, new { @class="btn" })
+            <input type="submit" value="Guardar" />
         </p>
     </fieldset>
 }
+
+<div>
+    @Html.ActionLink("Retornar al listado", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
