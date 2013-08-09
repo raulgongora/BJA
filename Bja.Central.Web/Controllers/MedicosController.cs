@@ -26,19 +26,22 @@ namespace Bja.Central.Web.Controllers
 
             int totalPaginas = (ViewBag.totalRegistros + ViewBag.tamanioPagina - 1) / ViewBag.tamanioPagina;
 
-            if (paginaActual <= 0)
+            if (totalPaginas > 0)
             {
-                paginaActual = 1;
-                ViewBag.paginaActual = 1;
-            }
-            else if (paginaActual > totalPaginas)
-            {
-                paginaActual = totalPaginas;
-                ViewBag.paginaActual = totalPaginas;
-            }
-            else
-            {
-                ViewBag.paginaActual = paginaActual;
+                if (paginaActual <= 0)
+                {
+                    paginaActual = 1;
+                    ViewBag.paginaActual = 1;
+                }
+                else if (paginaActual > totalPaginas)
+                {
+                    paginaActual = totalPaginas;
+                    ViewBag.paginaActual = totalPaginas;
+                }
+                else
+                {
+                    ViewBag.paginaActual = paginaActual;
+                }
             }
 
             ViewBag.criterioBusqueda = criterioBusqueda;
