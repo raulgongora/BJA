@@ -25,7 +25,7 @@ namespace Bja.Modelo
             context.SaveChanges();
         }
 
-        public void Editar(int Id, ControlMadre controlmadre)
+        public void Editar(long Id, ControlMadre controlmadre)
         {
             ControlMadre _controlmadre = null;
 
@@ -49,12 +49,12 @@ namespace Bja.Modelo
             _controlmadre.NumeroControl = controlmadre.NumeroControl;
             _controlmadre.Observaciones = controlmadre.Observaciones;
             _controlmadre.EstadoPago = controlmadre.EstadoPago;
-            _controlmadre.TipoBenerficiario = controlmadre.TipoBenerficiario;
+            _controlmadre.TipoBeneficiario = controlmadre.TipoBeneficiario;
 
             context.SaveChanges();
         }
 
-        public void Eliminar(int Id)
+        public void Eliminar(long Id)
         {
             ControlMadre controlmadre = null;
 

@@ -23,6 +23,7 @@ namespace Bja.Registro
     {
         public long IdSeleccionado { get; set; }
         public int OpcionDeVisualizacion { get; set; }
+        private Tutor _tutor = new Tutor();
 
         public frmTutor()
         {
@@ -42,22 +43,22 @@ namespace Bja.Registro
             else
             {
                 ModeloTutor modelotutor = new ModeloTutor();
-                Tutor tutor = new Tutor();
-                tutor = modelotutor.Recuperar(IdSeleccionado);
-                txtDocIde.Text = tutor.DocumentoIdentidad;
-                cboTipoDocIde.SelectedIndex = (int)tutor.IdTipoDocumentoIdentidad;
-                txtPaterno.Text = tutor.PrimerApellido;
-                txtMaterno.Text = tutor.SegundoApellido;
-                txtNombres.Text = tutor.Nombres;
-                dtpFechaNacimiento.SelectedDate = tutor.FechaNacimiento;
-                if (tutor.Sexo == "F")
+
+                _tutor = modelotutor.Recuperar(IdSeleccionado);
+                txtDocIde.Text = _tutor.DocumentoIdentidad;
+                cboTipoDocIde.SelectedIndex = Convert.ToInt32(_tutor.IdTipoDocumentoIdentidad);
+                txtPaterno.Text = _tutor.PrimerApellido;
+                txtMaterno.Text = _tutor.SegundoApellido;
+                txtNombres.Text = _tutor.Nombres;
+                dtpFechaNacimiento.SelectedDate = _tutor.FechaNacimiento;
+                if (_tutor.Sexo == "F")
                     rdbFemenino.IsChecked = true;
-                else if (tutor.Sexo == "M")
+                else if (_tutor.Sexo == "M")
                     rdbMasculino.IsChecked = true;
-                if (tutor.Defuncion == true)
+                if (_tutor.Defuncion == true)
                     chkDefuncion.IsChecked = true;
-                txtLugarNacimiento.Text = tutor.IdLocalidadNacimiento;
-                txtObservaciones.Text = tutor.Observaciones;
+                txtLugarNacimiento.Text = _tutor.IdLocalidadNacimiento;
+                txtObservaciones.Text = _tutor.Observaciones;
                 if (OpcionDeVisualizacion == 2)
                 {
                     txtDocIde.IsEnabled = false;
@@ -86,29 +87,27 @@ namespace Bja.Registro
         {
             ModeloTutor modelotutor = new ModeloTutor();
 
-            Tutor tutor = new Tutor();
-
-            tutor.DocumentoIdentidad = txtDocIde.Text;
-            tutor.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
-            tutor.PrimerApellido = txtPaterno.Text;
-            tutor.SegundoApellido = txtMaterno.Text;
-            tutor.TercerApellido = txtConyuge.Text;
-            tutor.Nombres = txtNombres.Text;
-            tutor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
-            tutor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
-            tutor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
-            tutor.Observaciones = txtObservaciones.Text;
+            _tutor.DocumentoIdentidad = txtDocIde.Text;
+            _tutor.IdTipoDocumentoIdentidad = Convert.ToInt32(cboTipoDocIde.SelectedValue);
+            _tutor.PrimerApellido = txtPaterno.Text;
+            _tutor.SegundoApellido = txtMaterno.Text;
+            _tutor.TercerApellido = txtConyuge.Text;
+            _tutor.Nombres = txtNombres.Text;
+            _tutor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
+            _tutor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
+            _tutor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
+            _tutor.Observaciones = txtObservaciones.Text;
             if (rdbFemenino.IsChecked == true)
-                tutor.Sexo = "F";
+                _tutor.Sexo = "F";
             else if (rdbFemenino.IsChecked == false)
-                tutor.Sexo = "M";
+                _tutor.Sexo = "M";
             else
-                tutor.Sexo = "-";
+                _tutor.Sexo = "-";
 
             if (IdSeleccionado > 0)
-                modelotutor.Editar(IdSeleccionado, tutor);
+                modelotutor.Editar(IdSeleccionado, _tutor);
             else
-                modelotutor.Crear(tutor);
+                modelotutor.Crear(_tutor);
 
             this.Close();
         }

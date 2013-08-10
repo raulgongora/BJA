@@ -23,6 +23,7 @@ namespace Bja.Registro
     {
         public long IdSeleccionado { get; set; }
         public int OpcionDeVisualizacion { get; set; }
+        private Menor _menor = new Menor();
 
         public frmMenor()
         {
@@ -42,22 +43,22 @@ namespace Bja.Registro
             else
             {
                 ModeloMenor modelomenor = new ModeloMenor();
-                Menor menor = new Menor();
-                menor = modelomenor.Recuperar(IdSeleccionado);
-                txtDocIde.Text = menor.DocumentoIdentidad;
-                cboTipoDocIde.SelectedIndex = (int)menor.IdTipoDocumentoIdentidad;
-                txtPaterno.Text = menor.PrimerApellido;
-                txtMaterno.Text = menor.SegundoApellido;
-                txtNombres.Text = menor.Nombres;
-                if (menor.Sexo == "F")
+
+                _menor = modelomenor.Recuperar(IdSeleccionado);
+                txtDocIde.Text = _menor.DocumentoIdentidad;
+                cboTipoDocIde.SelectedIndex = Convert.ToInt32(_menor.IdTipoDocumentoIdentidad);
+                txtPaterno.Text = _menor.PrimerApellido;
+                txtMaterno.Text = _menor.SegundoApellido;
+                txtNombres.Text = _menor.Nombres;
+                if (_menor.Sexo == "F")
                     rdbFemenino.IsChecked = true;
-                else if (menor.Sexo == "M")
+                else if (_menor.Sexo == "M")
                     rdbMasculino.IsChecked = true;
-                dtpFechaNacimiento.SelectedDate = menor.FechaNacimiento;
-                if (menor.Defuncion == true)
+                dtpFechaNacimiento.SelectedDate = _menor.FechaNacimiento;
+                if (_menor.Defuncion == true)
                     chkDefuncion.IsChecked = true;
-                txtLugarNacimiento.Text = menor.IdLocalidadNacimiento;
-                txtObservaciones.Text = menor.Observaciones;
+                txtLugarNacimiento.Text = _menor.IdLocalidadNacimiento;
+                txtObservaciones.Text = _menor.Observaciones;
             }
         }
 
@@ -65,28 +66,26 @@ namespace Bja.Registro
         {
             ModeloMenor modelomenor = new ModeloMenor();
 
-            Menor menor = new Menor();
-
-            menor.DocumentoIdentidad = txtDocIde.Text;
-            menor.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
-            menor.PrimerApellido = txtPaterno.Text;
-            menor.SegundoApellido = txtMaterno.Text;
-            menor.Nombres = txtNombres.Text;
-            menor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
-            menor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
-            menor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
-            menor.Observaciones = txtObservaciones.Text;
+            _menor.DocumentoIdentidad = txtDocIde.Text;
+            _menor.IdTipoDocumentoIdentidad = Convert.ToInt32(cboTipoDocIde.SelectedValue);
+            _menor.PrimerApellido = txtPaterno.Text;
+            _menor.SegundoApellido = txtMaterno.Text;
+            _menor.Nombres = txtNombres.Text;
+            _menor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
+            _menor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
+            _menor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
+            _menor.Observaciones = txtObservaciones.Text;
             if (rdbFemenino.IsChecked == true)
-                menor.Sexo = "F";
+                _menor.Sexo = "F";
             else if (rdbFemenino.IsChecked == false)
-                menor.Sexo = "M";
+                _menor.Sexo = "M";
             else
-                menor.Sexo = "-";
+                _menor.Sexo = "-";
 
             if (IdSeleccionado > 0)
-                modelomenor.Editar(IdSeleccionado, menor);
+                modelomenor.Editar(IdSeleccionado, _menor);
             else
-                modelomenor.Crear(menor);
+                modelomenor.Crear(_menor);
 
             this.Close();
         }

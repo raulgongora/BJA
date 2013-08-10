@@ -25,7 +25,7 @@ namespace Bja.Modelo
             context.SaveChanges();
         }
 
-        public void Editar(int Id, ControlMenor controlmenor)
+        public void Editar(long Id, ControlMenor controlmenor)
         {
             ControlMenor _controlmenor = null;
 
@@ -41,6 +41,7 @@ namespace Bja.Modelo
             _controlmenor.IdCorresponsabilidadMenor = controlmenor.IdCorresponsabilidadMenor;
             _controlmenor.IdMedico = controlmenor.IdMedico;
             _controlmenor.IdTutor = controlmenor.IdTutor;
+            _controlmenor.IdMadre = controlmenor.IdMadre;
             _controlmenor.FechaProgramada = controlmenor.FechaProgramada;
             _controlmenor.FechaControl = controlmenor.FechaControl;
             _controlmenor.TallaCm = controlmenor.TallaCm;
@@ -48,12 +49,12 @@ namespace Bja.Modelo
             _controlmenor.NumeroControl = controlmenor.NumeroControl;
             _controlmenor.Observaciones = controlmenor.Observaciones;
             _controlmenor.EstadoPago = controlmenor.EstadoPago;
-            _controlmenor.TipoBenerficiario = controlmenor.TipoBenerficiario;
+            _controlmenor.TipoBeneficiario = controlmenor.TipoBeneficiario;
 
             context.SaveChanges();
         }
 
-        public void Eliminar(int Id)
+        public void Eliminar(long Id)
         {
             ControlMenor controlmenor = null;
 

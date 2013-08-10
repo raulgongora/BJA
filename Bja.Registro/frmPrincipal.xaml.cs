@@ -43,6 +43,8 @@ namespace Bja.Registro
         {
             this.Cursor = Cursors.Wait;
             frmCorresponsabilidadMadre objCorresponsabilidadMadreWindow = new frmCorresponsabilidadMadre();
+            objCorresponsabilidadMadreWindow.IdSeleccionado = 0;
+            objCorresponsabilidadMadreWindow.OpcionDeVisualizacion = 0;
             objCorresponsabilidadMadreWindow.Owner = this;
             objCorresponsabilidadMadreWindow.ShowDialog();
             objCorresponsabilidadMadreWindow = null;
@@ -53,6 +55,8 @@ namespace Bja.Registro
         {
             this.Cursor = Cursors.Wait;
             frmCorresponsabilidadMenor objCorresponsabilidadMenorWindow = new frmCorresponsabilidadMenor();
+            objCorresponsabilidadMenorWindow.IdSeleccionado = 0;
+            objCorresponsabilidadMenorWindow.OpcionDeVisualizacion = 0;
             objCorresponsabilidadMenorWindow.Owner = this;
             objCorresponsabilidadMenorWindow.ShowDialog();
             objCorresponsabilidadMenorWindow = null;
