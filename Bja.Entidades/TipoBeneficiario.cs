@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bja.Entidades
 {
-    public enum TipoControlMadre
+    public enum TipoBeneficiario
     {
-        Control,
-        Parto,
-        PosParto
+        Madre,
+        Tutor
     }
 }

@@ -8,12 +8,13 @@ namespace Bja.Entidades
 {
     public enum Parentesco
     {
-        NoEspecificado = 0,
         Padre,
-        Abuelo, //Abuela
-        Tio, //Tia
-        Hermano, //Hermana
-        Primo, //Prima
-        Suegro //Suegra
+        Abuelo,     //Abuela
+        Tio,        //Tia
+        Hermano,    //Hermana
+        Primo,      //Prima
+        Suegro,      //Suegra
+        Designado = 50, //Tutor
+        Otro = 100  //Otro
     }
 }

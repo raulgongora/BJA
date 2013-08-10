@@ -27,7 +27,10 @@ namespace Bja.Entidades
         public String IdLocalidadNacimiento { get; set; }
         public String MatriculaColegioMedico { get; set; }
         public String CorreoElectronico { get; set; }
-
         public String Observaciones { get; set; }
+
+        /* Sugerencia:
+         * Se requiere agregar Sexo char(1);
+         */
     }
 }

@@ -8,7 +8,6 @@ namespace Bja.Entidades
 {
     public enum TipoDocumentoIdentidad
     {
-        NoEspecificado = 0,
         CarnetIdentidad,
         CertificadoNacimiento,
         Pasaporte

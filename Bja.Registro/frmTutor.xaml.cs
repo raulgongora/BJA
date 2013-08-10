@@ -22,6 +22,8 @@ namespace Bja.Registro
     public partial class frmTutor : Window
     {
         public long IdSeleccionado { get; set; }
+        public int OpcionDeVisualizacion { get; set; }
+        private Tutor _tutor = new Tutor();
 
         public frmTutor()
         {
@@ -33,14 +35,46 @@ namespace Bja.Registro
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SoporteCombo.cargarEnumerador(cboTipoDocIde, typeof(TipoDocumentoIdentidad));
-            SoporteCombo.cargarEnumerador(cboExpedido, typeof(Lugar));
-            SoporteCombo.cargarEnumerador(cboParentesco, typeof(Parentesco));
             if (IdSeleccionado == 0)
             {
                 this.cboTipoDocIde.SelectedIndex = 0;
                 this.dtpFechaNacimiento.SelectedDate = DateTime.Today;
-                this.cboExpedido.SelectedIndex = 0;
-                this.cboParentesco.SelectedIndex = 0;
+            }
+            else
+            {
+                ModeloTutor modelotutor = new ModeloTutor();
+
+                _tutor = modelotutor.Recuperar(IdSeleccionado);
+                txtDocIde.Text = _tutor.DocumentoIdentidad;
+                cboTipoDocIde.SelectedIndex = Convert.ToInt32(_tutor.IdTipoDocumentoIdentidad);
+                txtPaterno.Text = _tutor.PrimerApellido;
+                txtMaterno.Text = _tutor.SegundoApellido;
+                txtNombres.Text = _tutor.Nombres;
+                dtpFechaNacimiento.SelectedDate = _tutor.FechaNacimiento;
+                if (_tutor.Sexo == "F")
+                    rdbFemenino.IsChecked = true;
+                else if (_tutor.Sexo == "M")
+                    rdbMasculino.IsChecked = true;
+                if (_tutor.Defuncion == true)
+                    chkDefuncion.IsChecked = true;
+                txtLugarNacimiento.Text = _tutor.IdLocalidadNacimiento;
+                txtObservaciones.Text = _tutor.Observaciones;
+                if (OpcionDeVisualizacion == 2)
+                {
+                    txtDocIde.IsEnabled = false;
+                    cboTipoDocIde.IsEnabled = false;
+                    txtPaterno.IsEnabled = false;
+                    txtMaterno.IsEnabled = false;
+                    txtConyuge.IsEnabled = false;
+                    txtNombres.IsEnabled = false;
+                    dtpFechaNacimiento.IsEnabled = false;
+                    rdbFemenino.IsEnabled = false;
+                    rdbMasculino.IsEnabled = false;
+                    chkDefuncion.IsEnabled = false;
+                    txtLugarNacimiento.IsEnabled = false;
+                    txtObservaciones.IsEnabled = false;
+                    cmdAceptar.IsEnabled = false;
+                }
             }
         }
 
@@ -53,27 +87,27 @@ namespace Bja.Registro
         {
             ModeloTutor modelotutor = new ModeloTutor();
 
-            Tutor tutor = new Tutor();
-
-            tutor.DocumentoIdentidad = txtDocIde.Text;
-            tutor.IdTipoDocumentoIdentidad = (long)cboTipoDocIde.SelectedValue;
-            //tutor.TipoDocumentoIdentidad = (TipoDocumentoIdentidad)cboTipoDocIde.SelectedValue;
-            tutor.PrimerApellido = txtPaterno.Text;
-            tutor.SegundoApellido = txtMaterno.Text;
-            tutor.TercerApellido = txtConyuge.Text;
-            tutor.Nombres = txtNombres.Text;
-            tutor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
-            tutor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
-            tutor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
-            tutor.Observaciones = txtObservaciones.Text;
-            if ((long)cboTipoDocIde.SelectedValue == 1)
-                tutor.Sexo = "F";
-            else if ((long)cboTipoDocIde.SelectedValue == 2)
-                tutor.Sexo = "M";
+            _tutor.DocumentoIdentidad = txtDocIde.Text;
+            _tutor.IdTipoDocumentoIdentidad = Convert.ToInt32(cboTipoDocIde.SelectedValue);
+            _tutor.PrimerApellido = txtPaterno.Text;
+            _tutor.SegundoApellido = txtMaterno.Text;
+            _tutor.TercerApellido = txtConyuge.Text;
+            _tutor.Nombres = txtNombres.Text;
+            _tutor.FechaNacimiento = dtpFechaNacimiento.SelectedDate.Value;
+            _tutor.IdLocalidadNacimiento = txtLugarNacimiento.Text;
+            _tutor.Defuncion = (chkDefuncion.IsChecked == true) ? true : false;
+            _tutor.Observaciones = txtObservaciones.Text;
+            if (rdbFemenino.IsChecked == true)
+                _tutor.Sexo = "F";
+            else if (rdbFemenino.IsChecked == false)
+                _tutor.Sexo = "M";
             else
-                tutor.Sexo = "-";
+                _tutor.Sexo = "-";
 
-            modelotutor.Crear(tutor);
+            if (IdSeleccionado > 0)
+                modelotutor.Editar(IdSeleccionado, _tutor);
+            else
+                modelotutor.Crear(_tutor);
 
             this.Close();
         }

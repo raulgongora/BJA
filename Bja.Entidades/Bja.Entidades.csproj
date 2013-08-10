@@ -71,6 +71,7 @@
     <Compile Include="Session.cs" />
     <Compile Include="Sexo.cs" />
     <Compile Include="SolicitudPago.cs" />
+    <Compile Include="TipoBeneficiario.cs" />
     <Compile Include="TipoControlMadre.cs" />
     <Compile Include="TipoDocumentoIdentidad.cs" />
     <Compile Include="TipoEncargado.cs" />
