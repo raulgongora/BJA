@@ -63,6 +63,8 @@ namespace Bja.Registro
 
             modelomadre.Crear(madre);
 
+            //Logger.log(madre);
+
             this.Close();
         }
 

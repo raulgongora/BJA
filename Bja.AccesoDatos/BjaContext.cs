@@ -35,7 +35,7 @@ namespace Bja.AccesoDatos
         public DbSet<Pago> Pagos { get; set; }
         public DbSet<Reclamo> Reclamos { get; set; }
 
-        public DbSet<MadreLog> MadresLog { get; set; }
+        public DbSet<MadreLog> MadreLog { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -16,6 +16,30 @@ namespace Bja.Modelo
 
             Type tipoClase = clase.GetType();
 
+            String nombreTipoClaseDestino = tipoClase.FullName + "Log"; //Bja.Entidades.MadreLog
+
+            Type tipoClaseDestino = Type.GetType(nombreTipoClaseDestino);
+            object claseDestino = System.Activator.CreateInstance(tipoClaseDestino);
+
+            SoporteObjetos.CopiarDatosObjetos(clase, ref claseDestino);
+
+            var class1Type = Type.GetType(tipoClase.FullName + "Log"); //typeof(claseDestino);
+
+            class1Type.GetProperty("IdLog").SetValue(claseDestino, IdentifierGenerator.NewId());
+
+            class1Type.GetProperty("Enviado").SetValue(claseDestino, false);
+
+            var classContextType = context.GetType(); //Type.GetType("Bja.AccesoDatos.BjaContext.MadresLog" + tipoClase.FullName + "Log");
+
+            var classLog = classContextType.GetProperty(tipoClase.Name + "Log").GetValue(context); // .SetValue(claseDestino, false);
+
+            var classLogAddMethod = classLog.GetType().GetMethod("Add");
+
+            classLogAddMethod.Invoke(classLog, new object[] { claseDestino });
+            context.SaveChanges();
+
+
+            /*
             switch (tipoClase.Name)
             {
                 case "Madre":
@@ -27,11 +51,11 @@ namespace Bja.Modelo
                     madreLog.IdLog = IdentifierGenerator.NewId();
                     madreLog.Enviado = false;
 
-                    context.MadresLog.Add(madreLog);
+                    context.MadreLog.Add(madreLog);
                     context.SaveChanges();
 
                     break;
-            }
+            }*/
 
             /*
             object claseDestino = System.Activator.CreateInstance(Type.GetType(tipoClase.FullName + "Log"));
