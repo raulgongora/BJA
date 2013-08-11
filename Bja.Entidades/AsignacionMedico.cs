@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bja.Entidades
 {
-    public class EstablecimientoMedico
+    public class AsignacionMedico
     {
         public long Id { get; set; }
         public long IdSesion { get; set; }
@@ -14,14 +14,14 @@ namespace Bja.Entidades
         public DateTime FechaRegistro { get; set; }
         public TipoEstadoRegistro EstadoRegistro { get; set; }
 
-        public string Codigo { get; set; }
-        public string Nombre { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
+        public string Observaciones { get; set; }
 
-        public long IdMunicipio { get; set; }
-        public virtual Municipio Municipio { get; set; }
+        public long IdMedico { get; set; }
+        public virtual Medico Medico { get; set; }
 
-        public virtual ICollection<AsignacionMedico> AsignacionesMedico { get; set; }
+        public long IdEstablecimientoMedico { get; set; }
+        public virtual EstablecimientoMedico EstablecimientoMedico { get; set; }
     }
 }

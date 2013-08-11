@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignacionMedicoConfiguration.cs" />
     <Compile Include="BjaContext.cs" />
     <Compile Include="ControlMadreConfiguration.cs" />
     <Compile Include="ControlMenorConfiguration.cs" />

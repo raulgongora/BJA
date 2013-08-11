@@ -39,6 +39,7 @@ namespace Bja.AccesoDatos
         public DbSet<Provincia> Provincias { get; set; }
         public DbSet<Municipio> Municipios { get; set; }
         public DbSet<EstablecimientoMedico> EstablecimientosMedico { get; set; }
+        public DbSet<AsignacionMedico> AsignacionesMedico { get; set; }
 
         public DbSet<MadreLog> MadresLog { get; set; }
 
@@ -66,6 +67,7 @@ namespace Bja.AccesoDatos
             modelBuilder.Configurations.Add(new ProvinciaConfiguration());
             modelBuilder.Configurations.Add(new MunicipioConfiguration());
             modelBuilder.Configurations.Add(new EstablecimientoMedicoConfiguration());
+            modelBuilder.Configurations.Add(new AsignacionMedicoConfiguration());
 
             modelBuilder.Configurations.Add(new MadreLogConfiguration());
         }

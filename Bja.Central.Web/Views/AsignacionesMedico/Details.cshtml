@@ -1,0 +1,72 @@
+﻿@model Bja.Entidades.AsignacionMedico
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AsignacionMedico</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdSesion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdSesion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaUltimaTransaccion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaUltimaTransaccion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaRegistro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaRegistro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaInicio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaInicio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaFin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaFin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Observaciones)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Observaciones)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Medico.Nombres)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Medico.Nombres)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EstablecimientoMedico.Codigo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EstablecimientoMedico.Codigo)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
