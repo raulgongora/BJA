@@ -48,10 +48,12 @@
     <Compile Include="CorresponsabilidadMadreLog.cs" />
     <Compile Include="CorresponsabilidadMenor.cs" />
     <Compile Include="CorresponsabilidadMenorLog.cs" />
+    <Compile Include="Departamento.cs" />
     <Compile Include="Encargado.cs" />
     <Compile Include="EncargadoLog.cs" />
     <Compile Include="Envio.cs" />
     <Compile Include="EnvioLog.cs" />
+    <Compile Include="EstablecimientoMedico.cs" />
     <Compile Include="EstadoPago.cs" />
     <Compile Include="Lugar.cs" />
     <Compile Include="Madre.cs" />
@@ -61,9 +63,11 @@
     <Compile Include="Menor.cs" />
     <Compile Include="MenorLog.cs" />
     <Compile Include="MetaData.cs" />
+    <Compile Include="Municipio.cs" />
     <Compile Include="Pago.cs" />
     <Compile Include="PermissionLog.cs" />
     <Compile Include="Parentesco.cs" />
+    <Compile Include="Provincia.cs" />
     <Compile Include="Recepcion.cs" />
     <Compile Include="RecepcionLog.cs" />
     <Compile Include="Reclamo.cs" />
