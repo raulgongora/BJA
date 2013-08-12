@@ -51,10 +51,13 @@
     <Compile Include="ModeloCorresponsabilidadMadre.cs" />
     <Compile Include="ModeloCorresponsabilidadMenor.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="ModeloDepartamento.cs" />
     <Compile Include="ModeloEncargado.cs" />
     <Compile Include="ModeloMadre.cs" />
     <Compile Include="ModeloMedico.cs" />
     <Compile Include="ModeloMenor.cs" />
+    <Compile Include="ModeloMunicipio.cs" />
+    <Compile Include="ModeloProvincia.cs" />
     <Compile Include="ModeloReclamo.cs" />
     <Compile Include="ModeloTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

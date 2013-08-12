@@ -44,20 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignacionMedicoConfiguration.cs" />
     <Compile Include="BjaContext.cs" />
     <Compile Include="ControlMadreConfiguration.cs" />
     <Compile Include="ControlMenorConfiguration.cs" />
     <Compile Include="CorresponsabilidadMadreConfiguration.cs" />
     <Compile Include="CorresponsabilidadMenorConfiguration.cs" />
+    <Compile Include="DepartamentoConfiguration.cs" />
     <Compile Include="EncargadoConfiguration.cs" />
     <Compile Include="EnvioConfiguration.cs" />
+    <Compile Include="EstablecimientoMedicoConfiguration.cs" />
     <Compile Include="MadreConfiguration.cs" />
     <Compile Include="MadreLogConfiguration.cs" />
     <Compile Include="MedicoConfiguration.cs" />
     <Compile Include="MenorConfiguration.cs" />
+    <Compile Include="MunicipioConfiguration.cs" />
     <Compile Include="PagoConfiguration.cs" />
     <Compile Include="PermissionConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinciaConfiguration.cs" />
     <Compile Include="RecepcionConfiguration.cs" />
     <Compile Include="RoleConfiguration.cs" />
     <Compile Include="SessionConfiguration.cs" />

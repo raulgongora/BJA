@@ -1,0 +1,78 @@
+﻿@model Bja.Entidades.Provincia
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Provincia</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdSesion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdSesion)
+            @Html.ValidationMessageFor(model => model.IdSesion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaUltimaTransaccion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FechaUltimaTransaccion)
+            @Html.ValidationMessageFor(model => model.FechaUltimaTransaccion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FechaRegistro)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FechaRegistro)
+            @Html.ValidationMessageFor(model => model.FechaRegistro)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Codigo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Codigo)
+            @Html.ValidationMessageFor(model => model.Codigo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Descripcion)
+            @Html.ValidationMessageFor(model => model.Descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdDepartamento, "Departamento")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdDepartamento", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdDepartamento)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
