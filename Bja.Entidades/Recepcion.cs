@@ -38,5 +38,7 @@ namespace Bja.Entidades
         public int TotalBorradoTutores { get; set; }
         public int TotalBorradoMenores { get; set; }
 
+
+
     }
 }
