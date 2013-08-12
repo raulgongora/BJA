@@ -22,6 +22,9 @@ namespace Bja.Entidades
         public Tutor Tutor { get; set; }
         public long IdMadre { get; set; }
         public Madre Madre { get; set; }
+        public long IdMenor { get; set; }
+        public Menor Menor { get; set; }
+        public long IdEstablecimientoSalud { get; set; }
         public DateTime FechaProgramada { get; set; }
         public DateTime FechaControl { get; set; }
         public int TallaCm { get; set; }

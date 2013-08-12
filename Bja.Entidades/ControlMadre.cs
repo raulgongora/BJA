@@ -20,6 +20,7 @@ namespace Bja.Entidades
         public Medico Medico { get; set; }
         public long IdTutor { get; set; }
         public Tutor Tutor { get; set; }
+        public long IdEstablecimientoSalud { get; set; }
         public DateTime FechaProgramada { get; set; }
         public DateTime FechaControl { get; set; }
         public int TallaCm { get; set; }

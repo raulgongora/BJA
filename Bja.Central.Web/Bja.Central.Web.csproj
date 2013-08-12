@@ -162,9 +162,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AsignacionesMedicoController.cs" />
+    <Compile Include="Controllers\DepartamentosController.cs" />
     <Compile Include="Controllers\EncargadosController.cs" />
+    <Compile Include="Controllers\EstablecimientosMedicoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicosController.cs" />
+    <Compile Include="Controllers\MunicipiosController.cs" />
+    <Compile Include="Controllers\ProvinciasController.cs" />
     <Compile Include="Controllers\ReclamosController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -306,6 +311,31 @@
     <Content Include="Views\Encargados\Create.cshtml" />
     <Content Include="Views\Encargados\Edit.cshtml" />
     <Content Include="Views\Encargados\Delete.cshtml" />
+    <Content Include="Views\Departamentos\Index.cshtml" />
+    <Content Include="Views\Departamentos\Details.cshtml" />
+    <Content Include="Views\Departamentos\Create.cshtml" />
+    <Content Include="Views\Departamentos\Edit.cshtml" />
+    <Content Include="Views\Departamentos\Delete.cshtml" />
+    <Content Include="Views\Provincias\Index.cshtml" />
+    <Content Include="Views\Provincias\Details.cshtml" />
+    <Content Include="Views\Provincias\Create.cshtml" />
+    <Content Include="Views\Provincias\Edit.cshtml" />
+    <Content Include="Views\Provincias\Delete.cshtml" />
+    <Content Include="Views\Municipios\Index.cshtml" />
+    <Content Include="Views\Municipios\Details.cshtml" />
+    <Content Include="Views\Municipios\Create.cshtml" />
+    <Content Include="Views\Municipios\Edit.cshtml" />
+    <Content Include="Views\Municipios\Delete.cshtml" />
+    <Content Include="Views\EstablecimientosMedico\Index.cshtml" />
+    <Content Include="Views\EstablecimientosMedico\Details.cshtml" />
+    <Content Include="Views\EstablecimientosMedico\Create.cshtml" />
+    <Content Include="Views\EstablecimientosMedico\Edit.cshtml" />
+    <Content Include="Views\EstablecimientosMedico\Delete.cshtml" />
+    <Content Include="Views\AsignacionesMedico\Index.cshtml" />
+    <Content Include="Views\AsignacionesMedico\Details.cshtml" />
+    <Content Include="Views\AsignacionesMedico\Create.cshtml" />
+    <Content Include="Views\AsignacionesMedico\Edit.cshtml" />
+    <Content Include="Views\AsignacionesMedico\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +346,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bja.AccesoDatos\Bja.AccesoDatos.csproj">
+      <Project>{aa8de813-7d0b-4382-963a-9cf6259b80a2}</Project>
+      <Name>Bja.AccesoDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bja.Entidades\Bja.Entidades.csproj">
       <Project>{a03467c9-b869-417f-9403-44b073857c7a}</Project>
       <Name>Bja.Entidades</Name>

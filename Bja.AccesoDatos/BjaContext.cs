@@ -36,6 +36,11 @@ namespace Bja.AccesoDatos
         public DbSet<Reclamo> Reclamos { get; set; }
 
         public DbSet<MadreLog> MadreLog { get; set; }
+        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Provincia> Provincias { get; set; }
+        public DbSet<Municipio> Municipios { get; set; }
+        public DbSet<EstablecimientoMedico> EstablecimientosMedico { get; set; }
+        public DbSet<AsignacionMedico> AsignacionesMedico { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -56,6 +61,12 @@ namespace Bja.AccesoDatos
             modelBuilder.Configurations.Add(new EnvioConfiguration());
             modelBuilder.Configurations.Add(new RecepcionConfiguration());
             modelBuilder.Configurations.Add(new PagoConfiguration());
+
+            modelBuilder.Configurations.Add(new DepartamentoConfiguration());
+            modelBuilder.Configurations.Add(new ProvinciaConfiguration());
+            modelBuilder.Configurations.Add(new MunicipioConfiguration());
+            modelBuilder.Configurations.Add(new EstablecimientoMedicoConfiguration());
+            modelBuilder.Configurations.Add(new AsignacionMedicoConfiguration());
 
             modelBuilder.Configurations.Add(new MadreLogConfiguration());
         }
