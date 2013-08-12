@@ -6,21 +6,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Bja.Entidades;
-using Bja.AccesoDatos;
+using Bja.Modelo;
 
 namespace Bja.Central.Web.Controllers
 {
     public class ProvinciasController : Controller
     {
-        private BjaContext db = new BjaContext();
+        private ModeloProvincia modProvincia = new ModeloProvincia();
 
         //
         // GET: /Provincias/
 
         public ActionResult Index()
         {
-            var provincias = db.Provincias.Include(p => p.Departamento);
-            return View(provincias.ToList());
+            return View(modProvincia.Listar());
         }
 
         //
@@ -28,12 +27,12 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Details(long id = 0)
         {
-            Provincia provincia = db.Provincias.Find(id);
-            if (provincia == null)
+            Provincia proovincia = modProvincia.Buscar(id);
+            if (proovincia == null)
             {
                 return HttpNotFound();
             }
-            return View(provincia);
+            return View(proovincia);
         }
 
         //
@@ -41,7 +40,8 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.IdDepartamento = new SelectList(db.Departamentos, "Id", "Codigo");
+            ModeloDepartamento modDepto = new ModeloDepartamento();
+            ViewBag.IdDepartamento = new SelectList(modDepto.Listar(), "Id", "Descripcion");
             return View();
         }
 
@@ -51,14 +51,18 @@ namespace Bja.Central.Web.Controllers
         [HttpPost]
         public ActionResult Create(Provincia provincia)
         {
+            provincia.IdSesion = 1;
+            provincia.FechaUltimaTransaccion = System.DateTime.Now;
+            provincia.FechaRegistro = System.DateTime.Now;
+
+            ModeloDepartamento modDepto = new ModeloDepartamento();
+
             if (ModelState.IsValid)
             {
-                db.Provincias.Add(provincia);
-                db.SaveChanges();
+                modProvincia.Crear(provincia);
                 return RedirectToAction("Index");
             }
-
-            ViewBag.IdDepartamento = new SelectList(db.Departamentos, "Id", "Codigo", provincia.IdDepartamento);
+            ViewBag.IdDepartamento = new SelectList(modDepto.Listar(), "Id", "Codigo", provincia.IdDepartamento);
             return View(provincia);
         }
 
@@ -67,12 +71,14 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Edit(long id = 0)
         {
-            Provincia provincia = db.Provincias.Find(id);
+            ModeloDepartamento modDepto = new ModeloDepartamento();
+
+            Provincia provincia = modProvincia.Buscar(id);
             if (provincia == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdDepartamento = new SelectList(db.Departamentos, "Id", "Codigo", provincia.IdDepartamento);
+            ViewBag.IdDepartamento = new SelectList(modDepto.Listar(), "Id", "Codigo", provincia.IdDepartamento);
             return View(provincia);
         }
 
@@ -82,13 +88,18 @@ namespace Bja.Central.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Provincia provincia)
         {
+            ModeloDepartamento modDepto = new ModeloDepartamento();
+
             if (ModelState.IsValid)
             {
-                db.Entry(provincia).State = EntityState.Modified;
-                db.SaveChanges();
+                provincia.IdSesion = 1;
+                provincia.FechaUltimaTransaccion = System.DateTime.Now;
+                provincia.FechaRegistro = System.DateTime.Now;
+
+                modProvincia.Editar(provincia);
                 return RedirectToAction("Index");
             }
-            ViewBag.IdDepartamento = new SelectList(db.Departamentos, "Id", "Codigo", provincia.IdDepartamento);
+            ViewBag.IdDepartamento = new SelectList(modDepto.Listar(), "Id", "Codigo", provincia.IdDepartamento);
             return View(provincia);
         }
 
@@ -97,7 +108,7 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Delete(long id = 0)
         {
-            Provincia provincia = db.Provincias.Find(id);
+            Provincia provincia = modProvincia.Buscar(id);
             if (provincia == null)
             {
                 return HttpNotFound();
@@ -111,16 +122,13 @@ namespace Bja.Central.Web.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(long id)
         {
-            Provincia provincia = db.Provincias.Find(id);
-            db.Provincias.Remove(provincia);
-            db.SaveChanges();
+            modProvincia.Eliminar(id);
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
-            base.Dispose(disposing);
+            
         }
     }
 }

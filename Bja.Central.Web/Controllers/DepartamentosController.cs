@@ -6,20 +6,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Bja.Entidades;
-using Bja.AccesoDatos;
+using Bja.Modelo;
 
 namespace Bja.Central.Web.Controllers
 {
     public class DepartamentosController : Controller
     {
-        private BjaContext db = new BjaContext();
+        private ModeloDepartamento modDepto = new ModeloDepartamento();
 
         //
         // GET: /Departamentos/
 
         public ActionResult Index()
         {
-            return View(db.Departamentos.ToList());
+            return View(modDepto.Listar());
         }
 
         //
@@ -27,12 +27,12 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Details(long id = 0)
         {
-            Departamento departamento = db.Departamentos.Find(id);
-            if (departamento == null)
+            Departamento depto = modDepto.Buscar(id);
+            if (depto == null)
             {
                 return HttpNotFound();
             }
-            return View(departamento);
+            return View(depto);
         }
 
         //
@@ -47,16 +47,18 @@ namespace Bja.Central.Web.Controllers
         // POST: /Departamentos/Create
 
         [HttpPost]
-        public ActionResult Create(Departamento departamento)
+        public ActionResult Create(Departamento depto)
         {
+            depto.IdSesion = 1;
+            depto.FechaUltimaTransaccion = System.DateTime.Now;
+            depto.FechaRegistro = System.DateTime.Now;
+
             if (ModelState.IsValid)
             {
-                db.Departamentos.Add(departamento);
-                db.SaveChanges();
+                modDepto.Crear(depto);
                 return RedirectToAction("Index");
             }
-
-            return View(departamento);
+            return View(depto);
         }
 
         //
@@ -64,27 +66,31 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Edit(long id = 0)
         {
-            Departamento departamento = db.Departamentos.Find(id);
-            if (departamento == null)
+            Departamento depto = modDepto.Buscar(id);
+            if (depto == null)
             {
                 return HttpNotFound();
             }
-            return View(departamento);
+            
+            return View(depto);
         }
 
         //
         // POST: /Departamentos/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Departamento departamento)
+        public ActionResult Edit(Departamento depto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(departamento).State = EntityState.Modified;
-                db.SaveChanges();
+                depto.IdSesion = 1;
+                depto.FechaUltimaTransaccion = System.DateTime.Now;
+                depto.FechaRegistro = System.DateTime.Now;
+
+                modDepto.Editar(depto);
                 return RedirectToAction("Index");
             }
-            return View(departamento);
+            return View(depto);
         }
 
         //
@@ -92,12 +98,12 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Delete(long id = 0)
         {
-            Departamento departamento = db.Departamentos.Find(id);
-            if (departamento == null)
+            Departamento depto = modDepto.Buscar(id);
+            if (depto == null)
             {
                 return HttpNotFound();
             }
-            return View(departamento);
+            return View(depto);
         }
 
         //
@@ -106,16 +112,13 @@ namespace Bja.Central.Web.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(long id)
         {
-            Departamento departamento = db.Departamentos.Find(id);
-            db.Departamentos.Remove(departamento);
-            db.SaveChanges();
+            modDepto.Eliminar(id);
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
-            base.Dispose(disposing);
+            
         }
     }
 }

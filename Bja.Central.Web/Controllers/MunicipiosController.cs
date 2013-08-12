@@ -6,21 +6,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Bja.Entidades;
-using Bja.AccesoDatos;
+using Bja.Modelo;
 
 namespace Bja.Central.Web.Controllers
 {
     public class MunicipiosController : Controller
     {
-        private BjaContext db = new BjaContext();
+        private ModeloMunicipio modMunicipio = new ModeloMunicipio();
+        private ModeloProvincia modProvincia = new ModeloProvincia();
 
         //
         // GET: /Municipios/
 
         public ActionResult Index()
         {
-            var municipios = db.Municipios.Include(m => m.Provincia);
-            return View(municipios.ToList());
+            return View(modMunicipio.Listar());
         }
 
         //
@@ -28,7 +28,7 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Details(long id = 0)
         {
-            Municipio municipio = db.Municipios.Find(id);
+            Municipio municipio = modMunicipio.Buscar(id);
             if (municipio == null)
             {
                 return HttpNotFound();
@@ -41,7 +41,10 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.IdProvincia = new SelectList(db.Provincias, "Id", "Codigo");
+            ModeloDepartamento modDepto = new ModeloDepartamento();
+            ViewBag.IdDepartamento = new SelectList(modDepto.Listar(), "Id", "Descripcion");
+
+            ViewBag.IdProvincia = new SelectList(modProvincia.Listar(), "Id", "Descripcion");
             return View();
         }
 
@@ -51,14 +54,16 @@ namespace Bja.Central.Web.Controllers
         [HttpPost]
         public ActionResult Create(Municipio municipio)
         {
+            municipio.IdSesion = 1;
+            municipio.FechaUltimaTransaccion = System.DateTime.Now;
+            municipio.FechaRegistro = System.DateTime.Now;
+
             if (ModelState.IsValid)
             {
-                db.Municipios.Add(municipio);
-                db.SaveChanges();
+                modMunicipio.Crear(municipio);
                 return RedirectToAction("Index");
             }
-
-            ViewBag.IdProvincia = new SelectList(db.Provincias, "Id", "Codigo", municipio.IdProvincia);
+            ViewBag.IdDepartamento = new SelectList(modProvincia.Listar(), "Id", "Codigo", municipio.IdProvincia);
             return View(municipio);
         }
 
@@ -67,12 +72,12 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Edit(long id = 0)
         {
-            Municipio municipio = db.Municipios.Find(id);
+            Municipio municipio = modMunicipio.Buscar(id);
             if (municipio == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdProvincia = new SelectList(db.Provincias, "Id", "Codigo", municipio.IdProvincia);
+            ViewBag.IdDepartamento = new SelectList(modProvincia.Listar(), "Id", "Codigo", municipio.IdProvincia);
             return View(municipio);
         }
 
@@ -84,11 +89,14 @@ namespace Bja.Central.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(municipio).State = EntityState.Modified;
-                db.SaveChanges();
+                municipio.IdSesion = 1;
+                municipio.FechaUltimaTransaccion = System.DateTime.Now;
+                municipio.FechaRegistro = System.DateTime.Now;
+
+                modMunicipio.Editar(municipio);
                 return RedirectToAction("Index");
             }
-            ViewBag.IdProvincia = new SelectList(db.Provincias, "Id", "Codigo", municipio.IdProvincia);
+            ViewBag.IdDepartamento = new SelectList(modProvincia.Listar(), "Id", "Codigo", municipio.IdProvincia);
             return View(municipio);
         }
 
@@ -97,7 +105,7 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Delete(long id = 0)
         {
-            Municipio municipio = db.Municipios.Find(id);
+            Municipio municipio = modMunicipio.Buscar(id);
             if (municipio == null)
             {
                 return HttpNotFound();
@@ -111,16 +119,20 @@ namespace Bja.Central.Web.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(long id)
         {
-            Municipio municipio = db.Municipios.Find(id);
-            db.Municipios.Remove(municipio);
-            db.SaveChanges();
+            modMunicipio.Eliminar(id);
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
-            base.Dispose(disposing);
+            
+        }
+
+        [ActionName("ProvinciasPorDepartamento")]
+        public ActionResult GetPaisesPorContinente(string id)
+        {
+            List<Provincia> myData = modMunicipio.GetProvinciasPorDepartamento(id);
+            return Json(myData, JsonRequestBehavior.AllowGet);
         }
     }
 }
