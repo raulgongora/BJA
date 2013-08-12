@@ -26,7 +26,7 @@ namespace Bja.AccesoDatos
             Property(am => am.Observaciones).HasMaxLength(300);
 
             HasRequired(am => am.Medico).WithMany(am => am.AsignacionesMedico).HasForeignKey(am => am.IdMedico);
-            HasRequired(am => am.EstablecimientoMedico).WithMany(am => am.AsignacionesMedico).HasForeignKey(am => am.IdEstablecimientoMedico);
+            HasRequired(am => am.EstablecimientoSalud).WithMany(am => am.AsignacionesMedico).HasForeignKey(am => am.IdEstablecimientoSalud);
         }
     }
 }

@@ -39,7 +39,7 @@ namespace Bja.AccesoDatos
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Provincia> Provincias { get; set; }
         public DbSet<Municipio> Municipios { get; set; }
-        public DbSet<EstablecimientoMedico> EstablecimientosMedico { get; set; }
+        public DbSet<EstablecimientoSalud> EstablecimientosMedico { get; set; }
         public DbSet<AsignacionMedico> AsignacionesMedico { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -65,7 +65,7 @@ namespace Bja.AccesoDatos
             modelBuilder.Configurations.Add(new DepartamentoConfiguration());
             modelBuilder.Configurations.Add(new ProvinciaConfiguration());
             modelBuilder.Configurations.Add(new MunicipioConfiguration());
-            modelBuilder.Configurations.Add(new EstablecimientoMedicoConfiguration());
+            modelBuilder.Configurations.Add(new EstablecimientoSaludConfiguration());
             modelBuilder.Configurations.Add(new AsignacionMedicoConfiguration());
 
             modelBuilder.Configurations.Add(new MadreLogConfiguration());

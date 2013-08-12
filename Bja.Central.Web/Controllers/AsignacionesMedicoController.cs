@@ -19,7 +19,7 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Index()
         {
-            var asignacionesmedico = db.AsignacionesMedico.Include(a => a.Medico).Include(a => a.EstablecimientoMedico);
+            var asignacionesmedico = db.AsignacionesMedico.Include(a => a.Medico).Include(a => a.EstablecimientoSalud);
             return View(asignacionesmedico.ToList());
         }
 
@@ -60,7 +60,7 @@ namespace Bja.Central.Web.Controllers
             }
 
             ViewBag.IdMedico = new SelectList(db.Medicos, "Id", "Nombres", asignacionmedico.IdMedico);
-            ViewBag.IdEstablecimientoMedico = new SelectList(db.EstablecimientosMedico, "Id", "Codigo", asignacionmedico.IdEstablecimientoMedico);
+            ViewBag.IdEstablecimientoMedico = new SelectList(db.EstablecimientosMedico, "Id", "Codigo", asignacionmedico.IdEstablecimientoSalud);
             return View(asignacionmedico);
         }
 
@@ -75,7 +75,7 @@ namespace Bja.Central.Web.Controllers
                 return HttpNotFound();
             }
             ViewBag.IdMedico = new SelectList(db.Medicos, "Id", "Nombres", asignacionmedico.IdMedico);
-            ViewBag.IdEstablecimientoMedico = new SelectList(db.EstablecimientosMedico, "Id", "Codigo", asignacionmedico.IdEstablecimientoMedico);
+            ViewBag.IdEstablecimientoMedico = new SelectList(db.EstablecimientosMedico, "Id", "Codigo", asignacionmedico.IdEstablecimientoSalud);
             return View(asignacionmedico);
         }
 
@@ -92,7 +92,7 @@ namespace Bja.Central.Web.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.IdMedico = new SelectList(db.Medicos, "Id", "Nombres", asignacionmedico.IdMedico);
-            ViewBag.IdEstablecimientoMedico = new SelectList(db.EstablecimientosMedico, "Id", "Codigo", asignacionmedico.IdEstablecimientoMedico);
+            ViewBag.IdEstablecimientoMedico = new SelectList(db.EstablecimientosMedico, "Id", "Codigo", asignacionmedico.IdEstablecimientoSalud);
             return View(asignacionmedico);
         }
 

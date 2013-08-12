@@ -54,7 +54,7 @@
     <Compile Include="EncargadoLog.cs" />
     <Compile Include="Envio.cs" />
     <Compile Include="EnvioLog.cs" />
-    <Compile Include="EstablecimientoMedico.cs" />
+    <Compile Include="EstablecimientoSalud.cs" />
     <Compile Include="EstadoPago.cs" />
     <Compile Include="Lugar.cs" />
     <Compile Include="Madre.cs" />

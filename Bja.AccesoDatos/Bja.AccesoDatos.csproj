@@ -53,7 +53,7 @@
     <Compile Include="DepartamentoConfiguration.cs" />
     <Compile Include="EncargadoConfiguration.cs" />
     <Compile Include="EnvioConfiguration.cs" />
-    <Compile Include="EstablecimientoMedicoConfiguration.cs" />
+    <Compile Include="EstablecimientoSaludConfiguration.cs" />
     <Compile Include="MadreConfiguration.cs" />
     <Compile Include="MadreLogConfiguration.cs" />
     <Compile Include="MedicoConfiguration.cs" />

@@ -28,12 +28,12 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Details(long id = 0)
         {
-            EstablecimientoMedico establecimientomedico = db.EstablecimientosMedico.Find(id);
-            if (establecimientomedico == null)
+            EstablecimientoSalud EstablecimientoSalud = db.EstablecimientosMedico.Find(id);
+            if (EstablecimientoSalud == null)
             {
                 return HttpNotFound();
             }
-            return View(establecimientomedico);
+            return View(EstablecimientoSalud);
         }
 
         //
@@ -49,17 +49,17 @@ namespace Bja.Central.Web.Controllers
         // POST: /EstablecimientosMedico/Create
 
         [HttpPost]
-        public ActionResult Create(EstablecimientoMedico establecimientomedico)
+        public ActionResult Create(EstablecimientoSalud EstablecimientoSalud)
         {
             if (ModelState.IsValid)
             {
-                db.EstablecimientosMedico.Add(establecimientomedico);
+                db.EstablecimientosMedico.Add(EstablecimientoSalud);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdMunicipio = new SelectList(db.Municipios, "Id", "Codigo", establecimientomedico.IdMunicipio);
-            return View(establecimientomedico);
+            ViewBag.IdMunicipio = new SelectList(db.Municipios, "Id", "Codigo", EstablecimientoSalud.IdMunicipio);
+            return View(EstablecimientoSalud);
         }
 
         //
@@ -67,29 +67,29 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Edit(long id = 0)
         {
-            EstablecimientoMedico establecimientomedico = db.EstablecimientosMedico.Find(id);
-            if (establecimientomedico == null)
+            EstablecimientoSalud EstablecimientoSalud = db.EstablecimientosMedico.Find(id);
+            if (EstablecimientoSalud == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdMunicipio = new SelectList(db.Municipios, "Id", "Codigo", establecimientomedico.IdMunicipio);
-            return View(establecimientomedico);
+            ViewBag.IdMunicipio = new SelectList(db.Municipios, "Id", "Codigo", EstablecimientoSalud.IdMunicipio);
+            return View(EstablecimientoSalud);
         }
 
         //
         // POST: /EstablecimientosMedico/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(EstablecimientoMedico establecimientomedico)
+        public ActionResult Edit(EstablecimientoSalud EstablecimientoSalud)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(establecimientomedico).State = EntityState.Modified;
+                db.Entry(EstablecimientoSalud).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdMunicipio = new SelectList(db.Municipios, "Id", "Codigo", establecimientomedico.IdMunicipio);
-            return View(establecimientomedico);
+            ViewBag.IdMunicipio = new SelectList(db.Municipios, "Id", "Codigo", EstablecimientoSalud.IdMunicipio);
+            return View(EstablecimientoSalud);
         }
 
         //
@@ -97,12 +97,12 @@ namespace Bja.Central.Web.Controllers
 
         public ActionResult Delete(long id = 0)
         {
-            EstablecimientoMedico establecimientomedico = db.EstablecimientosMedico.Find(id);
-            if (establecimientomedico == null)
+            EstablecimientoSalud EstablecimientoSalud = db.EstablecimientosMedico.Find(id);
+            if (EstablecimientoSalud == null)
             {
                 return HttpNotFound();
             }
-            return View(establecimientomedico);
+            return View(EstablecimientoSalud);
         }
 
         //
@@ -111,8 +111,8 @@ namespace Bja.Central.Web.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(long id)
         {
-            EstablecimientoMedico establecimientomedico = db.EstablecimientosMedico.Find(id);
-            db.EstablecimientosMedico.Remove(establecimientomedico);
+            EstablecimientoSalud EstablecimientoSalud = db.EstablecimientosMedico.Find(id);
+            db.EstablecimientosMedico.Remove(EstablecimientoSalud);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

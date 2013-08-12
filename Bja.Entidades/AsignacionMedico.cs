@@ -21,7 +21,7 @@ namespace Bja.Entidades
         public long IdMedico { get; set; }
         public virtual Medico Medico { get; set; }
 
-        public long IdEstablecimientoMedico { get; set; }
-        public virtual EstablecimientoMedico EstablecimientoMedico { get; set; }
+        public long IdEstablecimientoSalud { get; set; }
+        public virtual EstablecimientoSalud EstablecimientoSalud { get; set; }
     }
 }

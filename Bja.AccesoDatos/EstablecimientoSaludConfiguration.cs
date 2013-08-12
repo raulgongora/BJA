@@ -9,9 +9,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bja.AccesoDatos
 {
-    public class EstablecimientoMedicoConfiguration : EntityTypeConfiguration<EstablecimientoMedico>
+    public class EstablecimientoSaludConfiguration : EntityTypeConfiguration<EstablecimientoSalud>
     {
-        public EstablecimientoMedicoConfiguration()
+        public EstablecimientoSaludConfiguration()
         {
             ToTable("EstablecimientoMedico");
 

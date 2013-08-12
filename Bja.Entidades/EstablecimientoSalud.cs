@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bja.Entidades
 {
-    public class EstablecimientoMedico
+    public class EstablecimientoSalud
     {
         public long Id { get; set; }
         public long IdSesion { get; set; }
